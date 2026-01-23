@@ -34,16 +34,16 @@
   --state-info: var(--blue);
 
   /* ----------------------------------------
-     Semantic Text Colors
+     Semantic Text Colors (WCAG AA compliant)
      ---------------------------------------- */
   --text-primary: #ffffff;                    /* White - logos, primary emphasis */
   --text-heading: #f5f1e9;                    /* Cream - all headings */
-  --text-body: rgba(255, 255, 255, 0.7);      /* 70% white - body text */
-  --text-emphasis: rgba(255, 255, 255, 0.85); /* 85% white - quotes, emphasized */
-  --text-muted: rgba(255, 255, 255, 0.6);     /* 60% white - subtitles */
-  --text-subtle: rgba(255, 255, 255, 0.5);    /* 50% white - nav muted, taglines */
-  --text-faint: rgba(255, 255, 255, 0.4);     /* 40% white - meta, mono */
-  --text-ghost: rgba(255, 255, 255, 0.3);     /* 30% white - scene numbers */
+  --text-body: rgba(255, 255, 255, 0.75);     /* 75% white - body text (AA) */
+  --text-emphasis: rgba(255, 255, 255, 0.88); /* 88% white - quotes, emphasized */
+  --text-muted: rgba(255, 255, 255, 0.68);    /* 68% white - subtitles (AA) */
+  --text-subtle: rgba(255, 255, 255, 0.58);   /* 58% white - nav muted, taglines (AA large) */
+  --text-faint: rgba(255, 255, 255, 0.50);    /* 50% white - meta, mono (AA large) */
+  --text-ghost: rgba(255, 255, 255, 0.42);    /* 42% white - scene numbers (decorative) */
   --text-accent: #79b4a0;                     /* Teal - labels, questions */
 
   /* Legacy color aliases (for backwards compatibility) */
@@ -174,23 +174,23 @@
   --text-meta-weight: var(--weight-regular);
   --text-meta-family: var(--font-sf-mono);
 
-  /* Nav Text: SF Pro Text Medium 11px - ULTRA DENSE */
-  --text-nav-size: 11px;
-  --text-nav-line-height: 11px;
+  /* Nav Text: SF Pro Text Medium 12px - Accessible minimum */
+  --text-nav-size: 12px;
+  --text-nav-line-height: 12px;
   --text-nav-letter-spacing: 2.5px;
   --text-nav-weight: var(--weight-medium);
   --text-nav-family: var(--font-sf-pro-text);
 
-  /* Voice Over Label: SF Pro Text Medium 11px - ULTRA DENSE */
-  --text-label-size: 11px;
-  --text-label-line-height: 14px;
+  /* Voice Over Label: SF Pro Text Medium 12px - Accessible minimum */
+  --text-label-size: 12px;
+  --text-label-line-height: 15px;
   --text-label-letter-spacing: 0.2px;
   --text-label-weight: var(--weight-medium);
   --text-label-family: var(--font-sf-pro-text);
 
-  /* Scene Number: SF Pro Medium 10px - ULTRA DENSE */
-  --text-scene-size: 10px;
-  --text-scene-line-height: 12px;
+  /* Scene Number: SF Pro Medium 11px - Accessible minimum */
+  --text-scene-size: 11px;
+  --text-scene-line-height: 13px;
   --text-scene-letter-spacing: 3px;
   --text-scene-weight: var(--weight-medium);
   --text-scene-family: var(--font-sf-pro);
