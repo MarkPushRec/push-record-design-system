@@ -1,5 +1,5 @@
 /**
- * Interact AI Design System - Design Tokens
+ * Push Record Design System - Design Tokens
  * Refined token system with systematic scales and semantic naming
  */
 
@@ -14,6 +14,24 @@
   --cream: #f5f1e9;
   --teal: #79b4a0;
   --red: #ff4649;
+
+  /* Extended Palette */
+  --amber: #f59e0b;
+  --green: #22c55e;
+  --blue: #3b82f6;
+  --purple: #9b87f5;
+  --cyan: #06b6d4;
+  --orange: #f97316;
+  --yellow: #eab308;
+  --violet: #7c3aed;
+
+  /* ----------------------------------------
+     Semantic State Colors
+     ---------------------------------------- */
+  --state-success: var(--green);
+  --state-warning: var(--amber);
+  --state-error: var(--red);
+  --state-info: var(--blue);
 
   /* ----------------------------------------
      Semantic Text Colors
@@ -182,6 +200,11 @@
      Systematic 4px-based scale
      ======================================== */
 
+  /* Micro spacing for fine UI details */
+  --space-px: 1px;
+  --space-0-5: 2px;
+  --space-0-75: 3px;
+
   --space-0: 0;
   --space-1: 4px;
   --space-2: 8px;
@@ -235,6 +258,11 @@
   /* ========================================
      BORDER RADIUS SYSTEM
      ======================================== */
+
+  /* Micro radius for fine UI details */
+  --radius-px: 1px;
+  --radius-xs: 2px;
+  --radius-2xs: 3px;
 
   --radius-none: 0;
   --radius-sm: 4px;
@@ -346,3 +374,20 @@
   --annotation-bg: rgba(0, 0, 0, 0.6);
   --annotation-border: rgba(121, 180, 160, 0.3);
 }
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   Note: CSS custom properties don't work in media queries,
+   so these values are documented here for reference.
+   Use the actual pixel values in @media rules.
+   ======================================== */
+
+/*
+  --breakpoint-xs: 480px;   Mobile small
+  --breakpoint-sm: 640px;   Mobile large
+  --breakpoint-md: 768px;   Tablet
+  --breakpoint-lg: 1024px;  Desktop small
+  --breakpoint-xl: 1280px;  Desktop
+  --breakpoint-2xl: 1536px; Desktop large
+  --breakpoint-3xl: 1920px; Full HD
+*/

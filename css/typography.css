@@ -1,5 +1,5 @@
 /**
- * Interact AI Design System - Typography
+ * Push Record Design System - Typography
  * Text styles using semantic color tokens
  */
 
@@ -10,8 +10,8 @@
 
 /**
  * Hero Title
- * Used for: Main hero "Interact AI" title
- * Font: SF Pro Bold 198px
+ * Used for: Main hero title
+ * Font: SF Pro Bold 160px
  * Color: Cream (--text-heading)
  */
 .text-hero {

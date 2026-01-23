@@ -1,4 +1,4 @@
-# Interact AI Design System Specification
+# Push Record Design System Specification
 
 Complete specification extracted from Figma design. All values are exact pixel measurements.
 

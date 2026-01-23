@@ -1,12 +1,12 @@
 /**
- * Interact AI Design System - Component Exports
+ * Push Record Design System - Component Exports
  *
  * IMPORTANT: These components require CSS to be loaded separately.
  * Import 'css/main.css' in your app to get all required styles.
  *
  * Example:
- *   import 'interact-ai-design-system/css/main.css';
- *   import { Header, Hero, Slide } from 'interact-ai-design-system/components';
+ *   import 'push-record-design-system/css/main.css';
+ *   import { Header, Hero, Slide } from 'push-record-design-system/components';
  */
 
 // Layout Components
