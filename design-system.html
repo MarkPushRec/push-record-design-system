@@ -2934,6 +2934,485 @@
 
       </section>
 
+      <!-- V06: DATA VISUALIZATION -->
+      <section class="ds-section" id="data-viz">
+        <div class="ds-section-title">Data Visualization</div>
+        <p class="ds-section-description">Charts and data display components for analytics and metrics.</p>
+
+        <div class="ds-grid ds-grid--3">
+
+          <!-- Bar Chart -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="padding: 16px 24px;">
+              <div class="bar-chart" style="height: 80px; width: 100%;">
+                <div class="bar-chart__bar bar-chart__bar--muted" style="height: 40%;"></div>
+                <div class="bar-chart__bar" style="height: 65%;"></div>
+                <div class="bar-chart__bar bar-chart__bar--accent" style="height: 90%;"></div>
+                <div class="bar-chart__bar" style="height: 55%;"></div>
+                <div class="bar-chart__bar" style="height: 75%;"></div>
+                <div class="bar-chart__bar bar-chart__bar--muted" style="height: 30%;"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Bar Chart</div>
+              <div class="ds-component-class">.bar-chart</div>
+            </div>
+          </div>
+
+          <!-- Sparkline -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 16px; flex-direction: column;">
+              <div class="sparkline" style="width: 120px;">
+                <div class="sparkline__bar" style="height: 40%;"></div>
+                <div class="sparkline__bar sparkline__bar--high" style="height: 70%;"></div>
+                <div class="sparkline__bar sparkline__bar--high" style="height: 55%;"></div>
+                <div class="sparkline__bar" style="height: 85%;"></div>
+                <div class="sparkline__bar sparkline__bar--high" style="height: 60%;"></div>
+                <div class="sparkline__bar" style="height: 45%;"></div>
+                <div class="sparkline__bar sparkline__bar--low" style="height: 30%;"></div>
+                <div class="sparkline__bar" style="height: 50%;"></div>
+                <div class="sparkline__bar sparkline__bar--high" style="height: 75%;"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Sparkline</div>
+              <div class="ds-component-class">.sparkline</div>
+            </div>
+          </div>
+
+          <!-- Mini Donut -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 24px;">
+              <div class="mini-donut">
+                <svg viewBox="0 0 48 48" width="48" height="48">
+                  <circle class="mini-donut__track" cx="24" cy="24" r="20"/>
+                  <circle class="mini-donut__fill" cx="24" cy="24" r="20" stroke-dasharray="125.6" stroke-dashoffset="31.4"/>
+                </svg>
+                <div class="mini-donut__value">75%</div>
+              </div>
+              <div class="mini-donut">
+                <svg viewBox="0 0 48 48" width="48" height="48">
+                  <circle class="mini-donut__track" cx="24" cy="24" r="20"/>
+                  <circle class="mini-donut__fill" cx="24" cy="24" r="20" stroke-dasharray="125.6" stroke-dashoffset="87.9"/>
+                </svg>
+                <div class="mini-donut__value">30%</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Mini Donut</div>
+              <div class="ds-component-class">.mini-donut</div>
+            </div>
+          </div>
+
+          <!-- Data Grid -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="data-grid data-grid--4" style="width: 100%;">
+                <div class="data-grid__cell">
+                  <div class="data-grid__cell-value">247</div>
+                  <div class="data-grid__cell-label">Clips</div>
+                </div>
+                <div class="data-grid__cell">
+                  <div class="data-grid__cell-value">12.4</div>
+                  <div class="data-grid__cell-label">Hours</div>
+                </div>
+                <div class="data-grid__cell">
+                  <div class="data-grid__cell-value">98%</div>
+                  <div class="data-grid__cell-label">Done</div>
+                </div>
+                <div class="data-grid__cell">
+                  <div class="data-grid__cell-value">4K</div>
+                  <div class="data-grid__cell-label">Res</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Data Grid</div>
+              <div class="ds-component-class">.data-grid</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- V06: VIDEO PRODUCTION -->
+      <section class="ds-section" id="video-production">
+        <div class="ds-section-title">Video Production</div>
+        <p class="ds-section-description">Specialized components for video editing workflows.</p>
+
+        <div class="ds-grid ds-grid--3">
+
+          <!-- Clip Thumbnail -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 12px;">
+              <div class="clip" style="width: 120px;">
+                <div class="clip__thumbnail" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                  <div class="clip__duration">00:42</div>
+                </div>
+                <div class="clip__info">
+                  <div class="clip__name">Interview_A.mp4</div>
+                  <div class="clip__meta">4K • 24fps</div>
+                </div>
+              </div>
+              <div class="clip clip--selected" style="width: 120px;">
+                <div class="clip__thumbnail" style="background: linear-gradient(135deg, #2d1b2e 0%, #1e1630 100%);">
+                  <div class="clip__duration">01:15</div>
+                </div>
+                <div class="clip__info">
+                  <div class="clip__name">B-Roll_03.mp4</div>
+                  <div class="clip__meta">1080p • 60fps</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Clip Thumbnail</div>
+              <div class="ds-component-class">.clip</div>
+            </div>
+          </div>
+
+          <!-- Track Lane -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0; flex-direction: column; align-items: stretch;">
+              <div class="track track--video">
+                <div class="track__header">
+                  <span class="track__icon">▶</span>
+                  <span class="track__name">Video 1</span>
+                  <div class="track__controls">
+                    <button class="track__btn track__btn--active">●</button>
+                    <button class="track__btn">🔒</button>
+                  </div>
+                </div>
+                <div class="track__content">
+                  <div class="segment" style="left: 20px; width: 80px;">
+                    <span class="segment__label">Scene 1</span>
+                  </div>
+                  <div class="segment segment--selected" style="left: 110px; width: 60px;">
+                    <span class="segment__label">Scene 2</span>
+                  </div>
+                </div>
+              </div>
+              <div class="track track--audio">
+                <div class="track__header">
+                  <span class="track__icon">♪</span>
+                  <span class="track__name">Audio 1</span>
+                  <div class="track__controls">
+                    <button class="track__btn track__btn--active">●</button>
+                    <button class="track__btn">🔒</button>
+                  </div>
+                </div>
+                <div class="track__content">
+                  <div class="segment segment--audio" style="left: 20px; width: 150px;">
+                    <span class="segment__label">VO_Take3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Track Lane</div>
+              <div class="ds-component-class">.track</div>
+            </div>
+          </div>
+
+          <!-- Bin List -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0;">
+              <div class="bin" style="width: 100%; height: 160px;">
+                <div class="bin__header">
+                  <span class="bin__title">Project Assets</span>
+                  <span class="bin__count">12</span>
+                </div>
+                <div class="bin__list scroll-area">
+                  <div class="bin__item bin__item--selected">
+                    <span class="bin__item-icon">📹</span>
+                    <span class="bin__item-name">Interview_Main.mp4</span>
+                    <span class="bin__item-duration">04:32</span>
+                  </div>
+                  <div class="bin__item">
+                    <span class="bin__item-icon">🎵</span>
+                    <span class="bin__item-name">Background_Music.wav</span>
+                    <span class="bin__item-duration">03:15</span>
+                  </div>
+                  <div class="bin__item">
+                    <span class="bin__item-icon">📹</span>
+                    <span class="bin__item-name">B-Roll_City.mp4</span>
+                    <span class="bin__item-duration">01:48</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Bin List</div>
+              <div class="ds-component-class">.bin</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- V06: ALERTS & NOTIFICATIONS -->
+      <section class="ds-section" id="alerts">
+        <div class="ds-section-title">Alerts & Notifications</div>
+        <p class="ds-section-description">Feedback and messaging components.</p>
+
+        <div class="ds-grid ds-grid--2">
+
+          <!-- Alert -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; flex-direction: column; gap: 12px; padding: 16px;">
+              <div class="alert alert--info" style="width: 100%;">
+                <span class="alert__icon">ℹ</span>
+                <div class="alert__content">
+                  <div class="alert__title">Export in progress</div>
+                  <div class="alert__message">Your video is being rendered in 4K.</div>
+                </div>
+              </div>
+              <div class="alert alert--success" style="width: 100%;">
+                <span class="alert__icon">✓</span>
+                <div class="alert__content">
+                  <div class="alert__title">Project saved</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Alert</div>
+              <div class="ds-component-class">.alert</div>
+            </div>
+          </div>
+
+          <!-- Notification -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="notification notification--unread" style="width: 100%;">
+                <span class="notification__dot"></span>
+                <div class="notification__content">
+                  <div class="notification__title">Render complete</div>
+                  <div class="notification__body">Final_Cut_v3.mp4 is ready for review</div>
+                  <div class="notification__time">2 min ago</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Notification</div>
+              <div class="ds-component-class">.notification</div>
+            </div>
+          </div>
+
+          <!-- Banner -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0;">
+              <div class="banner" style="width: 100%; position: relative;">
+                <span class="banner__text">New feature: AI-powered color grading is now available.</span>
+                <button class="banner__action">Try it</button>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Banner</div>
+              <div class="ds-component-class">.banner</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- V06: ADVANCED UI -->
+      <section class="ds-section" id="advanced-ui">
+        <div class="ds-section-title">Advanced UI</div>
+        <p class="ds-section-description">Complex interactive components.</p>
+
+        <div class="ds-grid ds-grid--3">
+
+          <!-- Tree View -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 8px;">
+              <div class="tree" style="width: 100%;">
+                <div class="tree__item">
+                  <span class="tree__toggle tree__toggle--expanded">▶</span>
+                  <span class="tree__icon tree__icon--folder">📁</span>
+                  <span class="tree__label">Project Files</span>
+                </div>
+                <div class="tree__children">
+                  <div class="tree__item tree__item--selected">
+                    <span class="tree__toggle tree__toggle--hidden">▶</span>
+                    <span class="tree__icon tree__icon--video">📹</span>
+                    <span class="tree__label">Main_Sequence.prproj</span>
+                  </div>
+                  <div class="tree__item">
+                    <span class="tree__toggle tree__toggle--hidden">▶</span>
+                    <span class="tree__icon tree__icon--audio">🎵</span>
+                    <span class="tree__label">Audio_Mix.wav</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Tree View</div>
+              <div class="ds-component-class">.tree</div>
+            </div>
+          </div>
+
+          <!-- Context Menu -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="context-menu" style="position: relative;">
+                <button class="context-menu__item">
+                  <span class="context-menu__icon">📋</span>
+                  <span class="context-menu__label">Copy</span>
+                  <span class="context-menu__shortcut">⌘C</span>
+                </button>
+                <button class="context-menu__item">
+                  <span class="context-menu__icon">📎</span>
+                  <span class="context-menu__label">Paste</span>
+                  <span class="context-menu__shortcut">⌘V</span>
+                </button>
+                <div class="context-menu__divider"></div>
+                <button class="context-menu__item context-menu__item--danger">
+                  <span class="context-menu__icon">🗑</span>
+                  <span class="context-menu__label">Delete</span>
+                </button>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Context Menu</div>
+              <div class="ds-component-class">.context-menu</div>
+            </div>
+          </div>
+
+          <!-- Filter Chips -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 8px; flex-wrap: wrap;">
+              <button class="filter-chip filter-chip--active">All <span class="filter-chip__count">48</span></button>
+              <button class="filter-chip">Video <span class="filter-chip__count">24</span></button>
+              <button class="filter-chip">Audio <span class="filter-chip__count">12</span></button>
+              <button class="filter-chip">Graphics</button>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Filter Chips</div>
+              <div class="ds-component-class">.filter-chip</div>
+            </div>
+          </div>
+
+          <!-- Range Slider -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 24px;">
+              <div class="range" style="width: 100%;">
+                <div class="range__track">
+                  <div class="range__fill" style="left: 20%; width: 50%;"></div>
+                  <div class="range__handle" style="left: 20%;"></div>
+                  <div class="range__handle" style="left: 70%;"></div>
+                </div>
+                <div class="range__values">
+                  <span>00:05</span>
+                  <span>00:35</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Range Slider</div>
+              <div class="ds-component-class">.range</div>
+            </div>
+          </div>
+
+          <!-- Rating -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 16px;">
+              <div class="rating">
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star">★</span>
+              </div>
+              <div class="rating rating--sm">
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star">★</span>
+                <span class="rating__star">★</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Rating</div>
+              <div class="ds-component-class">.rating</div>
+            </div>
+          </div>
+
+          <!-- Calendar -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="calendar" style="transform: scale(0.85); transform-origin: center;">
+                <div class="calendar__header">
+                  <span class="calendar__title">January 2026</span>
+                  <div class="calendar__nav">
+                    <button class="calendar__nav-btn">‹</button>
+                    <button class="calendar__nav-btn">›</button>
+                  </div>
+                </div>
+                <div class="calendar__weekdays">
+                  <span class="calendar__weekday">S</span>
+                  <span class="calendar__weekday">M</span>
+                  <span class="calendar__weekday">T</span>
+                  <span class="calendar__weekday">W</span>
+                  <span class="calendar__weekday">T</span>
+                  <span class="calendar__weekday">F</span>
+                  <span class="calendar__weekday">S</span>
+                </div>
+                <div class="calendar__days">
+                  <button class="calendar__day calendar__day--outside">28</button>
+                  <button class="calendar__day calendar__day--outside">29</button>
+                  <button class="calendar__day calendar__day--outside">30</button>
+                  <button class="calendar__day calendar__day--outside">31</button>
+                  <button class="calendar__day">1</button>
+                  <button class="calendar__day">2</button>
+                  <button class="calendar__day">3</button>
+                  <button class="calendar__day">4</button>
+                  <button class="calendar__day">5</button>
+                  <button class="calendar__day">6</button>
+                  <button class="calendar__day">7</button>
+                  <button class="calendar__day">8</button>
+                  <button class="calendar__day">9</button>
+                  <button class="calendar__day">10</button>
+                  <button class="calendar__day">11</button>
+                  <button class="calendar__day">12</button>
+                  <button class="calendar__day">13</button>
+                  <button class="calendar__day">14</button>
+                  <button class="calendar__day">15</button>
+                  <button class="calendar__day">16</button>
+                  <button class="calendar__day">17</button>
+                  <button class="calendar__day">18</button>
+                  <button class="calendar__day">19</button>
+                  <button class="calendar__day">20</button>
+                  <button class="calendar__day">21</button>
+                  <button class="calendar__day calendar__day--today">22</button>
+                  <button class="calendar__day calendar__day--selected">23</button>
+                  <button class="calendar__day">24</button>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Calendar</div>
+              <div class="ds-component-class">.calendar</div>
+            </div>
+          </div>
+
+          <!-- Avatar Group -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 24px;">
+              <div class="avatar-group">
+                <div class="avatar" style="width: 32px; height: 32px; background: #9b87f5; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: white;">JD</div>
+                <div class="avatar" style="width: 32px; height: 32px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: white;">MK</div>
+                <div class="avatar" style="width: 32px; height: 32px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: black;">SR</div>
+                <div class="avatar-group__overflow">+3</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Avatar Group</div>
+              <div class="ds-component-class">.avatar-group</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
     </div>
   </main>
 
