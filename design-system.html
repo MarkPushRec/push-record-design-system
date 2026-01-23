@@ -366,6 +366,8 @@
     <a href="#spacing" class="ds-nav__link">Spacing</a>
     <a href="#borders" class="ds-nav__link">Borders</a>
     <a href="#effects" class="ds-nav__link">Effects</a>
+    <a href="#states" class="ds-nav__link">States</a>
+    <a href="#motion" class="ds-nav__link">Motion</a>
     <a href="#components" class="ds-nav__link">Components</a>
   </nav>
 
@@ -385,58 +387,58 @@
            ========================================== -->
       <section id="colors" class="ds-section">
         <h2 class="ds-section-title">Colors</h2>
-        <p class="ds-section-description">The color palette uses a dark theme with cream headings and teal accents.</p>
+        <p class="ds-section-description">Semantic color tokens built on a dark theme with cream headings and teal accents.</p>
 
-        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Primary Colors</h3>
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Primitive Colors</h3>
         <div class="ds-grid ds-grid--5" style="margin-bottom: 48px;">
 
           <div class="ds-swatch">
             <div class="ds-swatch__color" style="background: #000000;">
-              <span style="color: #fff; font-size: 12px;">Background</span>
+              <span style="color: #fff; font-size: 12px;">Base</span>
             </div>
             <div class="ds-swatch__info">
               <div class="ds-swatch__name">Black</div>
               <div class="ds-swatch__value">#000000</div>
-              <div class="ds-swatch__token">--color-2</div>
+              <div class="ds-swatch__token">--black</div>
             </div>
           </div>
 
           <div class="ds-swatch">
             <div class="ds-swatch__color" style="background: #ffffff;">
-              <span style="color: #000; font-size: 12px;">Text</span>
+              <span style="color: #000; font-size: 12px;">Base</span>
             </div>
             <div class="ds-swatch__info">
               <div class="ds-swatch__name">White</div>
               <div class="ds-swatch__value">#ffffff</div>
-              <div class="ds-swatch__token">--color-1</div>
+              <div class="ds-swatch__token">--white</div>
             </div>
           </div>
 
           <div class="ds-swatch">
             <div class="ds-swatch__color" style="background: #f5f1e9;">
-              <span style="color: #000; font-size: 12px;">Headings</span>
+              <span style="color: #000; font-size: 12px;">Brand</span>
             </div>
             <div class="ds-swatch__info">
               <div class="ds-swatch__name">Cream</div>
               <div class="ds-swatch__value">#f5f1e9</div>
-              <div class="ds-swatch__token">--color-5</div>
+              <div class="ds-swatch__token">--cream</div>
             </div>
           </div>
 
           <div class="ds-swatch">
             <div class="ds-swatch__color" style="background: #79b4a0;">
-              <span style="color: #000; font-size: 12px;">Accent</span>
+              <span style="color: #000; font-size: 12px;">Brand</span>
             </div>
             <div class="ds-swatch__info">
               <div class="ds-swatch__name">Teal</div>
               <div class="ds-swatch__value">#79b4a0</div>
-              <div class="ds-swatch__token">--color-7</div>
+              <div class="ds-swatch__token">--teal</div>
             </div>
           </div>
 
           <div class="ds-swatch">
             <div class="ds-swatch__color" style="background: #ff4649;">
-              <span style="color: #fff; font-size: 12px;">Alert</span>
+              <span style="color: #fff; font-size: 12px;">System</span>
             </div>
             <div class="ds-swatch__info">
               <div class="ds-swatch__name">Red</div>
@@ -447,17 +449,39 @@
 
         </div>
 
-        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">White Opacity Scale</h3>
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Semantic Text Colors</h3>
         <div class="ds-grid ds-grid--5" style="margin-bottom: 48px;">
+
+          <div class="ds-swatch">
+            <div class="ds-swatch__color" style="background: #ffffff;">
+              <span style="color: #000; font-size: 12px;">100%</span>
+            </div>
+            <div class="ds-swatch__info">
+              <div class="ds-swatch__name">Primary</div>
+              <div class="ds-swatch__value">#ffffff</div>
+              <div class="ds-swatch__token">--text-primary</div>
+            </div>
+          </div>
+
+          <div class="ds-swatch">
+            <div class="ds-swatch__color" style="background: #f5f1e9;">
+              <span style="color: #000; font-size: 12px;">Cream</span>
+            </div>
+            <div class="ds-swatch__info">
+              <div class="ds-swatch__name">Heading</div>
+              <div class="ds-swatch__value">#f5f1e9</div>
+              <div class="ds-swatch__token">--text-heading</div>
+            </div>
+          </div>
 
           <div class="ds-swatch">
             <div class="ds-swatch__color" style="background: rgba(255,255,255,0.85);">
               <span style="color: #000; font-size: 12px;">85%</span>
             </div>
             <div class="ds-swatch__info">
-              <div class="ds-swatch__name">Quotes</div>
+              <div class="ds-swatch__name">Emphasis</div>
               <div class="ds-swatch__value">rgba(255,255,255,0.85)</div>
-              <div class="ds-swatch__token">--color-10</div>
+              <div class="ds-swatch__token">--text-emphasis</div>
             </div>
           </div>
 
@@ -466,9 +490,9 @@
               <span style="color: #000; font-size: 12px;">70%</span>
             </div>
             <div class="ds-swatch__info">
-              <div class="ds-swatch__name">Body Text</div>
+              <div class="ds-swatch__name">Body</div>
               <div class="ds-swatch__value">rgba(255,255,255,0.7)</div>
-              <div class="ds-swatch__token">--color-8</div>
+              <div class="ds-swatch__token">--text-body</div>
             </div>
           </div>
 
@@ -477,9 +501,9 @@
               <span style="color: #000; font-size: 12px;">60%</span>
             </div>
             <div class="ds-swatch__info">
-              <div class="ds-swatch__name">Subtitles</div>
+              <div class="ds-swatch__name">Muted</div>
               <div class="ds-swatch__value">rgba(255,255,255,0.6)</div>
-              <div class="ds-swatch__token">--color-6</div>
+              <div class="ds-swatch__token">--text-muted</div>
             </div>
           </div>
 
@@ -488,9 +512,9 @@
               <span style="color: #000; font-size: 12px;">50%</span>
             </div>
             <div class="ds-swatch__info">
-              <div class="ds-swatch__name">Muted</div>
+              <div class="ds-swatch__name">Subtle</div>
               <div class="ds-swatch__value">rgba(255,255,255,0.5)</div>
-              <div class="ds-swatch__token">--color-4</div>
+              <div class="ds-swatch__token">--text-subtle</div>
             </div>
           </div>
 
@@ -499,31 +523,47 @@
               <span style="color: #000; font-size: 12px;">40%</span>
             </div>
             <div class="ds-swatch__info">
-              <div class="ds-swatch__name">Meta</div>
+              <div class="ds-swatch__name">Faint</div>
               <div class="ds-swatch__value">rgba(255,255,255,0.4)</div>
-              <div class="ds-swatch__token">--color-9</div>
+              <div class="ds-swatch__token">--text-faint</div>
             </div>
           </div>
 
           <div class="ds-swatch">
             <div class="ds-swatch__color" style="background: rgba(255,255,255,0.3);">
-              <span style="color: #000; font-size: 12px;">30%</span>
+              <span style="color: #fff; font-size: 12px;">30%</span>
             </div>
             <div class="ds-swatch__info">
-              <div class="ds-swatch__name">Faint</div>
+              <div class="ds-swatch__name">Ghost</div>
               <div class="ds-swatch__value">rgba(255,255,255,0.3)</div>
-              <div class="ds-swatch__token">--color-3</div>
+              <div class="ds-swatch__token">--text-ghost</div>
             </div>
           </div>
 
           <div class="ds-swatch">
-            <div class="ds-swatch__color" style="background: rgba(255,255,255,0.2);">
-              <span style="color: #000; font-size: 12px;">20%</span>
+            <div class="ds-swatch__color" style="background: #79b4a0;">
+              <span style="color: #000; font-size: 12px;">Teal</span>
             </div>
             <div class="ds-swatch__info">
-              <div class="ds-swatch__name">Border Medium</div>
-              <div class="ds-swatch__value">rgba(255,255,255,0.2)</div>
-              <div class="ds-swatch__token">--border-medium</div>
+              <div class="ds-swatch__name">Accent</div>
+              <div class="ds-swatch__value">#79b4a0</div>
+              <div class="ds-swatch__token">--text-accent</div>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Border Colors</h3>
+        <div class="ds-grid ds-grid--5" style="margin-bottom: 48px;">
+
+          <div class="ds-swatch">
+            <div class="ds-swatch__color" style="background: rgba(255,255,255,0.05);">
+              <span style="color: #fff; font-size: 12px;">5%</span>
+            </div>
+            <div class="ds-swatch__info">
+              <div class="ds-swatch__name">Subtle</div>
+              <div class="ds-swatch__value">rgba(255,255,255,0.05)</div>
+              <div class="ds-swatch__token">--border-subtle</div>
             </div>
           </div>
 
@@ -532,31 +572,42 @@
               <span style="color: #fff; font-size: 12px;">10%</span>
             </div>
             <div class="ds-swatch__info">
-              <div class="ds-swatch__name">Border Light</div>
+              <div class="ds-swatch__name">Light</div>
               <div class="ds-swatch__value">rgba(255,255,255,0.1)</div>
               <div class="ds-swatch__token">--border-light</div>
             </div>
           </div>
 
           <div class="ds-swatch">
-            <div class="ds-swatch__color" style="background: rgba(255,255,255,0.05);">
-              <span style="color: #fff; font-size: 12px;">5%</span>
+            <div class="ds-swatch__color" style="background: rgba(255,255,255,0.2);">
+              <span style="color: #000; font-size: 12px;">20%</span>
             </div>
             <div class="ds-swatch__info">
-              <div class="ds-swatch__name">Border Subtle</div>
-              <div class="ds-swatch__value">rgba(255,255,255,0.05)</div>
-              <div class="ds-swatch__token">--border-subtle</div>
+              <div class="ds-swatch__name">Medium</div>
+              <div class="ds-swatch__value">rgba(255,255,255,0.2)</div>
+              <div class="ds-swatch__token">--border-medium</div>
             </div>
           </div>
 
           <div class="ds-swatch">
-            <div class="ds-swatch__color" style="background: rgba(255,255,255,0.02);">
-              <span style="color: #fff; font-size: 12px;">2%</span>
+            <div class="ds-swatch__color" style="background: #79b4a0;">
+              <span style="color: #000; font-size: 12px;">Teal</span>
             </div>
             <div class="ds-swatch__info">
-              <div class="ds-swatch__name">Surface</div>
-              <div class="ds-swatch__value">rgba(255,255,255,0.02)</div>
-              <div class="ds-swatch__token">--bg-surface</div>
+              <div class="ds-swatch__name">Accent</div>
+              <div class="ds-swatch__value">#79b4a0</div>
+              <div class="ds-swatch__token">--border-accent</div>
+            </div>
+          </div>
+
+          <div class="ds-swatch">
+            <div class="ds-swatch__color" style="background: rgba(121,180,160,0.5);">
+              <span style="color: #000; font-size: 12px;">50%</span>
+            </div>
+            <div class="ds-swatch__info">
+              <div class="ds-swatch__name">Accent Muted</div>
+              <div class="ds-swatch__value">rgba(121,180,160,0.5)</div>
+              <div class="ds-swatch__token">--border-accent-muted</div>
             </div>
           </div>
 
@@ -706,15 +757,15 @@
           <div class="ds-type-specimen__meta">
             <div>
               <div class="ds-type-specimen__label">Size</div>
-              <div class="ds-type-specimen__value">197.792px</div>
+              <div class="ds-type-specimen__value">160px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Line Height</div>
-              <div class="ds-type-specimen__value">178.013px</div>
+              <div class="ds-type-specimen__value">140px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Letter Spacing</div>
-              <div class="ds-type-specimen__value">-5.6512px</div>
+              <div class="ds-type-specimen__value">-4.5px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Class</div>
@@ -731,15 +782,15 @@
           <div class="ds-type-specimen__meta">
             <div>
               <div class="ds-type-specimen__label">Size</div>
-              <div class="ds-type-specimen__value">128.261px</div>
+              <div class="ds-type-specimen__value">96px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Line Height</div>
-              <div class="ds-type-specimen__value">141.087px</div>
+              <div class="ds-type-specimen__value">100px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Letter Spacing</div>
-              <div class="ds-type-specimen__value">-2.8502px</div>
+              <div class="ds-type-specimen__value">-2.2px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Class</div>
@@ -756,15 +807,15 @@
           <div class="ds-type-specimen__meta">
             <div>
               <div class="ds-type-specimen__label">Size</div>
-              <div class="ds-type-specimen__value">94px</div>
+              <div class="ds-type-specimen__value">72px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Line Height</div>
-              <div class="ds-type-specimen__value">64.8px</div>
+              <div class="ds-type-specimen__value">64px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Letter Spacing</div>
-              <div class="ds-type-specimen__value">-2.16px</div>
+              <div class="ds-type-specimen__value">-1.8px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Class</div>
@@ -781,15 +832,15 @@
           <div class="ds-type-specimen__meta">
             <div>
               <div class="ds-type-specimen__label">Size</div>
-              <div class="ds-type-specimen__value">33.907px</div>
+              <div class="ds-type-specimen__value">28px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Line Height</div>
-              <div class="ds-type-specimen__value">50.861px</div>
+              <div class="ds-type-specimen__value">36px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Letter Spacing</div>
-              <div class="ds-type-specimen__value">-0.6499px</div>
+              <div class="ds-type-specimen__value">-0.4px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Class</div>
@@ -806,11 +857,11 @@
           <div class="ds-type-specimen__meta">
             <div>
               <div class="ds-type-specimen__label">Size</div>
-              <div class="ds-type-specimen__value">24px</div>
+              <div class="ds-type-specimen__value">18px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Line Height</div>
-              <div class="ds-type-specimen__value">32.5px</div>
+              <div class="ds-type-specimen__value">24px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Style</div>
@@ -831,15 +882,15 @@
           <div class="ds-type-specimen__meta">
             <div>
               <div class="ds-type-specimen__label">Size</div>
-              <div class="ds-type-specimen__value">23px</div>
+              <div class="ds-type-specimen__value">17px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Line Height</div>
-              <div class="ds-type-specimen__value">43px</div>
+              <div class="ds-type-specimen__value">23px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Letter Spacing</div>
-              <div class="ds-type-specimen__value">-0.46px</div>
+              <div class="ds-type-specimen__value">-0.2px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Class</div>
@@ -856,15 +907,15 @@
           <div class="ds-type-specimen__meta">
             <div>
               <div class="ds-type-specimen__label">Size</div>
-              <div class="ds-type-specimen__value">21.192px</div>
+              <div class="ds-type-specimen__value">14px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Line Height</div>
-              <div class="ds-type-specimen__value">31.788px</div>
+              <div class="ds-type-specimen__value">18px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Letter Spacing</div>
-              <div class="ds-type-specimen__value">8.4768px</div>
+              <div class="ds-type-specimen__value">5px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Class</div>
@@ -881,15 +932,15 @@
           <div class="ds-type-specimen__meta">
             <div>
               <div class="ds-type-specimen__label">Size</div>
-              <div class="ds-type-specimen__value">19.952px</div>
+              <div class="ds-type-specimen__value">13px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Line Height</div>
-              <div class="ds-type-specimen__value">29.928px</div>
+              <div class="ds-type-specimen__value">18px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Letter Spacing</div>
-              <div class="ds-type-specimen__value">4.2754px</div>
+              <div class="ds-type-specimen__value">3px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Class</div>
@@ -907,15 +958,15 @@
           <div class="ds-type-specimen__meta">
             <div>
               <div class="ds-type-specimen__label">Size</div>
-              <div class="ds-type-specimen__value">16px</div>
+              <div class="ds-type-specimen__value">11px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Line Height</div>
-              <div class="ds-type-specimen__value">16px</div>
+              <div class="ds-type-specimen__value">11px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Letter Spacing</div>
-              <div class="ds-type-specimen__value">3.6px</div>
+              <div class="ds-type-specimen__value">2.5px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Class</div>
@@ -932,15 +983,15 @@
           <div class="ds-type-specimen__meta">
             <div>
               <div class="ds-type-specimen__label">Size</div>
-              <div class="ds-type-specimen__value">16px</div>
+              <div class="ds-type-specimen__value">11px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Line Height</div>
-              <div class="ds-type-specimen__value">23px</div>
+              <div class="ds-type-specimen__value">14px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Letter Spacing</div>
-              <div class="ds-type-specimen__value">0.35px</div>
+              <div class="ds-type-specimen__value">0.2px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Class</div>
@@ -957,15 +1008,15 @@
           <div class="ds-type-specimen__meta">
             <div>
               <div class="ds-type-specimen__label">Size</div>
-              <div class="ds-type-specimen__value">15px</div>
+              <div class="ds-type-specimen__value">10px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Line Height</div>
-              <div class="ds-type-specimen__value">16px</div>
+              <div class="ds-type-specimen__value">12px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Letter Spacing</div>
-              <div class="ds-type-specimen__value">4.8px</div>
+              <div class="ds-type-specimen__value">3px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Class</div>
@@ -982,15 +1033,15 @@
           <div class="ds-type-specimen__meta">
             <div>
               <div class="ds-type-specimen__label">Size</div>
-              <div class="ds-type-specimen__value">18px</div>
+              <div class="ds-type-specimen__value">12px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Line Height</div>
-              <div class="ds-type-specimen__value">20px</div>
+              <div class="ds-type-specimen__value">14px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Letter Spacing</div>
-              <div class="ds-type-specimen__value">1.4px</div>
+              <div class="ds-type-specimen__value">1px</div>
             </div>
             <div>
               <div class="ds-type-specimen__label">Class</div>
@@ -1008,84 +1059,122 @@
            ========================================== -->
       <section id="spacing" class="ds-section">
         <h2 class="ds-section-title">Spacing</h2>
-        <p class="ds-section-description">Spacing tokens used throughout the design system.</p>
+        <p class="ds-section-description">Systematic 4px-based spacing scale for consistent rhythm.</p>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Base Scale</h3>
 
         <div class="ds-spacing-item">
-          <div class="ds-spacing-label">--space-7</div>
-          <div class="ds-spacing-bar" style="width: 7px;"></div>
-          <div class="ds-spacing-value">7px</div>
+          <div class="ds-spacing-label">--space-1</div>
+          <div class="ds-spacing-bar" style="width: 4px;"></div>
+          <div class="ds-spacing-value">4px</div>
         </div>
 
         <div class="ds-spacing-item">
-          <div class="ds-spacing-label">--space-10</div>
-          <div class="ds-spacing-bar" style="width: 10px;"></div>
-          <div class="ds-spacing-value">10px</div>
+          <div class="ds-spacing-label">--space-2</div>
+          <div class="ds-spacing-bar" style="width: 8px;"></div>
+          <div class="ds-spacing-value">8px</div>
         </div>
 
         <div class="ds-spacing-item">
-          <div class="ds-spacing-label">--space-13</div>
-          <div class="ds-spacing-bar" style="width: 13px;"></div>
-          <div class="ds-spacing-value">13px</div>
+          <div class="ds-spacing-label">--space-3</div>
+          <div class="ds-spacing-bar" style="width: 12px;"></div>
+          <div class="ds-spacing-value">12px</div>
         </div>
 
         <div class="ds-spacing-item">
-          <div class="ds-spacing-label">--space-21</div>
-          <div class="ds-spacing-bar" style="width: 21px;"></div>
-          <div class="ds-spacing-value">21px</div>
+          <div class="ds-spacing-label">--space-4</div>
+          <div class="ds-spacing-bar" style="width: 16px;"></div>
+          <div class="ds-spacing-value">16px</div>
         </div>
 
         <div class="ds-spacing-item">
-          <div class="ds-spacing-label">--space-24</div>
+          <div class="ds-spacing-label">--space-5</div>
+          <div class="ds-spacing-bar" style="width: 20px;"></div>
+          <div class="ds-spacing-value">20px</div>
+        </div>
+
+        <div class="ds-spacing-item">
+          <div class="ds-spacing-label">--space-6</div>
           <div class="ds-spacing-bar" style="width: 24px;"></div>
           <div class="ds-spacing-value">24px</div>
         </div>
 
         <div class="ds-spacing-item">
-          <div class="ds-spacing-label">--space-30</div>
-          <div class="ds-spacing-bar" style="width: 30px;"></div>
-          <div class="ds-spacing-value">30px</div>
-        </div>
-
-        <div class="ds-spacing-item">
-          <div class="ds-spacing-label">--space-32</div>
+          <div class="ds-spacing-label">--space-8</div>
           <div class="ds-spacing-bar" style="width: 32px;"></div>
           <div class="ds-spacing-value">32px</div>
         </div>
 
         <div class="ds-spacing-item">
-          <div class="ds-spacing-label">--space-33</div>
-          <div class="ds-spacing-bar" style="width: 33px;"></div>
-          <div class="ds-spacing-value">33px</div>
+          <div class="ds-spacing-label">--space-10</div>
+          <div class="ds-spacing-bar" style="width: 40px;"></div>
+          <div class="ds-spacing-value">40px</div>
         </div>
 
         <div class="ds-spacing-item">
-          <div class="ds-spacing-label">--space-48</div>
+          <div class="ds-spacing-label">--space-12</div>
           <div class="ds-spacing-bar" style="width: 48px;"></div>
           <div class="ds-spacing-value">48px</div>
         </div>
 
         <div class="ds-spacing-item">
-          <div class="ds-spacing-label">--space-55</div>
-          <div class="ds-spacing-bar" style="width: 55px;"></div>
-          <div class="ds-spacing-value">55px</div>
+          <div class="ds-spacing-label">--space-16</div>
+          <div class="ds-spacing-bar" style="width: 64px;"></div>
+          <div class="ds-spacing-value">64px</div>
         </div>
 
         <div class="ds-spacing-item">
-          <div class="ds-spacing-label">--space-65</div>
-          <div class="ds-spacing-bar" style="width: 65px;"></div>
-          <div class="ds-spacing-value">65px</div>
+          <div class="ds-spacing-label">--space-20</div>
+          <div class="ds-spacing-bar" style="width: 80px;"></div>
+          <div class="ds-spacing-value">80px</div>
         </div>
 
         <div class="ds-spacing-item">
-          <div class="ds-spacing-label">--space-89</div>
-          <div class="ds-spacing-bar" style="width: 89px;"></div>
-          <div class="ds-spacing-value">89px</div>
+          <div class="ds-spacing-label">--space-24</div>
+          <div class="ds-spacing-bar" style="width: 96px;"></div>
+          <div class="ds-spacing-value">96px</div>
         </div>
 
         <div class="ds-spacing-item">
-          <div class="ds-spacing-label">--space-240</div>
+          <div class="ds-spacing-label">--space-32</div>
+          <div class="ds-spacing-bar" style="width: 128px;"></div>
+          <div class="ds-spacing-value">128px</div>
+        </div>
+
+        <div class="ds-spacing-item">
+          <div class="ds-spacing-label">--space-40</div>
+          <div class="ds-spacing-bar" style="width: 160px;"></div>
+          <div class="ds-spacing-value">160px</div>
+        </div>
+
+        <div class="ds-spacing-item">
+          <div class="ds-spacing-label">--space-60</div>
           <div class="ds-spacing-bar" style="width: 240px;"></div>
           <div class="ds-spacing-value">240px</div>
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin: 48px 0 24px; font-weight: 500;">Semantic Gaps</h3>
+        <div class="ds-grid ds-grid--4">
+          <div style="padding: 24px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div style="font-size: 14px; font-weight: 500; color: var(--color-1); margin-bottom: 8px;">Hero Gap</div>
+            <div style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--color-9);">--gap-hero: 24px</div>
+            <div style="font-size: 12px; color: var(--color-6); margin-top: 8px;">Between hero elements</div>
+          </div>
+          <div style="padding: 24px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div style="font-size: 14px; font-weight: 500; color: var(--color-1); margin-bottom: 8px;">Section Gap</div>
+            <div style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--color-9);">--gap-section: 16px</div>
+            <div style="font-size: 12px; color: var(--color-6); margin-top: 8px;">Between sections</div>
+          </div>
+          <div style="padding: 24px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div style="font-size: 14px; font-weight: 500; color: var(--color-1); margin-bottom: 8px;">Component Gap</div>
+            <div style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--color-9);">--gap-component: 12px</div>
+            <div style="font-size: 12px; color: var(--color-6); margin-top: 8px;">Between components</div>
+          </div>
+          <div style="padding: 24px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div style="font-size: 14px; font-weight: 500; color: var(--color-1); margin-bottom: 8px;">Element Gap</div>
+            <div style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--color-9);">--gap-element: 8px</div>
+            <div style="font-size: 12px; color: var(--color-6); margin-top: 8px;">Between inline elements</div>
+          </div>
         </div>
 
       </section>
@@ -1199,6 +1288,167 @@
               <div style="font-size: 14px; font-weight: 500; color: var(--color-1); margin-bottom: 8px;">Background Image Opacity</div>
               <div style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--color-9);">opacity: 0.33 (33%)</div>
               <div style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--color-7); margin-top: 8px;">--opacity-bg-image</div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="ds-divider"></div>
+
+      <!-- ==========================================
+           INTERACTIVE STATES
+           ========================================== -->
+      <section id="states" class="ds-section">
+        <h2 class="ds-section-title">Interactive States</h2>
+        <p class="ds-section-description">Consistent visual feedback for user interactions.</p>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">State Colors</h3>
+        <div class="ds-grid ds-grid--4" style="margin-bottom: 48px;">
+
+          <div class="ds-swatch">
+            <div class="ds-swatch__color" style="background: rgba(255,255,255,0.1);">
+              <span style="color: #fff; font-size: 12px;">10%</span>
+            </div>
+            <div class="ds-swatch__info">
+              <div class="ds-swatch__name">Hover</div>
+              <div class="ds-swatch__value">rgba(255,255,255,0.1)</div>
+              <div class="ds-swatch__token">--state-hover</div>
+            </div>
+          </div>
+
+          <div class="ds-swatch">
+            <div class="ds-swatch__color" style="background: rgba(255,255,255,0.15);">
+              <span style="color: #fff; font-size: 12px;">15%</span>
+            </div>
+            <div class="ds-swatch__info">
+              <div class="ds-swatch__name">Active</div>
+              <div class="ds-swatch__value">rgba(255,255,255,0.15)</div>
+              <div class="ds-swatch__token">--state-active</div>
+            </div>
+          </div>
+
+          <div class="ds-swatch">
+            <div class="ds-swatch__color" style="background: #79b4a0;">
+              <span style="color: #000; font-size: 12px;">Teal</span>
+            </div>
+            <div class="ds-swatch__info">
+              <div class="ds-swatch__name">Focus</div>
+              <div class="ds-swatch__value">#79b4a0</div>
+              <div class="ds-swatch__token">--state-focus</div>
+            </div>
+          </div>
+
+          <div class="ds-swatch">
+            <div class="ds-swatch__color" style="background: rgba(255,255,255,0.05);">
+              <span style="color: #fff; font-size: 12px;">5%</span>
+            </div>
+            <div class="ds-swatch__info">
+              <div class="ds-swatch__name">Disabled BG</div>
+              <div class="ds-swatch__value">rgba(255,255,255,0.05)</div>
+              <div class="ds-swatch__token">--state-disabled-bg</div>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Interactive Demos</h3>
+        <div class="ds-grid ds-grid--3">
+          <div style="padding: 32px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px; text-align: center;">
+            <div style="display: inline-block; padding: 12px 24px; background: transparent; border: 1px solid var(--border-light); border-radius: 4px; color: var(--color-8); font-size: 14px; cursor: pointer; transition: all 0.2s ease-out;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+              Hover Me
+            </div>
+            <div style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--color-9); margin-top: 16px;">:hover state</div>
+          </div>
+
+          <div style="padding: 32px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px; text-align: center;">
+            <div style="display: inline-block; padding: 12px 24px; background: rgba(255,255,255,0.15); border: 1px solid var(--border-light); border-radius: 4px; color: var(--color-1); font-size: 14px;">
+              Active State
+            </div>
+            <div style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--color-9); margin-top: 16px;">:active state</div>
+          </div>
+
+          <div style="padding: 32px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px; text-align: center;">
+            <div style="display: inline-block; padding: 12px 24px; background: transparent; border: 1px solid var(--border-light); border-radius: 4px; color: var(--color-9); font-size: 14px; opacity: 0.5; cursor: not-allowed;">
+              Disabled
+            </div>
+            <div style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--color-9); margin-top: 16px;">:disabled state</div>
+          </div>
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin: 48px 0 24px; font-weight: 500;">Focus Ring</h3>
+        <div class="ds-effect-demo">
+          <div style="display: flex; align-items: center; gap: 48px; padding: 24px;">
+            <div style="display: inline-block; padding: 12px 24px; background: transparent; border: 1px solid var(--border-light); border-radius: 4px; color: var(--color-8); font-size: 14px; outline: 2px solid #79b4a0; outline-offset: 2px;">
+              Focused Element
+            </div>
+            <div style="flex: 1;">
+              <div style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--color-9);">outline: 2px solid var(--focus-ring-color)</div>
+              <div style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--color-9);">outline-offset: 2px</div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="ds-divider"></div>
+
+      <!-- ==========================================
+           MOTION
+           ========================================== -->
+      <section id="motion" class="ds-section">
+        <h2 class="ds-section-title">Motion</h2>
+        <p class="ds-section-description">Consistent timing and easing for smooth, polished interactions.</p>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Timing</h3>
+        <div class="ds-grid ds-grid--4" style="margin-bottom: 48px;">
+          <div style="padding: 24px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div style="font-size: 32px; font-weight: 700; color: var(--color-5); margin-bottom: 8px;">100ms</div>
+            <div style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--color-7);">--duration-fast</div>
+            <div style="font-size: 12px; color: var(--color-9); margin-top: 8px;">Micro-interactions, opacity</div>
+          </div>
+          <div style="padding: 24px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div style="font-size: 32px; font-weight: 700; color: var(--color-5); margin-bottom: 8px;">200ms</div>
+            <div style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--color-7);">--duration-normal</div>
+            <div style="font-size: 12px; color: var(--color-9); margin-top: 8px;">Standard transitions</div>
+          </div>
+          <div style="padding: 24px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div style="font-size: 32px; font-weight: 700; color: var(--color-5); margin-bottom: 8px;">300ms</div>
+            <div style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--color-7);">--duration-slow</div>
+            <div style="font-size: 12px; color: var(--color-9); margin-top: 8px;">Panel reveals, slides</div>
+          </div>
+          <div style="padding: 24px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div style="font-size: 32px; font-weight: 700; color: var(--color-5); margin-bottom: 8px;">500ms</div>
+            <div style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--color-7);">--duration-slower</div>
+            <div style="font-size: 12px; color: var(--color-9); margin-top: 8px;">Scene transitions</div>
+          </div>
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Easing Functions</h3>
+        <div class="ds-grid ds-grid--2" style="margin-bottom: 48px;">
+          <div style="padding: 24px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div style="font-size: 14px; font-weight: 500; color: var(--color-1); margin-bottom: 8px;">Ease Out</div>
+            <div style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--color-7); margin-bottom: 8px;">--ease-out</div>
+            <div style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--color-9);">cubic-bezier(0.16, 1, 0.3, 1)</div>
+            <div style="font-size: 12px; color: var(--color-6); margin-top: 8px;">Default for most animations. Fast start, gentle landing.</div>
+          </div>
+          <div style="padding: 24px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div style="font-size: 14px; font-weight: 500; color: var(--color-1); margin-bottom: 8px;">Ease In Out</div>
+            <div style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--color-7); margin-bottom: 8px;">--ease-in-out</div>
+            <div style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--color-9);">cubic-bezier(0.45, 0, 0.55, 1)</div>
+            <div style="font-size: 12px; color: var(--color-6); margin-top: 8px;">For looping or reversible animations.</div>
+          </div>
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Live Demo</h3>
+        <div class="ds-effect-demo">
+          <div style="display: flex; gap: 32px; align-items: center; padding: 24px;">
+            <div id="motion-demo" style="width: 60px; height: 60px; background: var(--teal); border-radius: 8px; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);"></div>
+            <div>
+              <button onclick="document.getElementById('motion-demo').style.transform = document.getElementById('motion-demo').style.transform === 'translateX(200px)' ? 'translateX(0)' : 'translateX(200px)'" style="padding: 10px 20px; background: transparent; border: 1px solid var(--border-light); border-radius: 4px; color: var(--color-8); font-size: 14px; cursor: pointer;">
+                Toggle Animation
+              </button>
+              <div style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--color-9); margin-top: 12px;">300ms ease-out transform</div>
             </div>
           </div>
         </div>
