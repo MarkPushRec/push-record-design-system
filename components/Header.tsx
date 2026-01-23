@@ -19,7 +19,7 @@ interface HeaderProps {
  */
 export const Header: React.FC<HeaderProps> = ({
   date = 'Jan 2026',
-  title = 'Interact AI',
+  title = 'Push Record',
   company = 'Push Record',
 }) => {
   return (

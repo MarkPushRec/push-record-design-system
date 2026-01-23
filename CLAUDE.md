@@ -1,4 +1,4 @@
-# CLAUDE.md - Interact AI Design System
+# CLAUDE.md - Push Record Design System
 
 ## Project Overview
 Push Record video production design system - a comprehensive CSS framework for building professional video production interfaces with dark theme aesthetics.
