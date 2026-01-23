@@ -3413,6 +3413,519 @@
         </div>
       </section>
 
+      <!-- V07: AUDIO & COLOR TOOLS -->
+      <section class="ds-section" id="audio-color">
+        <div class="ds-section-title">Audio & Color Tools</div>
+        <p class="ds-section-description">Professional audio mixing and color grading components.</p>
+
+        <div class="ds-grid ds-grid--3">
+
+          <!-- Mixer Channel -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 8px;">
+              <div class="mixer-channel">
+                <div class="mixer-channel__header">
+                  <div class="mixer-channel__name">Audio 1</div>
+                </div>
+                <div class="mixer-channel__body">
+                  <div class="mixer-channel__meter">
+                    <div class="mixer-channel__meter-bar">
+                      <div class="mixer-channel__meter-fill" style="height: 65%;"></div>
+                    </div>
+                    <div class="mixer-channel__meter-bar">
+                      <div class="mixer-channel__meter-fill" style="height: 58%;"></div>
+                    </div>
+                  </div>
+                  <div class="mixer-channel__db">-6.2</div>
+                </div>
+                <div class="mixer-channel__controls">
+                  <button class="mixer-channel__btn mixer-channel__btn--mute">M</button>
+                  <button class="mixer-channel__btn mixer-channel__btn--solo">S</button>
+                </div>
+              </div>
+              <div class="mixer-channel">
+                <div class="mixer-channel__header">
+                  <div class="mixer-channel__name">Audio 2</div>
+                </div>
+                <div class="mixer-channel__body">
+                  <div class="mixer-channel__meter">
+                    <div class="mixer-channel__meter-bar">
+                      <div class="mixer-channel__meter-fill" style="height: 45%;"></div>
+                    </div>
+                    <div class="mixer-channel__meter-bar">
+                      <div class="mixer-channel__meter-fill" style="height: 42%;"></div>
+                    </div>
+                  </div>
+                  <div class="mixer-channel__db">-12.0</div>
+                </div>
+                <div class="mixer-channel__controls">
+                  <button class="mixer-channel__btn mixer-channel__btn--mute active">M</button>
+                  <button class="mixer-channel__btn mixer-channel__btn--solo">S</button>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Mixer Channel</div>
+              <div class="ds-component-class">.mixer-channel</div>
+            </div>
+          </div>
+
+          <!-- Color Wheel -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="color-wheel">
+                <div class="color-wheel__ring">
+                  <div class="color-wheel__center">
+                    <div class="color-wheel__handle" style="left: 55%; top: 45%;"></div>
+                  </div>
+                </div>
+                <div class="color-wheel__label">Lift</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Color Wheel</div>
+              <div class="ds-component-class">.color-wheel</div>
+            </div>
+          </div>
+
+          <!-- Color Sliders -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="color-sliders" style="width: 100%;">
+                <div class="color-slider">
+                  <span class="color-slider__label">R</span>
+                  <div class="color-slider__track color-slider__track--red">
+                    <div class="color-slider__thumb" style="left: 70%;"></div>
+                  </div>
+                  <span class="color-slider__value">178</span>
+                </div>
+                <div class="color-slider">
+                  <span class="color-slider__label">G</span>
+                  <div class="color-slider__track color-slider__track--green">
+                    <div class="color-slider__thumb" style="left: 55%;"></div>
+                  </div>
+                  <span class="color-slider__value">140</span>
+                </div>
+                <div class="color-slider">
+                  <span class="color-slider__label">B</span>
+                  <div class="color-slider__track color-slider__track--blue">
+                    <div class="color-slider__thumb" style="left: 45%;"></div>
+                  </div>
+                  <span class="color-slider__value">115</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Color Sliders</div>
+              <div class="ds-component-class">.color-sliders</div>
+            </div>
+          </div>
+
+          <!-- Vectorscope -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="vectorscope">
+                <svg class="vectorscope__grid" viewBox="0 0 160 160">
+                  <circle class="vectorscope__circle" cx="80" cy="80" r="70"/>
+                  <circle class="vectorscope__circle" cx="80" cy="80" r="45"/>
+                  <line class="vectorscope__crosshair" x1="80" y1="10" x2="80" y2="150"/>
+                  <line class="vectorscope__crosshair" x1="10" y1="80" x2="150" y2="80"/>
+                </svg>
+                <div class="vectorscope__target vectorscope__target--r"></div>
+                <div class="vectorscope__target vectorscope__target--yl"></div>
+                <div class="vectorscope__target vectorscope__target--g"></div>
+                <div class="vectorscope__target vectorscope__target--cy"></div>
+                <div class="vectorscope__target vectorscope__target--b"></div>
+                <div class="vectorscope__target vectorscope__target--mg"></div>
+                <span class="vectorscope__label">Vectorscope</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Vectorscope</div>
+              <div class="ds-component-class">.vectorscope</div>
+            </div>
+          </div>
+
+          <!-- Waveform Monitor -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 8px;">
+              <div class="waveform-monitor" style="width: 100%;">
+                <div class="waveform-monitor__grid">
+                  <div class="waveform-monitor__line waveform-monitor__line--major"></div>
+                  <div class="waveform-monitor__line"></div>
+                  <div class="waveform-monitor__line waveform-monitor__line--major"></div>
+                  <div class="waveform-monitor__line"></div>
+                  <div class="waveform-monitor__line waveform-monitor__line--major"></div>
+                </div>
+                <span class="waveform-monitor__scale waveform-monitor__scale--100">100</span>
+                <span class="waveform-monitor__scale waveform-monitor__scale--50">50</span>
+                <span class="waveform-monitor__scale waveform-monitor__scale--0">0</span>
+                <span class="waveform-monitor__label">Luma</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Waveform Monitor</div>
+              <div class="ds-component-class">.waveform-monitor</div>
+            </div>
+          </div>
+
+          <!-- Filmstrip -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 8px;">
+              <div class="filmstrip" style="width: 100%;">
+                <div class="filmstrip__frame" style="background: linear-gradient(135deg, #1a2030 0%, #101520 100%);">
+                  <span class="filmstrip__frame-time">00:00</span>
+                </div>
+                <div class="filmstrip__frame" style="background: linear-gradient(135deg, #1a2530 0%, #102020 100%);">
+                  <span class="filmstrip__frame-time">00:05</span>
+                </div>
+                <div class="filmstrip__frame filmstrip__frame--current" style="background: linear-gradient(135deg, #202535 0%, #151a25 100%);">
+                  <span class="filmstrip__frame-time">00:10</span>
+                </div>
+                <div class="filmstrip__frame" style="background: linear-gradient(135deg, #252030 0%, #1a1520 100%);">
+                  <span class="filmstrip__frame-time">00:15</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Filmstrip</div>
+              <div class="ds-component-class">.filmstrip</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- V07: EDITOR TOOLS -->
+      <section class="ds-section" id="editor-tools">
+        <div class="ds-section-title">Editor Tools</div>
+        <p class="ds-section-description">Inspector panels, keyframe editors, and workflow tools.</p>
+
+        <div class="ds-grid ds-grid--2">
+
+          <!-- Inspector Panel -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0;">
+              <div class="inspector" style="width: 100%;">
+                <div class="inspector__header">
+                  <span class="inspector__icon">⬜</span>
+                  <span class="inspector__title">Clip Properties</span>
+                </div>
+                <div class="inspector__body">
+                  <div class="inspector__section">
+                    <div class="inspector__section-header">
+                      <span class="inspector__section-title">Transform</span>
+                      <span class="inspector__section-toggle">▼</span>
+                    </div>
+                    <div class="inspector__section-content">
+                      <div class="inspector__row">
+                        <span class="inspector__label">Position</span>
+                        <input class="inspector__input" value="960, 540" style="width: 80px;">
+                      </div>
+                      <div class="inspector__row">
+                        <span class="inspector__label">Scale</span>
+                        <input class="inspector__input" value="100%" style="width: 60px;">
+                      </div>
+                      <div class="inspector__row">
+                        <span class="inspector__label">Rotation</span>
+                        <input class="inspector__input" value="0.0°" style="width: 60px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Inspector Panel</div>
+              <div class="ds-component-class">.inspector</div>
+            </div>
+          </div>
+
+          <!-- Keyframe Track -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0; flex-direction: column; align-items: stretch;">
+              <div class="keyframe-track">
+                <span class="keyframe-track__label">Position X</span>
+                <div class="keyframe-track__timeline">
+                  <div class="keyframe" style="left: 15%;"></div>
+                  <div class="keyframe keyframe--selected" style="left: 45%;"></div>
+                  <div class="keyframe" style="left: 80%;"></div>
+                </div>
+              </div>
+              <div class="keyframe-track">
+                <span class="keyframe-track__label">Opacity</span>
+                <div class="keyframe-track__timeline">
+                  <div class="keyframe" style="left: 10%;"></div>
+                  <div class="keyframe" style="left: 90%;"></div>
+                </div>
+              </div>
+              <div class="keyframe-track">
+                <span class="keyframe-track__label">Scale</span>
+                <div class="keyframe-track__timeline">
+                  <div class="keyframe" style="left: 20%;"></div>
+                  <div class="keyframe" style="left: 60%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Keyframe Track</div>
+              <div class="ds-component-class">.keyframe-track</div>
+            </div>
+          </div>
+
+          <!-- Render Queue -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0;">
+              <div class="render-queue" style="width: 100%;">
+                <div class="render-queue__header">
+                  <span class="render-queue__title">Render Queue</span>
+                  <span class="render-queue__count">2 jobs</span>
+                </div>
+                <div class="render-queue__list">
+                  <div class="render-job">
+                    <div class="render-job__header">
+                      <div class="render-job__status render-job__status--rendering"></div>
+                      <span class="render-job__name">Final_Cut_v3.mp4</span>
+                      <span class="render-job__format">H.264</span>
+                    </div>
+                    <div class="render-job__progress">
+                      <div class="render-job__progress-fill" style="width: 67%;"></div>
+                    </div>
+                    <div class="render-job__meta">
+                      <span>67% complete</span>
+                      <span>ETA: 4:32</span>
+                    </div>
+                  </div>
+                  <div class="render-job">
+                    <div class="render-job__header">
+                      <div class="render-job__status render-job__status--pending"></div>
+                      <span class="render-job__name">Promo_Short.mp4</span>
+                      <span class="render-job__format">ProRes</span>
+                    </div>
+                    <div class="render-job__progress">
+                      <div class="render-job__progress-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="render-job__meta">
+                      <span>Queued</span>
+                      <span>—</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Render Queue</div>
+              <div class="ds-component-class">.render-queue</div>
+            </div>
+          </div>
+
+          <!-- Effect Stack -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 8px;">
+              <div class="effect-stack" style="width: 100%;">
+                <div class="effect-item effect-item--selected">
+                  <span class="effect-item__drag">⋮⋮</span>
+                  <span class="effect-item__toggle">●</span>
+                  <span class="effect-item__name">Lumetri Color</span>
+                  <span class="effect-item__expand">▼</span>
+                </div>
+                <div class="effect-item">
+                  <span class="effect-item__drag">⋮⋮</span>
+                  <span class="effect-item__toggle">●</span>
+                  <span class="effect-item__name">Sharpen</span>
+                  <span class="effect-item__badge">GPU</span>
+                  <span class="effect-item__expand">▶</span>
+                </div>
+                <div class="effect-item effect-item--disabled">
+                  <span class="effect-item__drag">⋮⋮</span>
+                  <span class="effect-item__toggle effect-item__toggle--disabled">○</span>
+                  <span class="effect-item__name">Noise Reduction</span>
+                  <span class="effect-item__expand">▶</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Effect Stack</div>
+              <div class="ds-component-class">.effect-stack</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- V07: COLLABORATION -->
+      <section class="ds-section" id="collaboration">
+        <div class="ds-section-title">Collaboration</div>
+        <p class="ds-section-description">Notes, versioning, and team workflow components.</p>
+
+        <div class="ds-grid ds-grid--2">
+
+          <!-- Project Note -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="note" style="width: 100%;">
+                <div class="note__avatar">JD</div>
+                <div class="note__content">
+                  <div class="note__header">
+                    <span class="note__author">John Doe</span>
+                    <span class="note__timecode">@01:24:36</span>
+                  </div>
+                  <div class="note__body">The color grade here feels too warm. Can we cool it down slightly and add more contrast?</div>
+                  <div class="note__time">2 hours ago</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Project Note</div>
+              <div class="ds-component-class">.note</div>
+            </div>
+          </div>
+
+          <!-- Version History -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 8px;">
+              <div class="version-list" style="width: 100%;">
+                <div class="version-item version-item--current">
+                  <div class="version-item__marker">
+                    <div class="version-item__dot"></div>
+                    <div class="version-item__line"></div>
+                  </div>
+                  <div class="version-item__content">
+                    <div class="version-item__header">
+                      <span class="version-item__name">v3.2 - Final Review</span>
+                      <span class="version-item__tag">Current</span>
+                    </div>
+                    <div class="version-item__meta">Color correction and audio mix</div>
+                    <div class="version-item__time">Today, 2:34 PM</div>
+                  </div>
+                </div>
+                <div class="version-item">
+                  <div class="version-item__marker">
+                    <div class="version-item__dot"></div>
+                    <div class="version-item__line"></div>
+                  </div>
+                  <div class="version-item__content">
+                    <div class="version-item__header">
+                      <span class="version-item__name">v3.1 - Client Review</span>
+                    </div>
+                    <div class="version-item__meta">Added intro sequence</div>
+                    <div class="version-item__time">Yesterday, 11:20 AM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Version History</div>
+              <div class="ds-component-class">.version-list</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CODE AS DESIGN -->
+      <section class="ds-section" id="code-philosophy">
+        <div class="ds-section-title">Code as Design Language</div>
+        <p class="ds-section-description">The naming conventions themselves are part of the visual identity.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 48px;">
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 24px;">
+            <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-accent); margin-bottom: 16px;">Principle</div>
+            <p style="font-size: 14px; color: var(--text-body); line-height: 1.6; margin-bottom: 16px;">
+              In this system, code isn't hidden behind the interface—it's embraced as a core aesthetic element.
+              Class names like <code style="font-family: var(--font-sf-mono); color: var(--text-accent); background: rgba(121, 180, 160, 0.1); padding: 2px 6px; border-radius: 2px;">.mixer-channel</code>
+              and variables like <code style="font-family: var(--font-sf-mono); color: var(--text-accent); background: rgba(121, 180, 160, 0.1); padding: 2px 6px; border-radius: 2px;">--duration-fast</code>
+              communicate with the same precision as the visual components they define.
+            </p>
+            <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">
+              This technical transparency reflects Push Record's ethos: tools built for professionals who appreciate
+              the craft beneath the surface.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 24px;">
+            <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-accent); margin-bottom: 16px;">Naming Convention</div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; align-items: baseline; gap: 12px;">
+                <code style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--text-faint); min-width: 140px;">.component</code>
+                <span style="font-size: 12px; color: var(--text-muted);">Block element</span>
+              </div>
+              <div style="display: flex; align-items: baseline; gap: 12px;">
+                <code style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--text-faint); min-width: 140px;">.component__element</code>
+                <span style="font-size: 12px; color: var(--text-muted);">Child element</span>
+              </div>
+              <div style="display: flex; align-items: baseline; gap: 12px;">
+                <code style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--text-faint); min-width: 140px;">.component--variant</code>
+                <span style="font-size: 12px; color: var(--text-muted);">Modifier state</span>
+              </div>
+              <div style="display: flex; align-items: baseline; gap: 12px;">
+                <code style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--text-faint); min-width: 140px;">--token-name</code>
+                <span style="font-size: 12px; color: var(--text-muted);">Design token</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Token Glossary</h3>
+        <div class="ds-grid ds-grid--4" style="margin-bottom: 48px;">
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--duration-fast</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">100ms</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--duration-normal</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">200ms</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--ease-out</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">cubic-bezier(0.16, 1, 0.3, 1)</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--ease-spring</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">cubic-bezier(0.34, 1.56, 0.64, 1)</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--space-4</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">16px</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--radius-sm</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">4px</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--z-modal</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">50</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--blur-md</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">6px</span>
+          </div>
+
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Component Name Examples</h3>
+        <div style="background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 24px; font-family: var(--font-sf-mono); font-size: 12px; line-height: 2;">
+          <span style="color: var(--text-ghost);">/* Video production */</span><br>
+          <span style="color: var(--text-faint);">.clip</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">track</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">segment</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">marker</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">timecode</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">waveform</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">ruler</span><br>
+          <span style="color: var(--text-ghost);">/* Audio mixing */</span><br>
+          <span style="color: var(--text-faint);">.mixer-channel</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">pan-knob</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">fader</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">meter</span><br>
+          <span style="color: var(--text-ghost);">/* Color grading */</span><br>
+          <span style="color: var(--text-faint);">.color-wheel</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">vectorscope</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">waveform-monitor</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">curve-editor</span><br>
+          <span style="color: var(--text-ghost);">/* Interface */</span><br>
+          <span style="color: var(--text-faint);">.inspector</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">render-queue</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">effect-stack</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">keyframe</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">filmstrip</span>
+        </div>
+      </section>
+
     </div>
   </main>
 
