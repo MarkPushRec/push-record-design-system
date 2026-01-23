@@ -1,0 +1,150 @@
+/**
+ * Responsive Styles
+ * Media query breakpoints for components
+ */
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   ======================================== */
+
+/* Tablet and below (768px) */
+@media (max-width: 768px) {
+  /* Stack slide content vertically */
+  .slide-content {
+    flex-direction: column;
+  }
+
+  .text-panel {
+    border-right: none;
+    border-bottom: var(--border-width-1) solid var(--border-subtle);
+  }
+
+  .image-panel {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+  }
+
+  /* Reduce hero typography */
+  .text-hero {
+    font-size: 80px;
+    line-height: 72px;
+    letter-spacing: -2px;
+  }
+
+  .text-display {
+    font-size: 56px;
+    line-height: 60px;
+    letter-spacing: -1.2px;
+  }
+
+  .text-title {
+    font-size: 42px;
+    line-height: 38px;
+    letter-spacing: -1px;
+  }
+
+  /* Stack header on mobile */
+  .header__container {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .header__date,
+  .header__title,
+  .header__company {
+    position: static;
+    transform: none;
+  }
+
+  /* Reduce padding */
+  .main-content {
+    padding: 0 var(--space-3) var(--space-4);
+  }
+
+  .text-panel {
+    padding: var(--space-4);
+  }
+
+  /* Stack grid layouts */
+  .camera-info-panel__grid,
+  .data-grid,
+  .filter-chips {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hide less important elements */
+  .timeline-ruler,
+  .frame-guide__grid {
+    display: none;
+  }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+  .text-hero {
+    font-size: 48px;
+    line-height: 44px;
+    letter-spacing: -1px;
+  }
+
+  .text-display {
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: -0.8px;
+  }
+
+  .text-title {
+    font-size: 28px;
+    line-height: 26px;
+    letter-spacing: -0.6px;
+  }
+
+  .text-subtitle-lg {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  /* Further reduce padding */
+  .main-content {
+    padding: 0 var(--space-2) var(--space-3);
+  }
+
+  .text-panel {
+    padding: var(--space-3);
+  }
+
+  /* Stack horizontal layouts */
+  .button-group,
+  .chip-group,
+  .avatar-group {
+    flex-wrap: wrap;
+  }
+
+  /* Full-width inputs */
+  .input,
+  .select,
+  .textarea {
+    width: 100%;
+  }
+
+  /* Scale down data visualizations */
+  .gauge--lg {
+    width: 120px;
+    height: 120px;
+  }
+
+  .stat__value {
+    font-size: 28px;
+  }
+
+  .stat__label {
+    font-size: 10px;
+  }
+
+  /* Reduce knob sizes */
+  .knob__dial--lg {
+    width: 48px;
+    height: 48px;
+  }
+}

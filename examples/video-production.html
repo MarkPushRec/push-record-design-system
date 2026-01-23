@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Production - Push Record Design System</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Design System Page Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--color-2);
+      color: var(--color-8);
+      font-family: var(--font-sf-pro-text);
+      line-height: 1.6;
+    }
+
+    /* Layout */
+    .ds-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .ds-section {
+      margin-bottom: 120px;
+    }
+
+    .ds-section-title {
+      font-family: var(--font-sf-pro);
+      font-size: 14px;
+      font-weight: var(--weight-medium);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--color-7);
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .ds-section-description {
+      font-size: 18px;
+      color: var(--color-6);
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+
+    /* Grid */
+    .ds-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .ds-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .ds-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .ds-grid--4 { grid-template-columns: repeat(4, 1fr); }
+    .ds-grid--5 { grid-template-columns: repeat(5, 1fr); }
+
+    @media (max-width: 1024px) {
+      .ds-grid--4, .ds-grid--5 { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .ds-grid--2, .ds-grid--3, .ds-grid--4, .ds-grid--5 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Header */
+    .ds-header {
+      padding: 60px 40px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 80px;
+    }
+
+    .ds-header__title {
+      font-family: var(--font-sf-pro);
+      font-size: 64px;
+      font-weight: var(--weight-bold);
+      color: var(--color-5);
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+
+    .ds-header__subtitle {
+      font-size: 24px;
+      font-weight: var(--weight-light);
+      color: var(--color-6);
+    }
+
+    /* Navigation */
+    .ds-nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 240px;
+      height: 100vh;
+      background: var(--bg-elevated);
+      border-right: 1px solid var(--border-subtle);
+      padding: 32px 24px;
+      overflow-y: auto;
+      z-index: 100;
+    }
+
+    .ds-nav__title {
+      font-size: 14px;
+      font-weight: var(--weight-medium);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-1);
+      margin-bottom: 32px;
+    }
+
+    .ds-nav__link {
+      display: block;
+      font-size: 14px;
+      color: var(--color-6);
+      text-decoration: none;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: color 0.2s;
+    }
+
+    .ds-nav__link:hover {
+      color: var(--color-7);
+    }
+
+    .ds-main {
+      margin-left: 240px;
+    }
+
+    @media (max-width: 1024px) {
+      .ds-nav { display: none; }
+      .ds-main { margin-left: 0; }
+    }
+
+    /* Color Swatch */
+    .ds-swatch {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .ds-swatch__color {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ds-swatch__info {
+      padding: 10px 12px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .ds-swatch__name {
+      font-size: 11px;
+      font-weight: var(--weight-medium);
+      color: var(--color-1);
+      margin-bottom: 2px;
+    }
+
+    .ds-swatch__value {
+      font-family: var(--font-sf-mono);
+      font-size: 9px;
+      color: var(--color-9);
+    }
+
+    .ds-swatch__token {
+      font-family: var(--font-sf-mono);
+      font-size: 9px;
+      color: var(--color-7);
+      margin-top: 4px;
+    }
+
+    /* Typography Specimen */
+    .ds-type-specimen {
+      padding: 20px 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .ds-type-specimen__sample {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .ds-type-specimen__meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .ds-type-specimen__label {
+      font-size: 9px;
+      font-weight: var(--weight-medium);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--color-9);
+      margin-bottom: 2px;
+    }
+
+    .ds-type-specimen__value {
+      font-family: var(--font-sf-mono);
+      font-size: 11px;
+      color: var(--color-6);
+    }
+
+    /* Spacing */
+    .ds-spacing-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .ds-spacing-bar {
+      height: 16px;
+      background: var(--color-7);
+      border-radius: 2px;
+      opacity: 0.6;
+    }
+
+    .ds-spacing-label {
+      font-family: var(--font-sf-mono);
+      font-size: 11px;
+      color: var(--color-6);
+      min-width: 80px;
+    }
+
+    .ds-spacing-value {
+      font-family: var(--font-sf-mono);
+      font-size: 11px;
+      color: var(--color-9);
+      min-width: 48px;
+    }
+
+    /* Border Demo */
+    .ds-border-demo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      background: var(--bg-surface);
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .ds-border-sample {
+      width: 80px;
+      height: 56px;
+      background: var(--bg-overlay);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--color-9);
+    }
+
+    .ds-border-info {
+      flex: 1;
+    }
+
+    .ds-border-name {
+      font-size: 12px;
+      font-weight: var(--weight-medium);
+      color: var(--color-1);
+      margin-bottom: 4px;
+    }
+
+    .ds-border-spec {
+      font-family: var(--font-sf-mono);
+      font-size: 10px;
+      color: var(--color-9);
+    }
+
+    /* Effect Demo */
+    .ds-effect-demo {
+      padding: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    /* Component Card */
+    .ds-component-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .ds-component-preview {
+      padding: 24px;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .ds-component-info {
+      padding: 12px 16px;
+    }
+
+    .ds-component-name {
+      font-size: 13px;
+      font-weight: var(--weight-medium);
+      color: var(--color-1);
+      margin-bottom: 4px;
+    }
+
+    .ds-component-class {
+      font-family: var(--font-sf-mono);
+      font-size: 10px;
+      color: var(--color-7);
+    }
+
+    /* Code Block */
+    .ds-code {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 24px;
+      font-family: var(--font-sf-mono);
+      font-size: 13px;
+      color: var(--color-6);
+      overflow-x: auto;
+      white-space: pre;
+      margin-top: 24px;
+    }
+
+    /* Divider */
+    .ds-divider {
+      height: 1px;
+      background: var(--border-subtle);
+      margin: 80px 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="ds-main" style="margin-left: 0;">
+    <header class="ds-header">
+      <a href="index.html" style="color: var(--color-7); font-size: 14px; text-decoration: none;">&larr; Back to Examples</a>
+      <h1 class="ds-header__title" style="margin-top: 16px;">Video Production</h1>
+      <p class="ds-header__subtitle">Camera settings, video formats, framing, and production tools</p>
+    </header>
+    <div class="ds-container">
+      <section class="ds-section" id="video-production">
+        <div class="ds-section-title">Video Production</div>
+        <p class="ds-section-description">Specialized components for video editing workflows.</p>
+
+        <div class="ds-grid ds-grid--3">
+
+          <!-- Clip Thumbnail -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 12px;">
+              <div class="clip" style="width: 120px;">
+                <div class="clip__thumbnail" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                  <div class="clip__duration">00:42</div>
+                </div>
+                <div class="clip__info">
+                  <div class="clip__name">Interview_A.mp4</div>
+                  <div class="clip__meta">4K • 24fps</div>
+                </div>
+              </div>
+              <div class="clip clip--selected" style="width: 120px;">
+                <div class="clip__thumbnail" style="background: linear-gradient(135deg, #2d1b2e 0%, #1e1630 100%);">
+                  <div class="clip__duration">01:15</div>
+                </div>
+                <div class="clip__info">
+                  <div class="clip__name">B-Roll_03.mp4</div>
+                  <div class="clip__meta">1080p • 60fps</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Clip Thumbnail</div>
+              <div class="ds-component-class">.clip</div>
+            </div>
+          </div>
+
+          <!-- Track Lane -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0; flex-direction: column; align-items: stretch;">
+              <div class="track track--video">
+                <div class="track__header">
+                  <span class="track__icon">▶</span>
+                  <span class="track__name">Video 1</span>
+                  <div class="track__controls">
+                    <button class="track__btn track__btn--active">●</button>
+                    <button class="track__btn">🔒</button>
+                  </div>
+                </div>
+                <div class="track__content">
+                  <div class="segment" style="left: 20px; width: 80px;">
+                    <span class="segment__label">Scene 1</span>
+                  </div>
+                  <div class="segment segment--selected" style="left: 110px; width: 60px;">
+                    <span class="segment__label">Scene 2</span>
+                  </div>
+                </div>
+              </div>
+              <div class="track track--audio">
+                <div class="track__header">
+                  <span class="track__icon">♪</span>
+                  <span class="track__name">Audio 1</span>
+                  <div class="track__controls">
+                    <button class="track__btn track__btn--active">●</button>
+                    <button class="track__btn">🔒</button>
+                  </div>
+                </div>
+                <div class="track__content">
+                  <div class="segment segment--audio" style="left: 20px; width: 150px;">
+                    <span class="segment__label">VO_Take3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Track Lane</div>
+              <div class="ds-component-class">.track</div>
+            </div>
+          </div>
+
+          <!-- Bin List -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0;">
+              <div class="bin" style="width: 100%; height: 160px;">
+                <div class="bin__header">
+                  <span class="bin__title">Project Assets</span>
+                  <span class="bin__count">12</span>
+                </div>
+                <div class="bin__list scroll-area">
+                  <div class="bin__item bin__item--selected">
+                    <span class="bin__item-icon">📹</span>
+                    <span class="bin__item-name">Interview_Main.mp4</span>
+                    <span class="bin__item-duration">04:32</span>
+                  </div>
+                  <div class="bin__item">
+                    <span class="bin__item-icon">🎵</span>
+                    <span class="bin__item-name">Background_Music.wav</span>
+                    <span class="bin__item-duration">03:15</span>
+                  </div>
+                  <div class="bin__item">
+                    <span class="bin__item-icon">📹</span>
+                    <span class="bin__item-name">B-Roll_City.mp4</span>
+                    <span class="bin__item-duration">01:48</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Bin List</div>
+              <div class="ds-component-class">.bin</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- V06: ALERTS & NOTIFICATIONS -->
+      <section class="ds-section" id="camera-settings">
+        <div class="ds-section-title">Camera Settings</div>
+        <p class="ds-section-description">Exposure controls, camera parameters, and cinematography tools.</p>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Exposure Triangle</h3>
+        <div class="ds-grid ds-grid--4" style="margin-bottom: 48px;">
+
+          <!-- ISO Display -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="iso-display">
+                <div class="iso-display__value">800</div>
+                <div class="iso-display__label">ISO</div>
+                <div class="iso-display__native">Native ISO</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">ISO Display</div>
+              <div class="ds-component-class">.iso-display</div>
+            </div>
+          </div>
+
+          <!-- Shutter Display -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 12px;">
+              <div class="shutter-display">
+                <span class="shutter-display__fraction">1/</span>
+                <span class="shutter-display__value">48</span>
+                <span class="shutter-display__unit">s</span>
+              </div>
+              <div class="shutter-display shutter-display--angle">
+                <span class="shutter-display__value">180</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Shutter Display</div>
+              <div class="ds-component-class">.shutter-display</div>
+            </div>
+          </div>
+
+          <!-- Aperture Display -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="aperture-display">
+                <div class="aperture-display__iris">
+                  <div style="position: absolute; inset: 0; background: var(--border-subtle); border-radius: 50%;"></div>
+                  <div class="aperture-display__opening" style="width: 32px; height: 32px;"></div>
+                </div>
+                <div class="aperture-display__value">2.8</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Aperture Display</div>
+              <div class="ds-component-class">.aperture-display</div>
+            </div>
+          </div>
+
+          <!-- Light Meter -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="light-meter" style="width: 100%;">
+                <div class="light-meter__scale">
+                  <div class="light-meter__track"></div>
+                  <div class="light-meter__center"></div>
+                  <div class="light-meter__marker" style="left: 55%;"></div>
+                </div>
+                <div class="light-meter__labels">
+                  <span>-3</span>
+                  <span>-2</span>
+                  <span>-1</span>
+                  <span>0</span>
+                  <span>+1</span>
+                  <span>+2</span>
+                  <span>+3</span>
+                </div>
+                <div class="light-meter__value">+0.5 EV</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Light Meter</div>
+              <div class="ds-component-class">.light-meter</div>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Color & Temperature</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Color Temperature -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="color-temp" style="width: 100%;">
+                <div class="color-temp__gradient">
+                  <div class="color-temp__marker" style="left: 45%;"></div>
+                </div>
+                <div class="color-temp__value">
+                  <span class="color-temp__number">5600</span>
+                  <span class="color-temp__unit">K</span>
+                </div>
+                <div class="color-temp__preset">Daylight</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Color Temperature</div>
+              <div class="ds-component-class">.color-temp</div>
+            </div>
+          </div>
+
+          <!-- False Color -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="false-color" style="width: 100%;">
+                <div class="false-color__bar">
+                  <div class="false-color__segment false-color__segment--black"></div>
+                  <div class="false-color__segment false-color__segment--purple"></div>
+                  <div class="false-color__segment false-color__segment--blue"></div>
+                  <div class="false-color__segment false-color__segment--cyan"></div>
+                  <div class="false-color__segment false-color__segment--green"></div>
+                  <div class="false-color__segment false-color__segment--gray"></div>
+                  <div class="false-color__segment false-color__segment--yellow"></div>
+                  <div class="false-color__segment false-color__segment--orange"></div>
+                  <div class="false-color__segment false-color__segment--red"></div>
+                </div>
+                <div class="false-color__labels">
+                  <span>0%</span>
+                  <span>18%</span>
+                  <span>50%</span>
+                  <span>70%</span>
+                  <span>100%</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">False Color</div>
+              <div class="ds-component-class">.false-color</div>
+            </div>
+          </div>
+
+          <!-- Noise Indicator -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="noise-indicator">
+                <div class="noise-indicator__preview">
+                  <div class="noise-indicator__grain"></div>
+                </div>
+                <div class="noise-indicator__level">Low Noise</div>
+                <div class="noise-indicator__label">ISO 800</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Noise Indicator</div>
+              <div class="ds-component-class">.noise-indicator</div>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Lens & Sensor</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Lens Info -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="lens-info">
+                <div class="lens-info__focal">
+                  <span class="lens-info__focal-value">50</span>
+                  <span class="lens-info__focal-unit">mm</span>
+                </div>
+                <div class="lens-info__name">Zeiss CP.3 50mm T2.1</div>
+                <div class="lens-info__meta">
+                  <span>T2.1</span>
+                  <span>9 blades</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Lens Info</div>
+              <div class="ds-component-class">.lens-info</div>
+            </div>
+          </div>
+
+          <!-- Sensor Display -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="sensor-display" style="padding: 12px;">
+                <div class="sensor-display__visual">
+                  <div class="sensor-display__outline sensor-display__outline--ff"></div>
+                  <div class="sensor-display__outline sensor-display__outline--s35 sensor-display__active"></div>
+                  <div class="sensor-display__outline sensor-display__outline--mft"></div>
+                </div>
+                <div class="sensor-display__info">
+                  <div class="sensor-display__name">Super 35</div>
+                  <div class="sensor-display__size">24.9 × 18.7mm</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Sensor Display</div>
+              <div class="ds-component-class">.sensor-display</div>
+            </div>
+          </div>
+
+          <!-- Aspect Selector -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="aspect-selector">
+                <div class="aspect-selector__option">
+                  <div class="aspect-selector__preview aspect-selector__preview--16-9"></div>
+                  <span class="aspect-selector__label">16:9</span>
+                </div>
+                <div class="aspect-selector__option aspect-selector__option--active">
+                  <div class="aspect-selector__preview aspect-selector__preview--239"></div>
+                  <span class="aspect-selector__label">2.39:1</span>
+                </div>
+                <div class="aspect-selector__option">
+                  <div class="aspect-selector__preview aspect-selector__preview--4-3"></div>
+                  <span class="aspect-selector__label">4:3</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Aspect Selector</div>
+              <div class="ds-component-class">.aspect-selector</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- V08: VIDEO FORMAT -->
+      <section class="ds-section" id="video-format">
+        <div class="ds-section-title">Video Format Specs</div>
+        <p class="ds-section-description">Bitrate, bit depth, codec, and color science specifications.</p>
+
+        <div class="ds-grid ds-grid--4" style="margin-bottom: 48px;">
+
+          <!-- Bitrate -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; width: 100%; padding: 16px;">
+              <div style="display: flex; align-items: baseline; gap: 4px;">
+                <span class="bitrate__value">400</span>
+                <span class="bitrate__unit">Mbps</span>
+              </div>
+              <div class="bitrate__bar" style="width: 100%;">
+                <div class="bitrate__bar-fill" style="width: 75%;"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Bitrate</div>
+              <div class="ds-component-class">.bitrate</div>
+            </div>
+          </div>
+
+          <!-- Bit Depth -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 8px;">
+              <div class="bit-depth bit-depth--8">
+                <span class="bit-depth__value">8</span>
+                <span class="bit-depth__label">bit</span>
+              </div>
+              <div class="bit-depth bit-depth--10">
+                <span class="bit-depth__value">10</span>
+                <span class="bit-depth__label">bit</span>
+              </div>
+              <div class="bit-depth bit-depth--12">
+                <span class="bit-depth__value">12</span>
+                <span class="bit-depth__label">bit</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Bit Depth</div>
+              <div class="ds-component-class">.bit-depth</div>
+            </div>
+          </div>
+
+          <!-- Chroma Subsampling -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 8px;">
+              <div class="chroma chroma--444">
+                <span class="chroma__ratio">4</span>
+                <span class="chroma__separator">:</span>
+                <span class="chroma__ratio">4</span>
+                <span class="chroma__separator">:</span>
+                <span class="chroma__ratio">4</span>
+              </div>
+              <div class="chroma chroma--422">
+                <span class="chroma__ratio">4</span>
+                <span class="chroma__separator">:</span>
+                <span class="chroma__ratio">2</span>
+                <span class="chroma__separator">:</span>
+                <span class="chroma__ratio">2</span>
+              </div>
+              <div class="chroma chroma--420">
+                <span class="chroma__ratio">4</span>
+                <span class="chroma__separator">:</span>
+                <span class="chroma__ratio">2</span>
+                <span class="chroma__separator">:</span>
+                <span class="chroma__ratio">0</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Chroma Subsampling</div>
+              <div class="ds-component-class">.chroma</div>
+            </div>
+          </div>
+
+          <!-- Codec Badge -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 8px;">
+              <div class="codec-badge codec-badge--raw">
+                <span class="codec-badge__name">BRAW</span>
+                <span class="codec-badge__type">RAW</span>
+              </div>
+              <div class="codec-badge">
+                <span class="codec-badge__name">ProRes</span>
+                <span class="codec-badge__type">422 HQ</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Codec Badge</div>
+              <div class="ds-component-class">.codec-badge</div>
+            </div>
+          </div>
+
+          <!-- Dynamic Range -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 12px;">
+              <div class="dynamic-range" style="width: 100%;">
+                <div class="dynamic-range__header">
+                  <span class="dynamic-range__label">Dynamic Range</span>
+                  <span class="dynamic-range__value">13+ Stops</span>
+                </div>
+                <div class="dynamic-range__bar"></div>
+                <div class="dynamic-range__stops">
+                  <span>-6</span>
+                  <span>-3</span>
+                  <span>0</span>
+                  <span>+3</span>
+                  <span>+6</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Dynamic Range</div>
+              <div class="ds-component-class">.dynamic-range</div>
+            </div>
+          </div>
+
+          <!-- Color Space -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 8px;">
+              <div class="color-space">
+                <div class="color-space__icon"></div>
+                <span class="color-space__name">Rec.2020</span>
+                <span class="color-space__tag">HDR</span>
+              </div>
+              <div class="color-space">
+                <div class="color-space__icon"></div>
+                <span class="color-space__name">Rec.709</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Color Space</div>
+              <div class="ds-component-class">.color-space</div>
+            </div>
+          </div>
+
+          <!-- Resolution Badge -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 8px;">
+              <div class="resolution-badge resolution-badge--8k">
+                <span class="resolution-badge__value">8K</span>
+                <span class="resolution-badge__label">7680×4320</span>
+              </div>
+              <div class="resolution-badge resolution-badge--4k">
+                <span class="resolution-badge__value">4K</span>
+                <span class="resolution-badge__label">3840×2160</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Resolution Badge</div>
+              <div class="ds-component-class">.resolution-badge</div>
+            </div>
+          </div>
+
+          <!-- Stabilization -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 8px;">
+              <div class="stabilization stabilization--active">
+                <div class="stabilization__icon">
+                  <div class="stabilization__icon-inner"></div>
+                </div>
+                <span class="stabilization__label">IBIS Active</span>
+                <span class="stabilization__mode">5-Axis</span>
+              </div>
+              <div class="stabilization">
+                <div class="stabilization__icon">
+                  <div class="stabilization__icon-inner"></div>
+                </div>
+                <span class="stabilization__label">OIS Off</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Stabilization</div>
+              <div class="ds-component-class">.stabilization</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- V08: FRAME GUIDES & STORAGE -->
+      <section class="ds-section" id="framing-storage">
+        <div class="ds-section-title">Framing & Storage</div>
+        <p class="ds-section-description">Composition guides, recording status, and media management.</p>
+
+        <div class="ds-grid ds-grid--2" style="margin-bottom: 48px;">
+
+          <!-- Frame Guide -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 12px;">
+              <div class="frame-guide" style="width: 100%;">
+                <div class="frame-guide__grid">
+                  <div class="frame-guide__cell"></div>
+                  <div class="frame-guide__cell"></div>
+                  <div class="frame-guide__cell"></div>
+                  <div class="frame-guide__cell"></div>
+                  <div class="frame-guide__cell"></div>
+                  <div class="frame-guide__cell"></div>
+                  <div class="frame-guide__cell"></div>
+                  <div class="frame-guide__cell"></div>
+                  <div class="frame-guide__cell"></div>
+                </div>
+                <div class="frame-guide__center"></div>
+                <div class="frame-guide__safe-area frame-guide__safe-area--action"></div>
+                <div class="frame-guide__safe-area frame-guide__safe-area--title"></div>
+                <div class="frame-guide__letterbox frame-guide__letterbox--top" style="height: 12%;"></div>
+                <div class="frame-guide__letterbox frame-guide__letterbox--bottom" style="height: 12%;"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Frame Guide</div>
+              <div class="ds-component-class">.frame-guide</div>
+            </div>
+          </div>
+
+          <!-- Wireframe Preview -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 12px;">
+              <div class="wireframe-preview" style="width: 100%;">
+                <div class="wireframe-preview__grid"></div>
+                <div class="wireframe-preview__object">
+                  <div class="wireframe-preview__face" style="transform: translateZ(30px);"></div>
+                  <div class="wireframe-preview__face" style="transform: translateZ(-30px);"></div>
+                </div>
+                <span class="wireframe-preview__label">3D Wireframe</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Wireframe Preview</div>
+              <div class="ds-component-class">.wireframe-preview</div>
+            </div>
+          </div>
+
+          <!-- Storage Card -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 12px;">
+              <div class="storage-card" style="width: 100%;">
+                <div class="storage-card__header">
+                  <div class="storage-card__slot">
+                    <span class="storage-card__icon">💾</span>
+                    <span class="storage-card__name">CFexpress A</span>
+                  </div>
+                  <span class="storage-card__type">512GB</span>
+                </div>
+                <div class="storage-card__bar">
+                  <div class="storage-card__bar-fill storage-card__bar-fill--warning" style="width: 72%;"></div>
+                </div>
+                <div class="storage-card__info">
+                  <span class="storage-card__used">368 GB used</span>
+                  <span class="storage-card__remaining">144 GB free</span>
+                </div>
+                <div class="storage-card__time">~45 min remaining @ current settings</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Storage Card</div>
+              <div class="ds-component-class">.storage-card</div>
+            </div>
+          </div>
+
+          <!-- Recording Indicator -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 12px;">
+              <div class="recording-indicator">
+                <div class="recording-indicator__dot"></div>
+                <span class="recording-indicator__label">REC</span>
+                <span class="recording-indicator__time">00:12:34</span>
+              </div>
+              <div class="camera-info-panel" style="width: 100%;">
+                <div class="camera-info-panel__item">
+                  <span class="camera-info-panel__value">800</span>
+                  <span class="camera-info-panel__label">ISO</span>
+                </div>
+                <div class="camera-info-panel__item">
+                  <span class="camera-info-panel__value">180°</span>
+                  <span class="camera-info-panel__label">Shutter</span>
+                </div>
+                <div class="camera-info-panel__item">
+                  <span class="camera-info-panel__value">f/2.8</span>
+                  <span class="camera-info-panel__label">Aperture</span>
+                </div>
+                <div class="camera-info-panel__item">
+                  <span class="camera-info-panel__value">5600K</span>
+                  <span class="camera-info-panel__label">WB</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Camera Info Panel</div>
+              <div class="ds-component-class">.camera-info-panel</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- V08: LIGHTING CONTROLS -->
+      <section class="ds-section" id="lighting">
+        <div class="ds-section-title">Lighting Controls</div>
+        <p class="ds-section-description">Aputure-style lighting parameters and controls.</p>
+
+        <div class="ds-grid ds-grid--3">
+
+          <!-- Light Intensity -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="light-intensity">
+                <div class="light-intensity__dial">
+                  <div class="light-intensity__track">
+                    <div class="light-intensity__fill" style="transform: rotate(135deg);"></div>
+                  </div>
+                  <div class="light-intensity__value">75</div>
+                </div>
+                <div class="light-intensity__label">Intensity</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Light Intensity</div>
+              <div class="ds-component-class">.light-intensity</div>
+            </div>
+          </div>
+
+          <!-- CCT Slider -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="cct-slider" style="width: 100%;">
+                <div class="cct-slider__label">
+                  <span>2700K</span>
+                  <span>10000K</span>
+                </div>
+                <div class="cct-slider__track">
+                  <div class="cct-slider__thumb" style="left: 40%;"></div>
+                </div>
+                <div class="cct-slider__value">5600K</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">CCT Slider</div>
+              <div class="ds-component-class">.cct-slider</div>
+            </div>
+          </div>
+
+          <!-- HSI Controls -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="hsi-controls" style="width: 100%;">
+                <div class="hsi-control">
+                  <span class="hsi-control__label">H</span>
+                  <div class="hsi-control__track hsi-control__track--hue">
+                    <div class="hsi-control__thumb" style="left: 30%;"></div>
+                  </div>
+                  <span class="hsi-control__value">108°</span>
+                </div>
+                <div class="hsi-control">
+                  <span class="hsi-control__label">S</span>
+                  <div class="hsi-control__track hsi-control__track--sat">
+                    <div class="hsi-control__thumb" style="left: 70%;"></div>
+                  </div>
+                  <span class="hsi-control__value">70%</span>
+                </div>
+                <div class="hsi-control">
+                  <span class="hsi-control__label">I</span>
+                  <div class="hsi-control__track hsi-control__track--int">
+                    <div class="hsi-control__thumb" style="left: 85%;"></div>
+                  </div>
+                  <span class="hsi-control__value">85%</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">HSI Controls</div>
+              <div class="ds-component-class">.hsi-controls</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+    </div>
+  </main>
+</body>
+</html>

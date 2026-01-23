@@ -1,0 +1,140 @@
+/**
+ * Layout Components
+ * Page containers, slide layouts, panels
+ */
+
+/* ========================================
+   PAGE & SLIDE LAYOUT
+   ======================================== */
+
+/**
+ * Page Container
+ * Full page wrapper with black background
+ */
+.page {
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  width: 100%;
+}
+
+/**
+ * Slide
+ * Full-height section (1920x1080 in Figma)
+ * Contains: background image, main content
+ */
+.slide {
+  position: relative;
+  width: 100%;
+  height: var(--slide-height);
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  overflow: hidden;
+}
+
+/**
+ * Background Image Container
+ * Positioned behind main content
+ * Opacity: 33%
+ */
+.slide__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-base);
+}
+
+.slide__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: var(--opacity-bg-image);
+}
+
+/**
+ * Main Content
+ * Padding: 0 40px 64px
+ * Gap: 12px between header and content
+ */
+.main-content {
+  position: relative;
+  z-index: var(--z-raised);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  height: 100%;
+  padding: 0 var(--content-padding-x) var(--content-padding-bottom);
+  border-left: var(--border-width-1) solid var(--bg-primary);
+  border-right: var(--border-width-1) solid var(--bg-primary);
+  border-bottom: var(--border-width-1) solid var(--bg-primary);
+  overflow: hidden;
+}
+
+
+/* ========================================
+   SLIDE CONTENT LAYOUT
+   ======================================== */
+
+/**
+ * Slide Content
+ * Two-panel layout (text + images)
+ */
+.slide-content {
+  display: flex;
+  flex: 1 0 0;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 1px;
+  min-width: 1px;
+  padding: var(--space-1);
+  border-left: var(--border-width-1) solid var(--border-subtle);
+  border-right: var(--border-width-1) solid var(--border-subtle);
+  border-bottom: var(--border-width-1) solid var(--border-subtle);
+  border-radius: var(--radius-none);
+}
+
+/**
+ * Text Panel (left side)
+ * Background: rgba(255,255,255,0.02) with 6px blur
+ */
+.text-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  height: 100%;
+  min-height: 1px;
+  min-width: 1px;
+  padding: var(--text-panel-padding-y) var(--text-panel-padding-right) var(--text-panel-padding-y) var(--text-panel-padding-left);
+  background: var(--bg-surface);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border-right: var(--border-width-1) solid var(--border-subtle);
+  border-radius: var(--radius-none);
+  overflow: auto;
+}
+
+/* Gap variants for text panel - ULTRA DENSE */
+.text-panel--gap-sm { gap: var(--space-2); }
+.text-panel--gap-md { gap: var(--space-4); }
+.text-panel--gap-lg { gap: var(--space-6); }
+
+/**
+ * Image Panel (right side)
+ * Width: 791px
+ */
+.image-panel {
+  width: var(--image-panel-width);
+  height: 100%;
+  flex-shrink: 0;
+  background: var(--bg-surface);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border-radius: var(--radius-none);
+  overflow: hidden;
+}
+
+.image-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+

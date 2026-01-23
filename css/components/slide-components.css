@@ -1,0 +1,313 @@
+/**
+ * Slide Components
+ * Header, Scene info, Exposition, Voice over, Question, Hero, Display heading, Image grid
+ */
+
+/* ========================================
+   HEADER COMPONENT
+   ======================================== */
+
+/**
+ * Header
+ * Background: rgba(0,0,0,0.8) with 4px blur
+ * Padding: 24px top, 24px bottom
+ */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--header-padding-top);
+  padding-bottom: var(--header-padding-bottom);
+  background: var(--bg-elevated);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border-bottom: var(--border-width-1) solid var(--border-subtle);
+  border-radius: var(--radius-none);
+  width: 100%;
+  flex-shrink: 0;
+  z-index: var(--z-header);
+}
+
+/**
+ * Header Container
+ * Holds date, title, company in relative positioning
+ */
+.header__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-max-width);
+}
+
+/**
+ * Header Date (left)
+ */
+.header__date {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/**
+ * Header Title (center)
+ */
+.header__title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/**
+ * Header Company (right)
+ */
+.header__company {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+/* ========================================
+   SCENE INFO COMPONENT
+   ======================================== */
+
+/**
+ * Scene Info - DENSE
+ * Contains: scene number, title, subtitle, meta
+ */
+.scene-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-section);
+  width: 100%;
+}
+
+/**
+ * Scene Info Header - DENSE
+ * Contains: scene number + title
+ */
+.scene-info__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-component);
+}
+
+/**
+ * Scene Info Location - DENSE
+ * Contains: subtitle + meta
+ */
+.scene-info__location {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-element);
+  padding-top: var(--space-4);
+}
+
+/* ========================================
+   EXPOSITION BLOCK COMPONENT
+   ======================================== */
+
+/**
+ * Exposition - ULTRA DENSE
+ * Body text block with left border accent
+ */
+.exposition {
+  width: 100%;
+  border-left: var(--border-width-2) solid var(--border-medium);
+  padding-left: var(--space-4);
+  border-radius: var(--radius-none);
+}
+
+/**
+ * Exposition Content
+ * Contains the actual text
+ */
+.exposition__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.exposition__content p {
+  margin: 0;
+}
+
+.exposition__content ul {
+  margin: 0;
+  padding-left: var(--space-9);
+  list-style-type: disc;
+}
+
+.exposition__content li {
+  margin: 0;
+}
+
+/* ========================================
+   VOICE OVER COMPONENT
+   ======================================== */
+
+/**
+ * Voice Over Block - ULTRA DENSE
+ * Contains: label + quote
+ */
+.voice-over {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/**
+ * Voice Over Label Container - ULTRA DENSE
+ * Border: 2px solid teal left
+ */
+.voice-over__label {
+  display: flex;
+  flex-direction: column;
+  border-left: var(--border-width-2) solid var(--border-accent);
+  padding: var(--space-1) var(--space-2) var(--space-1) var(--space-3);
+  border-radius: var(--radius-none);
+}
+
+/**
+ * Voice Over Content - ULTRA DENSE
+ * Border: 1px solid light left
+ */
+.voice-over__content {
+  border-left: var(--border-width-1) solid var(--border-light);
+  padding-left: var(--space-4);
+  border-radius: var(--radius-none);
+}
+
+/* ========================================
+   QUESTION HEADER COMPONENT
+   ======================================== */
+
+/**
+ * Question Header - ULTRA DENSE
+ * "QUESTION 01" with decorative line
+ */
+.question-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: var(--space-5);
+}
+
+.question-header__line {
+  width: var(--space-12);
+  height: var(--border-width-1);
+  background-color: var(--border-accent-muted);
+  border-radius: var(--radius-full);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+/**
+ * Hero - DENSE
+ * Full height centered content
+ */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-hero);
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+/**
+ * Hero Paragraph Container
+ */
+.hero__tagline-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-1);
+}
+
+/**
+ * Hero Heading Container
+ */
+.hero__title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(var(--shadow-text));
+}
+
+/**
+ * Hero Description Container
+ */
+.hero__description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ========================================
+   DISPLAY HEADING SECTION
+   ======================================== */
+
+/**
+ * Display Heading - DENSE
+ * Large heading with optional subtitle
+ */
+.display-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-section);
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/**
+ * Display Heading Subtitle - ULTRA DENSE
+ */
+.display-heading__subtitle {
+  border-left: var(--border-width-2) solid var(--border-medium);
+  padding-left: var(--space-4);
+  max-width: 800px;
+  border-radius: var(--radius-none);
+}
+
+/* ========================================
+   IMAGE GRID
+   ======================================== */
+
+/**
+ * Image Grid - ULTRA DENSE
+ * 2-column grid for image panel
+ */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+  height: 100%;
+  padding: var(--space-2);
+}
+
+.image-grid__item {
+  overflow: hidden;
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+}
+
+.image-grid__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-grid__item--full {
+  grid-column: span 2;
+}
+

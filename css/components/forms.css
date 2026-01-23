@@ -1,0 +1,687 @@
+/**
+ * Form Components
+ * Toggle, Button, Input, Checkbox, Radio, Select, Textarea, Search, Tag/Chip, File Upload
+ */
+
+/* ========================================
+   TOGGLE SWITCH
+   ======================================== */
+
+/**
+ * Toggle
+ * On/off switch
+ */
+.toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  cursor: pointer;
+  min-height: 44px;  /* WCAG touch target minimum */
+}
+
+.toggle__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle__track {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+  transition: background var(--transition-fast);
+}
+
+.toggle__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: var(--text-primary);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast);
+}
+
+.toggle__input:checked + .toggle__track {
+  background: var(--teal);
+}
+
+.toggle__input:checked + .toggle__track .toggle__thumb {
+  transform: translateX(20px);
+}
+
+.toggle__input:focus-visible + .toggle__track {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.toggle__label {
+  font-family: var(--font-sf-pro-text);
+  font-size: 14px;
+  color: var(--text-body);
+}
+
+
+/* ========================================
+   BUTTON
+   ======================================== */
+
+/**
+ * Button
+ * Interactive button component
+ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  font-family: var(--font-sf-pro-text);
+  font-size: 13px;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.btn:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.btn--primary {
+  background: var(--teal);
+  color: var(--black);
+  border-color: var(--teal);
+}
+
+.btn--primary:hover {
+  background: rgba(121, 180, 160, 0.85);
+}
+
+.btn--primary:active {
+  background: rgba(121, 180, 160, 0.7);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--text-body);
+  border-color: var(--border-light);
+}
+
+.btn--secondary:hover {
+  background: var(--state-hover);
+  border-color: var(--border-medium);
+}
+
+.btn--secondary:active {
+  background: var(--state-active);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: transparent;
+}
+
+.btn--ghost:hover {
+  color: var(--text-body);
+  background: var(--state-hover);
+}
+
+.btn--sm {
+  padding: var(--space-2) var(--space-3);
+  font-size: 12px;
+  min-height: 44px;  /* WCAG touch target minimum */
+  min-width: 44px;
+}
+
+.btn--lg {
+  padding: var(--space-4) var(--space-6);
+  font-size: 14px;
+}
+
+.btn:disabled,
+.btn--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+
+/* ========================================
+   INPUT
+   ======================================== */
+
+/**
+ * Input
+ * Text input field
+ */
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.input__label {
+  font-family: var(--font-sf-pro-text);
+  font-size: 11px;
+  font-weight: var(--weight-medium);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.input__field {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-sf-pro-text);
+  font-size: 14px;
+  color: var(--text-body);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.input__field::placeholder {
+  color: var(--text-faint);
+}
+
+.input__field:hover {
+  border-color: var(--border-light);
+}
+
+.input__field:focus {
+  outline: none;
+  border-color: var(--teal);
+  background: rgba(121, 180, 160, 0.05);
+}
+
+.input__field--error {
+  border-color: var(--red);
+}
+
+.input__hint {
+  font-family: var(--font-sf-pro-text);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.input__error {
+  font-family: var(--font-sf-pro-text);
+  font-size: 11px;
+  color: var(--red);
+}
+
+
+/* ========================================
+   CHECKBOX
+   ======================================== */
+
+/**
+ * Checkbox
+ * Custom checkbox input
+ */
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+.checkbox__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox__box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  border: 1px solid var(--border-medium);
+  border-radius: 3px;
+  transition: all var(--transition-fast);
+}
+
+.checkbox__box svg {
+  width: 10px;
+  height: 10px;
+  color: var(--black);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all var(--transition-fast);
+}
+
+.checkbox__input:checked + .checkbox__box {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+
+.checkbox__input:checked + .checkbox__box svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.checkbox__input:focus-visible + .checkbox__box {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.checkbox__label {
+  font-family: var(--font-sf-pro-text);
+  font-size: 13px;
+  color: var(--text-body);
+}
+
+.checkbox--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+
+/* ========================================
+   RADIO
+   ======================================== */
+
+/**
+ * Radio
+ * Custom radio button
+ */
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+.radio__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio__circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.radio__circle::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--black);
+  border-radius: var(--radius-full);
+  opacity: 0;
+  transform: scale(0);
+  transition: all var(--transition-fast);
+}
+
+.radio__input:checked + .radio__circle {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+
+.radio__input:checked + .radio__circle::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.radio__input:focus-visible + .radio__circle {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.radio__label {
+  font-family: var(--font-sf-pro-text);
+  font-size: 13px;
+  color: var(--text-body);
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.radio-group--horizontal {
+  flex-direction: row;
+  gap: var(--space-4);
+}
+
+
+/* ========================================
+   SELECT
+   ======================================== */
+
+/**
+ * Select
+ * Custom dropdown select
+ */
+.select {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.select__label {
+  font-family: var(--font-sf-pro-text);
+  font-size: 11px;
+  font-weight: var(--weight-medium);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.select__field {
+  appearance: none;
+  width: 100%;
+  padding: var(--space-2) var(--space-8) var(--space-2) var(--space-3);
+  font-family: var(--font-sf-pro-text);
+  font-size: 13px;
+  color: var(--text-body);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 4.5L6 7.5L9 4.5' stroke='%23666' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.select__field:hover {
+  border-color: var(--border-light);
+}
+
+.select__field:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+
+/* ========================================
+   TEXTAREA
+   ======================================== */
+
+/**
+ * Textarea
+ * Multi-line text input
+ */
+.textarea {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.textarea__label {
+  font-family: var(--font-sf-pro-text);
+  font-size: 11px;
+  font-weight: var(--weight-medium);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.textarea__field {
+  width: 100%;
+  min-height: 80px;
+  padding: var(--space-3);
+  font-family: var(--font-sf-pro-text);
+  font-size: 13px;
+  color: var(--text-body);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  resize: vertical;
+  transition: border-color var(--transition-fast);
+}
+
+.textarea__field::placeholder {
+  color: var(--text-faint);
+}
+
+.textarea__field:hover {
+  border-color: var(--border-light);
+}
+
+.textarea__field:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+.textarea__count {
+  font-family: var(--font-sf-mono);
+  font-size: 10px;
+  color: var(--text-ghost);
+  text-align: right;
+}
+
+
+/* ========================================
+   SEARCH INPUT
+   ======================================== */
+
+/**
+ * Search
+ * Search input with icon
+ */
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search__icon {
+  position: absolute;
+  left: var(--space-3);
+  width: 14px;
+  height: 14px;
+  color: var(--text-faint);
+  pointer-events: none;
+}
+
+.search__input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-8);
+  font-family: var(--font-sf-pro-text);
+  font-size: 13px;
+  color: var(--text-body);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.search__input::placeholder {
+  color: var(--text-faint);
+}
+
+.search__input:hover {
+  border-color: var(--border-light);
+}
+
+.search__input:focus {
+  outline: none;
+  border-color: var(--teal);
+  background: rgba(121, 180, 160, 0.05);
+}
+
+.search__clear {
+  position: absolute;
+  right: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: var(--text-faint);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.search__input:not(:placeholder-shown) ~ .search__clear {
+  opacity: 1;
+}
+
+.search__clear:hover {
+  color: var(--text-body);
+  background: var(--state-hover);
+}
+
+
+/* ========================================
+   TAG / CHIP
+   ======================================== */
+
+/**
+ * Tag
+ * Removable label
+ */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 3px var(--space-2) 3px var(--space-2);
+  font-family: var(--font-sf-pro-text);
+  font-size: 11px;
+  color: var(--text-body);
+  background: var(--border-light);
+  border-radius: var(--radius-sm);
+}
+
+.tag__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  color: var(--text-faint);
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-right: -4px;
+}
+
+.tag__remove:hover {
+  color: var(--text-body);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tag--accent {
+  background: rgba(121, 180, 160, 0.2);
+  color: var(--teal);
+}
+
+.tag-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  min-height: 36px;
+}
+
+.tag-input__field {
+  flex: 1;
+  min-width: 80px;
+  padding: 2px var(--space-1);
+  font-family: var(--font-sf-pro-text);
+  font-size: 13px;
+  color: var(--text-body);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.tag-input__field::placeholder {
+  color: var(--text-faint);
+}
+
+
+/* ========================================
+   FILE UPLOAD
+   ======================================== */
+
+/**
+ * Upload
+ * File upload dropzone
+ */
+.upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  background: var(--bg-surface);
+  border: 1px dashed var(--border-light);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.upload:hover {
+  border-color: var(--teal);
+  background: rgba(121, 180, 160, 0.05);
+}
+
+.upload--drag {
+  border-color: var(--teal);
+  background: rgba(121, 180, 160, 0.1);
+}
+
+.upload__icon {
+  width: 32px;
+  height: 32px;
+  color: var(--text-faint);
+}
+
+.upload__text {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.upload__hint {
+  font-size: 11px;
+  color: var(--text-ghost);
+}
+
+.upload--compact {
+  flex-direction: row;
+  padding: var(--space-3) var(--space-4);
+}
+
+.upload--compact .upload__icon {
+  width: 20px;
+  height: 20px;
+}
+

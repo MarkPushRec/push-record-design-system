@@ -5,7 +5,7 @@
 
 @import './design-tokens.css';
 @import './typography.css';
-@import './components.css';
+@import './components/_index.css';
 
 /* ========================================
    CSS RESET

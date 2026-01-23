@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor Tools - Push Record Design System</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Design System Page Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--color-2);
+      color: var(--color-8);
+      font-family: var(--font-sf-pro-text);
+      line-height: 1.6;
+    }
+
+    /* Layout */
+    .ds-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .ds-section {
+      margin-bottom: 120px;
+    }
+
+    .ds-section-title {
+      font-family: var(--font-sf-pro);
+      font-size: 14px;
+      font-weight: var(--weight-medium);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--color-7);
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .ds-section-description {
+      font-size: 18px;
+      color: var(--color-6);
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+
+    /* Grid */
+    .ds-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .ds-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .ds-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .ds-grid--4 { grid-template-columns: repeat(4, 1fr); }
+    .ds-grid--5 { grid-template-columns: repeat(5, 1fr); }
+
+    @media (max-width: 1024px) {
+      .ds-grid--4, .ds-grid--5 { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .ds-grid--2, .ds-grid--3, .ds-grid--4, .ds-grid--5 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Header */
+    .ds-header {
+      padding: 60px 40px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 80px;
+    }
+
+    .ds-header__title {
+      font-family: var(--font-sf-pro);
+      font-size: 64px;
+      font-weight: var(--weight-bold);
+      color: var(--color-5);
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+
+    .ds-header__subtitle {
+      font-size: 24px;
+      font-weight: var(--weight-light);
+      color: var(--color-6);
+    }
+
+    /* Navigation */
+    .ds-nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 240px;
+      height: 100vh;
+      background: var(--bg-elevated);
+      border-right: 1px solid var(--border-subtle);
+      padding: 32px 24px;
+      overflow-y: auto;
+      z-index: 100;
+    }
+
+    .ds-nav__title {
+      font-size: 14px;
+      font-weight: var(--weight-medium);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-1);
+      margin-bottom: 32px;
+    }
+
+    .ds-nav__link {
+      display: block;
+      font-size: 14px;
+      color: var(--color-6);
+      text-decoration: none;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: color 0.2s;
+    }
+
+    .ds-nav__link:hover {
+      color: var(--color-7);
+    }
+
+    .ds-main {
+      margin-left: 240px;
+    }
+
+    @media (max-width: 1024px) {
+      .ds-nav { display: none; }
+      .ds-main { margin-left: 0; }
+    }
+
+    /* Color Swatch */
+    .ds-swatch {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .ds-swatch__color {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ds-swatch__info {
+      padding: 10px 12px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .ds-swatch__name {
+      font-size: 11px;
+      font-weight: var(--weight-medium);
+      color: var(--color-1);
+      margin-bottom: 2px;
+    }
+
+    .ds-swatch__value {
+      font-family: var(--font-sf-mono);
+      font-size: 9px;
+      color: var(--color-9);
+    }
+
+    .ds-swatch__token {
+      font-family: var(--font-sf-mono);
+      font-size: 9px;
+      color: var(--color-7);
+      margin-top: 4px;
+    }
+
+    /* Typography Specimen */
+    .ds-type-specimen {
+      padding: 20px 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .ds-type-specimen__sample {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .ds-type-specimen__meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .ds-type-specimen__label {
+      font-size: 9px;
+      font-weight: var(--weight-medium);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--color-9);
+      margin-bottom: 2px;
+    }
+
+    .ds-type-specimen__value {
+      font-family: var(--font-sf-mono);
+      font-size: 11px;
+      color: var(--color-6);
+    }
+
+    /* Spacing */
+    .ds-spacing-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .ds-spacing-bar {
+      height: 16px;
+      background: var(--color-7);
+      border-radius: 2px;
+      opacity: 0.6;
+    }
+
+    .ds-spacing-label {
+      font-family: var(--font-sf-mono);
+      font-size: 11px;
+      color: var(--color-6);
+      min-width: 80px;
+    }
+
+    .ds-spacing-value {
+      font-family: var(--font-sf-mono);
+      font-size: 11px;
+      color: var(--color-9);
+      min-width: 48px;
+    }
+
+    /* Border Demo */
+    .ds-border-demo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      background: var(--bg-surface);
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .ds-border-sample {
+      width: 80px;
+      height: 56px;
+      background: var(--bg-overlay);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--color-9);
+    }
+
+    .ds-border-info {
+      flex: 1;
+    }
+
+    .ds-border-name {
+      font-size: 12px;
+      font-weight: var(--weight-medium);
+      color: var(--color-1);
+      margin-bottom: 4px;
+    }
+
+    .ds-border-spec {
+      font-family: var(--font-sf-mono);
+      font-size: 10px;
+      color: var(--color-9);
+    }
+
+    /* Effect Demo */
+    .ds-effect-demo {
+      padding: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    /* Component Card */
+    .ds-component-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .ds-component-preview {
+      padding: 24px;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .ds-component-info {
+      padding: 12px 16px;
+    }
+
+    .ds-component-name {
+      font-size: 13px;
+      font-weight: var(--weight-medium);
+      color: var(--color-1);
+      margin-bottom: 4px;
+    }
+
+    .ds-component-class {
+      font-family: var(--font-sf-mono);
+      font-size: 10px;
+      color: var(--color-7);
+    }
+
+    /* Code Block */
+    .ds-code {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 24px;
+      font-family: var(--font-sf-mono);
+      font-size: 13px;
+      color: var(--color-6);
+      overflow-x: auto;
+      white-space: pre;
+      margin-top: 24px;
+    }
+
+    /* Divider */
+    .ds-divider {
+      height: 1px;
+      background: var(--border-subtle);
+      margin: 80px 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="ds-main" style="margin-left: 0;">
+    <header class="ds-header">
+      <a href="index.html" style="color: var(--color-7); font-size: 14px; text-decoration: none;">&larr; Back to Examples</a>
+      <h1 class="ds-header__title" style="margin-top: 16px;">Editor Tools</h1>
+      <p class="ds-header__subtitle">Timeline, keyframes, effect stacks, and collaboration</p>
+    </header>
+    <div class="ds-container">
+      <section class="ds-section" id="editor-tools">
+        <div class="ds-section-title">Editor Tools</div>
+        <p class="ds-section-description">Inspector panels, keyframe editors, and workflow tools.</p>
+
+        <div class="ds-grid ds-grid--2">
+
+          <!-- Inspector Panel -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0;">
+              <div class="inspector" style="width: 100%;">
+                <div class="inspector__header">
+                  <span class="inspector__icon">⬜</span>
+                  <span class="inspector__title">Clip Properties</span>
+                </div>
+                <div class="inspector__body">
+                  <div class="inspector__section">
+                    <div class="inspector__section-header">
+                      <span class="inspector__section-title">Transform</span>
+                      <span class="inspector__section-toggle">▼</span>
+                    </div>
+                    <div class="inspector__section-content">
+                      <div class="inspector__row">
+                        <span class="inspector__label">Position</span>
+                        <input class="inspector__input" value="960, 540" style="width: 80px;">
+                      </div>
+                      <div class="inspector__row">
+                        <span class="inspector__label">Scale</span>
+                        <input class="inspector__input" value="100%" style="width: 60px;">
+                      </div>
+                      <div class="inspector__row">
+                        <span class="inspector__label">Rotation</span>
+                        <input class="inspector__input" value="0.0°" style="width: 60px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Inspector Panel</div>
+              <div class="ds-component-class">.inspector</div>
+            </div>
+          </div>
+
+          <!-- Keyframe Track -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0; flex-direction: column; align-items: stretch;">
+              <div class="keyframe-track">
+                <span class="keyframe-track__label">Position X</span>
+                <div class="keyframe-track__timeline">
+                  <div class="keyframe" style="left: 15%;"></div>
+                  <div class="keyframe keyframe--selected" style="left: 45%;"></div>
+                  <div class="keyframe" style="left: 80%;"></div>
+                </div>
+              </div>
+              <div class="keyframe-track">
+                <span class="keyframe-track__label">Opacity</span>
+                <div class="keyframe-track__timeline">
+                  <div class="keyframe" style="left: 10%;"></div>
+                  <div class="keyframe" style="left: 90%;"></div>
+                </div>
+              </div>
+              <div class="keyframe-track">
+                <span class="keyframe-track__label">Scale</span>
+                <div class="keyframe-track__timeline">
+                  <div class="keyframe" style="left: 20%;"></div>
+                  <div class="keyframe" style="left: 60%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Keyframe Track</div>
+              <div class="ds-component-class">.keyframe-track</div>
+            </div>
+          </div>
+
+          <!-- Render Queue -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0;">
+              <div class="render-queue" style="width: 100%;">
+                <div class="render-queue__header">
+                  <span class="render-queue__title">Render Queue</span>
+                  <span class="render-queue__count">2 jobs</span>
+                </div>
+                <div class="render-queue__list">
+                  <div class="render-job">
+                    <div class="render-job__header">
+                      <div class="render-job__status render-job__status--rendering"></div>
+                      <span class="render-job__name">Final_Cut_v3.mp4</span>
+                      <span class="render-job__format">H.264</span>
+                    </div>
+                    <div class="render-job__progress">
+                      <div class="render-job__progress-fill" style="width: 67%;"></div>
+                    </div>
+                    <div class="render-job__meta">
+                      <span>67% complete</span>
+                      <span>ETA: 4:32</span>
+                    </div>
+                  </div>
+                  <div class="render-job">
+                    <div class="render-job__header">
+                      <div class="render-job__status render-job__status--pending"></div>
+                      <span class="render-job__name">Promo_Short.mp4</span>
+                      <span class="render-job__format">ProRes</span>
+                    </div>
+                    <div class="render-job__progress">
+                      <div class="render-job__progress-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="render-job__meta">
+                      <span>Queued</span>
+                      <span>—</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Render Queue</div>
+              <div class="ds-component-class">.render-queue</div>
+            </div>
+          </div>
+
+          <!-- Effect Stack -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 8px;">
+              <div class="effect-stack" style="width: 100%;">
+                <div class="effect-item effect-item--selected">
+                  <span class="effect-item__drag">⋮⋮</span>
+                  <span class="effect-item__toggle">●</span>
+                  <span class="effect-item__name">Lumetri Color</span>
+                  <span class="effect-item__expand">▼</span>
+                </div>
+                <div class="effect-item">
+                  <span class="effect-item__drag">⋮⋮</span>
+                  <span class="effect-item__toggle">●</span>
+                  <span class="effect-item__name">Sharpen</span>
+                  <span class="effect-item__badge">GPU</span>
+                  <span class="effect-item__expand">▶</span>
+                </div>
+                <div class="effect-item effect-item--disabled">
+                  <span class="effect-item__drag">⋮⋮</span>
+                  <span class="effect-item__toggle effect-item__toggle--disabled">○</span>
+                  <span class="effect-item__name">Noise Reduction</span>
+                  <span class="effect-item__expand">▶</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Effect Stack</div>
+              <div class="ds-component-class">.effect-stack</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- V07: COLLABORATION -->
+      <section class="ds-section" id="collaboration">
+        <div class="ds-section-title">Collaboration</div>
+        <p class="ds-section-description">Notes, versioning, and team workflow components.</p>
+
+        <div class="ds-grid ds-grid--2">
+
+          <!-- Project Note -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="note" style="width: 100%;">
+                <div class="note__avatar">JD</div>
+                <div class="note__content">
+                  <div class="note__header">
+                    <span class="note__author">John Doe</span>
+                    <span class="note__timecode">@01:24:36</span>
+                  </div>
+                  <div class="note__body">The color grade here feels too warm. Can we cool it down slightly and add more contrast?</div>
+                  <div class="note__time">2 hours ago</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Project Note</div>
+              <div class="ds-component-class">.note</div>
+            </div>
+          </div>
+
+          <!-- Version History -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 8px;">
+              <div class="version-list" style="width: 100%;">
+                <div class="version-item version-item--current">
+                  <div class="version-item__marker">
+                    <div class="version-item__dot"></div>
+                    <div class="version-item__line"></div>
+                  </div>
+                  <div class="version-item__content">
+                    <div class="version-item__header">
+                      <span class="version-item__name">v3.2 - Final Review</span>
+                      <span class="version-item__tag">Current</span>
+                    </div>
+                    <div class="version-item__meta">Color correction and audio mix</div>
+                    <div class="version-item__time">Today, 2:34 PM</div>
+                  </div>
+                </div>
+                <div class="version-item">
+                  <div class="version-item__marker">
+                    <div class="version-item__dot"></div>
+                    <div class="version-item__line"></div>
+                  </div>
+                  <div class="version-item__content">
+                    <div class="version-item__header">
+                      <span class="version-item__name">v3.1 - Client Review</span>
+                    </div>
+                    <div class="version-item__meta">Added intro sequence</div>
+                    <div class="version-item__time">Yesterday, 11:20 AM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Version History</div>
+              <div class="ds-component-class">.version-list</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CODE AS DESIGN -->
+      <section class="ds-section" id="code-philosophy">
+        <div class="ds-section-title">Code as Design Language</div>
+        <p class="ds-section-description">The naming conventions themselves are part of the visual identity.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 48px;">
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 24px;">
+            <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-accent); margin-bottom: 16px;">Principle</div>
+            <p style="font-size: 14px; color: var(--text-body); line-height: 1.6; margin-bottom: 16px;">
+              In this system, code isn't hidden behind the interface—it's embraced as a core aesthetic element.
+              Class names like <code style="font-family: var(--font-sf-mono); color: var(--text-accent); background: rgba(121, 180, 160, 0.1); padding: 2px 6px; border-radius: 2px;">.mixer-channel</code>
+              and variables like <code style="font-family: var(--font-sf-mono); color: var(--text-accent); background: rgba(121, 180, 160, 0.1); padding: 2px 6px; border-radius: 2px;">--duration-fast</code>
+              communicate with the same precision as the visual components they define.
+            </p>
+            <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">
+              This technical transparency reflects Push Record's ethos: tools built for professionals who appreciate
+              the craft beneath the surface.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 24px;">
+            <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-accent); margin-bottom: 16px;">Naming Convention</div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; align-items: baseline; gap: 12px;">
+                <code style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--text-faint); min-width: 140px;">.component</code>
+                <span style="font-size: 12px; color: var(--text-muted);">Block element</span>
+              </div>
+              <div style="display: flex; align-items: baseline; gap: 12px;">
+                <code style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--text-faint); min-width: 140px;">.component__element</code>
+                <span style="font-size: 12px; color: var(--text-muted);">Child element</span>
+              </div>
+              <div style="display: flex; align-items: baseline; gap: 12px;">
+                <code style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--text-faint); min-width: 140px;">.component--variant</code>
+                <span style="font-size: 12px; color: var(--text-muted);">Modifier state</span>
+              </div>
+              <div style="display: flex; align-items: baseline; gap: 12px;">
+                <code style="font-family: var(--font-sf-mono); font-size: 12px; color: var(--text-faint); min-width: 140px;">--token-name</code>
+                <span style="font-size: 12px; color: var(--text-muted);">Design token</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Token Glossary</h3>
+        <div class="ds-grid ds-grid--4" style="margin-bottom: 48px;">
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--duration-fast</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">100ms</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--duration-normal</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">200ms</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--ease-out</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">cubic-bezier(0.16, 1, 0.3, 1)</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--ease-spring</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">cubic-bezier(0.34, 1.56, 0.64, 1)</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--space-4</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">16px</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--radius-sm</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">4px</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--z-modal</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">50</span>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 16px;">
+            <code style="font-family: var(--font-sf-mono); font-size: 11px; color: var(--text-accent); display: block; margin-bottom: 8px;">--blur-md</code>
+            <span style="font-size: 11px; color: var(--text-ghost);">6px</span>
+          </div>
+
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Component Name Examples</h3>
+        <div style="background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 24px; font-family: var(--font-sf-mono); font-size: 12px; line-height: 2;">
+          <span style="color: var(--text-ghost);">/* Video production */</span><br>
+          <span style="color: var(--text-faint);">.clip</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">track</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">segment</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">marker</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">timecode</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">waveform</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">ruler</span><br>
+          <span style="color: var(--text-ghost);">/* Audio mixing */</span><br>
+          <span style="color: var(--text-faint);">.mixer-channel</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">pan-knob</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">fader</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">meter</span><br>
+          <span style="color: var(--text-ghost);">/* Color grading */</span><br>
+          <span style="color: var(--text-faint);">.color-wheel</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">vectorscope</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">waveform-monitor</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">curve-editor</span><br>
+          <span style="color: var(--text-ghost);">/* Camera & exposure */</span><br>
+          <span style="color: var(--text-faint);">.iso-display</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">shutter-display</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">aperture-display</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">light-meter</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">false-color</span><br>
+          <span style="color: var(--text-ghost);">/* Video format */</span><br>
+          <span style="color: var(--text-faint);">.bitrate</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">bit-depth</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">chroma</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">codec-badge</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">dynamic-range</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">color-space</span><br>
+          <span style="color: var(--text-ghost);">/* Sensor & lens */</span><br>
+          <span style="color: var(--text-faint);">.sensor-display</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">lens-info</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">frame-guide</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">aspect-selector</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">stabilization</span><br>
+          <span style="color: var(--text-ghost);">/* Interface */</span><br>
+          <span style="color: var(--text-faint);">.inspector</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">render-queue</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">effect-stack</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">keyframe</span> <span style="color: var(--text-ghost);">.</span><span style="color: var(--text-faint);">filmstrip</span>
+        </div>
+      </section>
+
+      <!-- V08: CAMERA SETTINGS -->
+    </div>
+  </main>
+</body>
+</html>

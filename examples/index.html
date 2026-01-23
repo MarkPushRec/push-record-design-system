@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Push Record Design System - Examples</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-body);
+      font-family: var(--font-sf-pro-text);
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: var(--font-sf-pro);
+      font-size: 48px;
+      font-weight: var(--weight-bold);
+      color: var(--text-heading);
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 64px;
+    }
+
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .nav-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .nav-card:hover {
+      border-color: var(--border-accent);
+      background: var(--state-hover);
+    }
+
+    .nav-card__title {
+      font-size: 18px;
+      font-weight: var(--weight-medium);
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    .nav-card__description {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 14px;
+      color: var(--text-accent);
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <a href="../design-system.html" class="back-link">Back to Design System</a>
+
+  <h1>Component Examples</h1>
+  <p class="subtitle">Browse interactive examples organized by category</p>
+
+  <nav class="nav-grid">
+    <a href="tokens.html" class="nav-card">
+      <div class="nav-card__title">Design Tokens</div>
+      <div class="nav-card__description">Colors, typography, spacing, borders, and effects - the foundational building blocks.</div>
+    </a>
+
+    <a href="states.html" class="nav-card">
+      <div class="nav-card__title">Interactive States</div>
+      <div class="nav-card__description">Hover, active, focus, and disabled states plus motion and transitions.</div>
+    </a>
+
+    <a href="precision.html" class="nav-card">
+      <div class="nav-card__title">Precision Components</div>
+      <div class="nav-card__description">Knobs, gauges, meters, sliders, and technical controls for precise values.</div>
+    </a>
+
+    <a href="components.html" class="nav-card">
+      <div class="nav-card__title">Basic Components</div>
+      <div class="nav-card__description">Buttons, inputs, cards, badges, and other core UI components.</div>
+    </a>
+
+    <a href="data-viz.html" class="nav-card">
+      <div class="nav-card__title">Data Visualization</div>
+      <div class="nav-card__description">Charts, graphs, data tables, and visualization components.</div>
+    </a>
+
+    <a href="video-production.html" class="nav-card">
+      <div class="nav-card__title">Video Production</div>
+      <div class="nav-card__description">Camera settings, video formats, framing guides, and production tools.</div>
+    </a>
+
+    <a href="audio-color.html" class="nav-card">
+      <div class="nav-card__title">Audio & Color</div>
+      <div class="nav-card__description">Audio mixer, waveforms, color correction, and scopes.</div>
+    </a>
+
+    <a href="editor-tools.html" class="nav-card">
+      <div class="nav-card__title">Editor Tools</div>
+      <div class="nav-card__description">Timeline, keyframes, effect stacks, and collaboration features.</div>
+    </a>
+  </nav>
+</body>
+</html>
