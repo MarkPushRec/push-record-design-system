@@ -1,6 +1,6 @@
 /**
  * Interact AI Design System - Typography
- * Exact text styles from Figma design
+ * Text styles using semantic color tokens
  */
 
 /* ========================================
@@ -12,9 +12,7 @@
  * Hero Title
  * Used for: Main hero "Interact AI" title
  * Font: SF Pro Bold 198px
- * Line Height: 178px (0.9)
- * Letter Spacing: -5.65px (-0.028em)
- * Color: Cream #f5f1e9
+ * Color: Cream (--text-heading)
  */
 .text-hero {
   font-family: var(--text-hero-family);
@@ -23,17 +21,15 @@
   font-style: normal;
   line-height: var(--text-hero-line-height);
   letter-spacing: var(--text-hero-letter-spacing);
-  color: var(--color-5);
+  color: var(--text-heading);
   text-shadow: var(--shadow-text);
 }
 
 /**
  * Display Heading
- * Used for: Large question headings like "Where does the interface disappear?"
+ * Used for: Large question headings
  * Font: SF Pro Bold 128px
- * Line Height: 141px (1.1)
- * Letter Spacing: -2.85px (-0.022em)
- * Color: Cream #f5f1e9
+ * Color: Cream (--text-heading)
  */
 .text-display {
   font-family: var(--text-display-family);
@@ -42,17 +38,15 @@
   font-style: normal;
   line-height: var(--text-display-line-height);
   letter-spacing: var(--text-display-letter-spacing);
-  color: var(--color-5);
+  color: var(--text-heading);
   text-shadow: var(--shadow-text-lg);
 }
 
 /**
  * Section Title
- * Used for: Section titles like "Core Concept", "Web 1.0", "Web 2.0"
+ * Used for: Section titles like "Core Concept", "Web 1.0"
  * Font: SF Pro Bold 94px
- * Line Height: 64.8px (0.69)
- * Letter Spacing: -2.16px (-0.023em)
- * Color: Cream #f5f1e9
+ * Color: Cream (--text-heading)
  */
 .text-title {
   font-family: var(--text-title-family);
@@ -61,15 +55,13 @@
   font-style: normal;
   line-height: var(--text-title-line-height);
   letter-spacing: var(--text-title-letter-spacing);
-  color: var(--color-5);
+  color: var(--text-heading);
 }
 
 /**
  * Subtitle Large
  * Used for: Hero subtitle text
  * Font: SF Pro Text Light 34px
- * Line Height: 50.86px (1.5)
- * Letter Spacing: -0.65px (-0.019em)
  * Color: 80% white
  */
 .text-subtitle-lg {
@@ -87,9 +79,7 @@
  * Quote Text
  * Used for: Italicized quotes and voice over content
  * Font: SF Pro Text Light Italic 24px
- * Line Height: 32.5px (1.35)
- * Letter Spacing: 0
- * Color: 85% white
+ * Color: --text-emphasis (85% white)
  */
 .text-quote {
   font-family: var(--text-quote-family);
@@ -98,16 +88,14 @@
   font-style: italic;
   line-height: var(--text-quote-line-height);
   letter-spacing: var(--text-quote-letter-spacing);
-  color: var(--color-10);
+  color: var(--text-emphasis);
 }
 
 /**
  * Body Large
  * Used for: Main body text in exposition blocks
  * Font: SF Pro Text Light 23px
- * Line Height: 43px (1.87)
- * Letter Spacing: -0.46px (-0.02em)
- * Color: 70% white
+ * Color: --text-body (70% white)
  */
 .text-body-lg {
   font-family: var(--text-body-lg-family);
@@ -116,16 +104,14 @@
   font-style: normal;
   line-height: var(--text-body-lg-line-height);
   letter-spacing: var(--text-body-lg-letter-spacing);
-  color: var(--color-8);
+  color: var(--text-body);
 }
 
 /**
  * Tagline
  * Used for: "CREATIVE DEVELOPMENT" tagline in hero
  * Font: SF Pro Medium 21px
- * Line Height: 31.79px (1.5)
- * Letter Spacing: 8.48px (0.4em) - VERY WIDE
- * Color: 50% white
+ * Color: --text-subtle (50% white)
  * Transform: UPPERCASE
  */
 .text-tagline {
@@ -135,18 +121,16 @@
   font-style: normal;
   line-height: var(--text-tagline-line-height);
   letter-spacing: var(--text-tagline-letter-spacing);
-  color: var(--accent-9);
+  color: var(--text-subtle);
   text-transform: uppercase;
   text-align: center;
 }
 
 /**
  * Subtitle
- * Used for: Section subtitles like "The next evolution in Web"
+ * Used for: Section subtitles
  * Font: SF Pro Text Medium 21px
- * Line Height: 28px (1.33)
- * Letter Spacing: 0
- * Color: 60% white
+ * Color: --text-muted (60% white)
  */
 .text-subtitle {
   font-family: var(--text-subtitle-family);
@@ -155,16 +139,14 @@
   font-style: normal;
   line-height: var(--text-subtitle-line-height);
   letter-spacing: var(--text-subtitle-letter-spacing);
-  color: var(--color-6);
+  color: var(--text-muted);
 }
 
 /**
  * Question Label
  * Used for: "QUESTION 01" accent labels
  * Font: SF Pro Text Medium 20px
- * Line Height: 29.93px (1.5)
- * Letter Spacing: 4.28px (0.21em)
- * Color: Teal #79b4a0
+ * Color: --text-accent (Teal)
  * Transform: UPPERCASE
  */
 .text-question-label {
@@ -174,17 +156,15 @@
   font-style: normal;
   line-height: var(--text-question-line-height);
   letter-spacing: var(--text-question-letter-spacing);
-  color: var(--color-7);
+  color: var(--text-accent);
   text-transform: uppercase;
 }
 
 /**
  * Meta Text
- * Used for: Time periods like "1991-2004", mono text
+ * Used for: Time periods, mono text
  * Font: SF Mono Regular 18px
- * Line Height: 20px (1.11)
- * Letter Spacing: 1.4px (0.078em)
- * Color: 40% white
+ * Color: --text-faint (40% white)
  * Transform: UPPERCASE
  */
 .text-meta {
@@ -194,7 +174,7 @@
   font-style: normal;
   line-height: var(--text-meta-line-height);
   letter-spacing: var(--text-meta-letter-spacing);
-  color: var(--color-9);
+  color: var(--text-faint);
   text-transform: uppercase;
 }
 
@@ -202,9 +182,7 @@
  * Nav Text Primary
  * Used for: Header title "INTERACT AI"
  * Font: SF Pro Text Medium 16px
- * Line Height: 16px (1.0)
- * Letter Spacing: 3.6px (0.225em)
- * Color: White #ffffff
+ * Color: --text-primary (White)
  * Transform: UPPERCASE
  */
 .text-nav {
@@ -214,17 +192,15 @@
   font-style: normal;
   line-height: var(--text-nav-line-height);
   letter-spacing: var(--text-nav-letter-spacing);
-  color: var(--color-1);
+  color: var(--text-primary);
   text-transform: uppercase;
 }
 
 /**
  * Nav Text Muted
- * Used for: Header date and company "JAN 2026", "PUSH RECORD"
+ * Used for: Header date and company
  * Font: SF Pro Text Medium 16px
- * Line Height: 16px (1.0)
- * Letter Spacing: 3.6px (0.225em)
- * Color: 50% white
+ * Color: --text-subtle (50% white)
  * Transform: UPPERCASE
  */
 .text-nav-muted {
@@ -234,7 +210,7 @@
   font-style: normal;
   line-height: var(--text-nav-line-height);
   letter-spacing: var(--text-nav-letter-spacing);
-  color: var(--color-4);
+  color: var(--text-subtle);
   text-transform: uppercase;
 }
 
@@ -242,9 +218,7 @@
  * Label Text
  * Used for: "VOICE OVER" labels with accent border
  * Font: SF Pro Text Medium 16px
- * Line Height: 23px (1.44)
- * Letter Spacing: 0.35px (0.022em)
- * Color: Teal #79b4a0
+ * Color: --text-accent (Teal)
  * Transform: UPPERCASE
  */
 .text-label {
@@ -254,7 +228,7 @@
   font-style: normal;
   line-height: var(--text-label-line-height);
   letter-spacing: var(--text-label-letter-spacing);
-  color: var(--color-7);
+  color: var(--text-accent);
   text-transform: uppercase;
 }
 
@@ -262,9 +236,7 @@
  * Label Text Muted
  * Used for: Subtext under labels
  * Font: SF Pro Text Light 16px
- * Line Height: 16px (1.0)
- * Letter Spacing: 0
- * Color: 40% white
+ * Color: --text-faint (40% white)
  */
 .text-label-muted {
   font-family: var(--font-sf-pro-text);
@@ -273,16 +245,14 @@
   font-style: normal;
   line-height: 16px;
   letter-spacing: 0;
-  color: var(--color-9);
+  color: var(--text-faint);
 }
 
 /**
  * Scene Number
  * Used for: "SCENE 01", "--" labels
  * Font: SF Pro Medium 15px
- * Line Height: 16px (1.07)
- * Letter Spacing: 4.8px (0.32em)
- * Color: 30% white
+ * Color: --text-ghost (30% white)
  * Transform: UPPERCASE
  */
 .text-scene {
@@ -292,7 +262,7 @@
   font-style: normal;
   line-height: var(--text-scene-line-height);
   letter-spacing: var(--text-scene-letter-spacing);
-  color: var(--color-3);
+  color: var(--text-ghost);
   text-transform: uppercase;
 }
 
@@ -313,7 +283,7 @@
 
 /* Font Styles */
 .italic { font-style: italic; }
-.normal { font-style: normal; }
+.not-italic { font-style: normal; }
 
 /* Text Transform */
 .uppercase { text-transform: uppercase; }
@@ -326,16 +296,27 @@
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 
-/* Text Colors */
-.text-white { color: var(--color-1); }
-.text-cream { color: var(--color-5); }
-.text-teal { color: var(--color-7); }
-.text-85 { color: var(--color-10); }
-.text-70 { color: var(--color-8); }
-.text-60 { color: var(--color-6); }
-.text-50 { color: var(--color-4); }
-.text-40 { color: var(--color-9); }
-.text-30 { color: var(--color-3); }
+/* Semantic Text Colors */
+.text-color-primary { color: var(--text-primary); }
+.text-color-heading { color: var(--text-heading); }
+.text-color-body { color: var(--text-body); }
+.text-color-emphasis { color: var(--text-emphasis); }
+.text-color-muted { color: var(--text-muted); }
+.text-color-subtle { color: var(--text-subtle); }
+.text-color-faint { color: var(--text-faint); }
+.text-color-ghost { color: var(--text-ghost); }
+.text-color-accent { color: var(--text-accent); }
+
+/* Legacy Text Colors (backwards compatibility) */
+.text-white { color: var(--text-primary); }
+.text-cream { color: var(--text-heading); }
+.text-teal { color: var(--text-accent); }
+.text-85 { color: var(--text-emphasis); }
+.text-70 { color: var(--text-body); }
+.text-60 { color: var(--text-muted); }
+.text-50 { color: var(--text-subtle); }
+.text-40 { color: var(--text-faint); }
+.text-30 { color: var(--text-ghost); }
 
 /* White Space */
 .whitespace-nowrap { white-space: nowrap; }

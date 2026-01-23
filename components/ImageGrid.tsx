@@ -7,6 +7,9 @@ interface ImageGridProps {
 /**
  * ImageGrid Component
  * 2-column grid layout for images
+ *
+ * Required CSS: Import 'css/main.css' or use the class names below:
+ * - .image-grid
  */
 export const ImageGrid: React.FC<ImageGridProps> = ({ children }) => {
   return <div className="image-grid">{children}</div>;
@@ -21,6 +24,10 @@ interface ImageGridItemProps {
 /**
  * ImageGridItem Component
  * Individual image in the grid
+ *
+ * Required CSS:
+ * - .image-grid__item
+ * - .image-grid__item--full (for full-width items)
  */
 export const ImageGridItem: React.FC<ImageGridItemProps> = ({
   src,
@@ -34,28 +41,10 @@ export const ImageGridItem: React.FC<ImageGridItemProps> = ({
   );
 };
 
-export const imageGridStyles = `
-  .image-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    height: 100%;
-  }
-
-  .image-grid__item {
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.02);
-  }
-
-  .image-grid__item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .image-grid__item--full {
-    grid-column: span 2;
-  }
-`;
+/**
+ * @deprecated Styles are now in css/components.css
+ * Import 'css/main.css' instead of using this export
+ */
+export const imageGridStyles = `/* Styles moved to css/components.css - import css/main.css */`;
 
 export default ImageGrid;

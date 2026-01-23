@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interact AI - UI Design System</title>
+  <title>Push Record - UI Design System</title>
   <link rel="stylesheet" href="css/design-tokens.css">
   <link rel="stylesheet" href="css/typography.css">
   <link rel="stylesheet" href="css/components.css">
@@ -368,6 +368,7 @@
     <a href="#effects" class="ds-nav__link">Effects</a>
     <a href="#states" class="ds-nav__link">States</a>
     <a href="#motion" class="ds-nav__link">Motion</a>
+    <a href="#precision" class="ds-nav__link">Precision</a>
     <a href="#components" class="ds-nav__link">Components</a>
   </nav>
 
@@ -376,7 +377,7 @@
 
     <!-- Header -->
     <header class="ds-header">
-      <h1 class="ds-header__title">Interact AI</h1>
+      <h1 class="ds-header__title">Push Record</h1>
       <p class="ds-header__subtitle">UI Design System</p>
     </header>
 
@@ -952,7 +953,7 @@
         <!-- Nav -->
         <div class="ds-type-specimen">
           <div class="ds-type-specimen__sample" style="display: flex; gap: 48px;">
-            <span class="text-nav">Interact AI</span>
+            <span class="text-nav">Push Record</span>
             <span class="text-nav-muted">Jan 2026</span>
           </div>
           <div class="ds-type-specimen__meta">
@@ -1458,11 +1459,249 @@
       <div class="ds-divider"></div>
 
       <!-- ==========================================
+           PRECISION
+           ========================================== -->
+      <section id="precision" class="ds-section">
+        <h2 class="ds-section-title">Precision</h2>
+        <p class="ds-section-description">Technical components for measurement, coordinates, and data visualization with engineering precision.</p>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Readouts & Data</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Readout -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 32px;">
+              <div class="readout">
+                <span class="readout__value">127<span class="readout__decimal">.45</span></span>
+                <span class="readout__unit">ms</span>
+              </div>
+              <div class="readout">
+                <span class="readout__value readout__value--lg">98<span class="readout__decimal">.2</span></span>
+                <span class="readout__unit">%</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Readout</div>
+              <div class="ds-component-class">.readout</div>
+            </div>
+          </div>
+
+          <!-- Coordinate Display -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 16px;">
+              <div class="coordinate">
+                <div class="coordinate__axis">
+                  <span class="coordinate__label">X</span>
+                  <span class="coordinate__value">1284</span>
+                </div>
+                <span class="coordinate__separator">/</span>
+                <div class="coordinate__axis">
+                  <span class="coordinate__label">Y</span>
+                  <span class="coordinate__value">720</span>
+                </div>
+              </div>
+              <div class="coordinate">
+                <div class="coordinate__axis">
+                  <span class="coordinate__label">W</span>
+                  <span class="coordinate__value">1920</span>
+                </div>
+                <span class="coordinate__separator">x</span>
+                <div class="coordinate__axis">
+                  <span class="coordinate__label">H</span>
+                  <span class="coordinate__value">1080</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Coordinate Display</div>
+              <div class="ds-component-class">.coordinate</div>
+            </div>
+          </div>
+
+          <!-- Data Labels -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 12px; align-items: flex-start;">
+              <div class="data-label">
+                <span class="data-label__key">FPS</span>
+                <span class="data-label__value">59.94</span>
+              </div>
+              <div class="data-label data-label--accent">
+                <span class="data-label__key">Bitrate</span>
+                <span class="data-label__value">24.5 Mbps</span>
+              </div>
+              <div class="data-label">
+                <span class="data-label__key">Duration</span>
+                <span class="data-label__value">01:24:36</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Data Label</div>
+              <div class="ds-component-class">.data-label</div>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Measurement Tools</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Scale Bar -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="padding: 32px;">
+              <div class="scale-bar" style="width: 200px;">
+                <div class="scale-bar__track">
+                  <div class="scale-bar__segment"></div>
+                  <div class="scale-bar__segment"></div>
+                  <div class="scale-bar__segment"></div>
+                  <div class="scale-bar__segment"></div>
+                  <div class="scale-bar__segment"></div>
+                </div>
+                <div class="scale-bar__labels">
+                  <span>0</span>
+                  <span>50</span>
+                  <span>100</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Scale Bar</div>
+              <div class="ds-component-class">.scale-bar</div>
+            </div>
+          </div>
+
+          <!-- Tick Scale -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="padding: 32px; width: 100%;">
+              <div class="tick-scale" style="width: 100%;">
+                <div class="tick-scale__track">
+                  <div class="tick-scale__tick tick-scale__tick--major"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick tick-scale__tick--major"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick tick-scale__tick--major"></div>
+                </div>
+                <div class="tick-scale__fill" style="width: 65%;"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Tick Scale</div>
+              <div class="ds-component-class">.tick-scale</div>
+            </div>
+          </div>
+
+          <!-- Measurement -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="padding: 32px; width: 100%;">
+              <div class="measurement" style="width: 100%;">
+                <div class="measurement__line"></div>
+                <span class="measurement__value">240px</span>
+                <div class="measurement__line"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Measurement</div>
+              <div class="ds-component-class">.measurement</div>
+            </div>
+          </div>
+
+          <!-- Level Indicator -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 16px; flex-direction: column;">
+              <div class="level">
+                <div class="level__track">
+                  <div class="level__bubble"></div>
+                </div>
+                <span class="level__value">0.0°</span>
+              </div>
+              <div class="level">
+                <div class="level__track">
+                  <div class="level__bubble" style="left: 65%;"></div>
+                </div>
+                <span class="level__value">+2.4°</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Level Indicator</div>
+              <div class="ds-component-class">.level</div>
+            </div>
+          </div>
+
+          <!-- Crosshair -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="crosshair" style="width: 120px; height: 120px;">
+                <div class="crosshair__center"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Crosshair</div>
+              <div class="ds-component-class">.crosshair</div>
+            </div>
+          </div>
+
+          <!-- Precision Card -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="padding: 32px;">
+              <div class="card card--precision" style="width: 200px;">
+                <div class="card__body card__body--tight">
+                  <div class="stat stat--tight stat--center">
+                    <span class="stat__value">1080p</span>
+                    <span class="stat__label">Resolution</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Precision Card</div>
+              <div class="ds-component-class">.card--precision</div>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Grid Backgrounds</h3>
+        <div class="ds-grid ds-grid--2">
+
+          <!-- Grid Background -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview bg-grid" style="min-height: 160px;">
+              <span style="font-size: 12px; color: var(--color-9);">16px grid</span>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Grid Background</div>
+              <div class="ds-component-class">.bg-grid</div>
+            </div>
+          </div>
+
+          <!-- Major Grid Background -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview bg-grid--major" style="min-height: 160px;">
+              <span style="font-size: 12px; color: var(--color-9);">16px / 64px grid</span>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Major Grid</div>
+              <div class="ds-component-class">.bg-grid--major</div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <div class="ds-divider"></div>
+
+      <!-- ==========================================
            COMPONENTS
            ========================================== -->
       <section id="components" class="ds-section">
         <h2 class="ds-section-title">Components</h2>
-        <p class="ds-section-description">Reusable UI components extracted from the Figma design.</p>
+        <p class="ds-section-description">Reusable UI components for interfaces.</p>
 
         <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Layout Components</h3>
         <div class="ds-grid ds-grid--2" style="margin-bottom: 48px;">
@@ -1474,7 +1713,7 @@
                 <header class="header">
                   <div class="header__container" style="position: relative; height: 20px;">
                     <span class="header__date text-nav-muted">Jan 2026</span>
-                    <span class="header__title text-nav">Interact AI</span>
+                    <span class="header__title text-nav">Push Record</span>
                     <span class="header__company text-nav-muted">Push record</span>
                   </div>
                 </header>

@@ -304,27 +304,45 @@
   --transition-slow: var(--duration-slow) var(--ease-out);
 
   /* ========================================
-     LAYOUT - ULTRA DENSE
+     LAYOUT - PRECISION
      ======================================== */
 
   --container-max-width: 1920px;
   --slide-height: 1080px;
-  --content-padding-x: var(--space-5);        /* 20px */
-  --content-padding-bottom: var(--space-6);   /* 24px */
+  --content-padding-x: var(--space-4);        /* 16px - tightened */
+  --content-padding-bottom: var(--space-5);   /* 20px - tightened */
   --header-padding-top: var(--space-2);       /* 8px */
   --header-padding-bottom: var(--space-2);    /* 8px */
-  --text-panel-padding-left: var(--space-10); /* 40px */
-  --text-panel-padding-right: var(--space-10);/* 40px */
-  --text-panel-padding-y: var(--space-6);     /* 24px */
+  --text-panel-padding-left: var(--space-8);  /* 32px - tightened */
+  --text-panel-padding-right: var(--space-8); /* 32px - tightened */
+  --text-panel-padding-y: var(--space-5);     /* 20px - tightened */
   --image-panel-width: 791px;
 
   /* ========================================
-     ULTRA DENSE COMPONENT GAPS
+     PRECISION COMPONENT GAPS
      ======================================== */
 
-  --gap-hero: var(--space-6);                 /* 24px */
-  --gap-section: var(--space-4);              /* 16px */
-  --gap-component: var(--space-3);            /* 12px */
-  --gap-element: var(--space-2);              /* 8px */
-  --gap-slide: var(--space-24);               /* 96px */
+  --gap-hero: var(--space-5);                 /* 20px - tightened */
+  --gap-section: var(--space-3);              /* 12px - tightened */
+  --gap-component: var(--space-2);            /* 8px - tightened */
+  --gap-element: var(--space-1);              /* 4px - tightened */
+  --gap-slide: var(--space-20);               /* 80px - tightened */
+
+  /* ========================================
+     PRECISION THEME
+     ======================================== */
+
+  /* Grid & measurement overlay colors */
+  --grid-line: rgba(121, 180, 160, 0.06);
+  --grid-line-major: rgba(121, 180, 160, 0.12);
+  --tick-mark: rgba(255, 255, 255, 0.2);
+  --tick-mark-major: rgba(255, 255, 255, 0.4);
+
+  /* Crosshair/alignment colors */
+  --crosshair: rgba(121, 180, 160, 0.4);
+  --alignment-guide: rgba(121, 180, 160, 0.15);
+
+  /* Technical annotation */
+  --annotation-bg: rgba(0, 0, 0, 0.6);
+  --annotation-border: rgba(121, 180, 160, 0.3);
 }
