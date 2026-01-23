@@ -61,8 +61,8 @@
 /**
  * Subtitle Large
  * Used for: Hero subtitle text
- * Font: SF Pro Text Light 34px
- * Color: 80% white
+ * Font: SF Pro Text Light 28px
+ * Color: --text-emphasis (88% white)
  */
 .text-subtitle-lg {
   font-family: var(--text-subtitle-lg-family);
@@ -71,7 +71,7 @@
   font-style: normal;
   line-height: var(--text-subtitle-lg-line-height);
   letter-spacing: var(--text-subtitle-lg-letter-spacing);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-emphasis);
   text-align: center;
 }
 
