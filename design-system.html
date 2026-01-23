@@ -2599,6 +2599,339 @@
 
         </div>
 
+        <!-- FORM ELEMENTS -->
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Form Elements</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Checkbox -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 12px; align-items: flex-start;">
+              <label class="checkbox">
+                <input type="checkbox" class="checkbox__input" checked>
+                <span class="checkbox__box">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="checkbox__label">Checked</span>
+              </label>
+              <label class="checkbox">
+                <input type="checkbox" class="checkbox__input">
+                <span class="checkbox__box">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="checkbox__label">Unchecked</span>
+              </label>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Checkbox</div>
+              <div class="ds-component-class">.checkbox</div>
+            </div>
+          </div>
+
+          <!-- Radio -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 12px; align-items: flex-start;">
+              <label class="radio">
+                <input type="radio" name="demo-radio" class="radio__input" checked>
+                <span class="radio__circle"></span>
+                <span class="radio__label">Option A</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="demo-radio" class="radio__input">
+                <span class="radio__circle"></span>
+                <span class="radio__label">Option B</span>
+              </label>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Radio</div>
+              <div class="ds-component-class">.radio</div>
+            </div>
+          </div>
+
+          <!-- Select -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="select" style="width: 100%;">
+                <label class="select__label">Format</label>
+                <select class="select__field">
+                  <option>H.264 / MP4</option>
+                  <option>ProRes 422</option>
+                  <option>DNxHD</option>
+                </select>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Select</div>
+              <div class="ds-component-class">.select</div>
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="textarea" style="width: 100%;">
+                <label class="textarea__label">Notes</label>
+                <textarea class="textarea__field" placeholder="Add notes..." style="min-height: 60px;"></textarea>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Textarea</div>
+              <div class="ds-component-class">.textarea</div>
+            </div>
+          </div>
+
+          <!-- Search -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="search" style="width: 100%;">
+                <svg class="search__icon" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 10L13 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <input type="text" class="search__input" placeholder="Search...">
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Search</div>
+              <div class="ds-component-class">.search</div>
+            </div>
+          </div>
+
+          <!-- Tags -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 8px; flex-wrap: wrap;">
+              <span class="tag">4K</span>
+              <span class="tag tag--accent">HDR</span>
+              <span class="tag">
+                ProRes
+                <button class="tag__remove">×</button>
+              </span>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Tags</div>
+              <div class="ds-component-class">.tag</div>
+            </div>
+          </div>
+
+          <!-- Upload -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="upload upload--compact" style="width: 100%;">
+                <svg class="upload__icon" viewBox="0 0 24 24" fill="none" style="width: 20px; height: 20px;"><path d="M12 4v12M12 4l-4 4M12 4l4 4M4 17v2a1 1 0 001 1h14a1 1 0 001-1v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <span class="upload__text" style="font-size: 12px;">Drop files or click to upload</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Upload</div>
+              <div class="ds-component-class">.upload</div>
+            </div>
+          </div>
+
+          <!-- Color Input -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 16px;">
+              <div class="color-input">
+                <div class="color-input__swatch" style="background: #79b4a0;">
+                  <input type="color" value="#79b4a0">
+                </div>
+                <span class="color-input__value">#79b4a0</span>
+              </div>
+              <div class="color-input">
+                <div class="color-input__swatch" style="background: #ff4649;">
+                  <input type="color" value="#ff4649">
+                </div>
+                <span class="color-input__value">#ff4649</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Color Input</div>
+              <div class="ds-component-class">.color-input</div>
+            </div>
+          </div>
+
+          <!-- Keyboard Shortcut -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 16px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 11px; color: var(--color-6);">Save</span>
+                <span class="kbd">⌘</span><span class="kbd">S</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 11px; color: var(--color-6);">Export</span>
+                <span class="kbd">⌘</span><span class="kbd">⇧</span><span class="kbd">E</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Keyboard Shortcut</div>
+              <div class="ds-component-class">.kbd</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- MEDIA COMPONENTS -->
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Media</h3>
+        <div class="ds-grid ds-grid--2" style="margin-bottom: 48px;">
+
+          <!-- Player Controls -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="player" style="width: 100%;">
+                <div class="player__scrubber">
+                  <div class="player__progress" style="width: 35%;"></div>
+                  <div class="player__handle" style="left: 35%; opacity: 1;"></div>
+                </div>
+                <div class="player__controls">
+                  <button class="player__btn">⏮</button>
+                  <button class="player__btn player__btn--primary">▶</button>
+                  <button class="player__btn">⏭</button>
+                  <span class="player__time">01:24:36 / 04:12:00</span>
+                  <div class="player__volume">
+                    <button class="player__btn" style="width: 24px; height: 24px;">🔊</button>
+                    <input type="range" class="player__volume-slider" value="75">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Player Controls</div>
+              <div class="ds-component-class">.player</div>
+            </div>
+          </div>
+
+          <!-- Timecode -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 24px;">
+              <div class="timecode timecode--lg">
+                <span class="timecode__segment">01</span>
+                <span class="timecode__separator">:</span>
+                <span class="timecode__segment">24</span>
+                <span class="timecode__separator">:</span>
+                <span class="timecode__segment">36</span>
+                <span class="timecode__separator">:</span>
+                <span class="timecode__frames">12</span>
+              </div>
+              <div class="timecode timecode--sm">
+                <span class="timecode__segment">00</span>
+                <span class="timecode__separator">:</span>
+                <span class="timecode__segment">05</span>
+                <span class="timecode__separator">:</span>
+                <span class="timecode__segment">30</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Timecode</div>
+              <div class="ds-component-class">.timecode</div>
+            </div>
+          </div>
+
+          <!-- Waveform -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="waveform" style="width: 100%;">
+                <div class="waveform__bar waveform__bar--active" style="height: 30%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 50%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 70%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 45%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 80%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 60%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 90%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 55%;"></div>
+                <div class="waveform__bar" style="height: 40%;"></div>
+                <div class="waveform__bar" style="height: 65%;"></div>
+                <div class="waveform__bar" style="height: 35%;"></div>
+                <div class="waveform__bar" style="height: 75%;"></div>
+                <div class="waveform__bar" style="height: 50%;"></div>
+                <div class="waveform__bar" style="height: 85%;"></div>
+                <div class="waveform__bar" style="height: 45%;"></div>
+                <div class="waveform__bar" style="height: 60%;"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Waveform</div>
+              <div class="ds-component-class">.waveform</div>
+            </div>
+          </div>
+
+          <!-- Timeline Ruler -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0; height: 60px; align-items: flex-start;">
+              <div class="ruler" style="width: 100%; height: 28px;">
+                <div class="ruler__track">
+                  <div class="ruler__segment ruler__segment--major" style="width: 80px;">
+                    <span class="ruler__label">00:00</span>
+                  </div>
+                  <div class="ruler__segment" style="width: 40px;"></div>
+                  <div class="ruler__segment" style="width: 40px;"></div>
+                  <div class="ruler__segment ruler__segment--major" style="width: 80px;">
+                    <span class="ruler__label">00:10</span>
+                  </div>
+                  <div class="ruler__segment" style="width: 40px;"></div>
+                  <div class="ruler__segment" style="width: 40px;"></div>
+                  <div class="ruler__segment ruler__segment--major" style="width: 80px;">
+                    <span class="ruler__label">00:20</span>
+                  </div>
+                </div>
+                <div class="ruler__playhead" style="left: 120px;"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Timeline Ruler</div>
+              <div class="ds-component-class">.ruler</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- UTILITY COMPONENTS -->
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Utilities</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Spinner -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 24px;">
+              <div class="spinner spinner--sm"></div>
+              <div class="spinner"></div>
+              <div class="spinner spinner--lg"></div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Spinner</div>
+              <div class="ds-component-class">.spinner</div>
+            </div>
+          </div>
+
+          <!-- Empty State -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%;">
+              <div class="empty" style="padding: 24px;">
+                <div class="empty__icon" style="width: 32px; height: 32px; color: var(--color-9);">📁</div>
+                <div class="empty__title" style="font-size: 12px;">No projects yet</div>
+                <div class="empty__description" style="font-size: 11px;">Create your first project to get started.</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Empty State</div>
+              <div class="ds-component-class">.empty</div>
+            </div>
+          </div>
+
+          <!-- Aspect Ratio -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 12px;">
+              <div class="aspect aspect--16-9" style="width: 80px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px;">
+                <div class="aspect__content" style="display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--color-9);">16:9</div>
+              </div>
+              <div class="aspect aspect--4-3" style="width: 60px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px;">
+                <div class="aspect__content" style="display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--color-9);">4:3</div>
+              </div>
+              <div class="aspect aspect--1-1" style="width: 48px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px;">
+                <div class="aspect__content" style="display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--color-9);">1:1</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Aspect Ratio</div>
+              <div class="ds-component-class">.aspect</div>
+            </div>
+          </div>
+
+        </div>
+
       </section>
 
     </div>
