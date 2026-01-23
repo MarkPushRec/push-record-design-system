@@ -35,15 +35,16 @@
 
   /* ----------------------------------------
      Semantic Text Colors (WCAG AA compliant)
+     Normalized to systematic 10-15% increments
      ---------------------------------------- */
-  --text-primary: #ffffff;                    /* White - logos, primary emphasis */
+  --text-primary: #ffffff;                    /* 100% white - logos, primary emphasis */
   --text-heading: #f5f1e9;                    /* Cream - all headings */
+  --text-emphasis: rgba(255, 255, 255, 0.90); /* 90% white - quotes, emphasized (AA) */
   --text-body: rgba(255, 255, 255, 0.75);     /* 75% white - body text (AA) */
-  --text-emphasis: rgba(255, 255, 255, 0.88); /* 88% white - quotes, emphasized */
-  --text-muted: rgba(255, 255, 255, 0.68);    /* 68% white - subtitles (AA) */
-  --text-subtle: rgba(255, 255, 255, 0.58);   /* 58% white - nav muted, taglines (AA large) */
-  --text-faint: rgba(255, 255, 255, 0.50);    /* 50% white - meta, mono (AA large) */
-  --text-ghost: rgba(255, 255, 255, 0.42);    /* 42% white - scene numbers (decorative) */
+  --text-muted: rgba(255, 255, 255, 0.65);    /* 65% white - subtitles (AA) */
+  --text-subtle: rgba(255, 255, 255, 0.55);   /* 55% white - nav muted, taglines (AA large) */
+  --text-faint: rgba(255, 255, 255, 0.45);    /* 45% white - meta, mono (AA large) */
+  --text-ghost: rgba(255, 255, 255, 0.35);    /* 35% white - decorative only, use with sr-only alternative */
   --text-accent: #79b4a0;                     /* Teal - labels, questions */
 
   /* Legacy color aliases (for backwards compatibility) */
@@ -188,9 +189,9 @@
   --text-label-weight: var(--weight-medium);
   --text-label-family: var(--font-sf-pro-text);
 
-  /* Scene Number: SF Pro Medium 11px - Accessible minimum */
-  --text-scene-size: 11px;
-  --text-scene-line-height: 13px;
+  /* Scene Number: SF Pro Medium 12px - WCAG accessible minimum */
+  --text-scene-size: 12px;
+  --text-scene-line-height: 14px;
   --text-scene-letter-spacing: 3px;
   --text-scene-weight: var(--weight-medium);
   --text-scene-family: var(--font-sf-pro);

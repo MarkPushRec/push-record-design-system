@@ -78,8 +78,8 @@
 /**
  * Quote Text
  * Used for: Italicized quotes and voice over content
- * Font: SF Pro Text Light Italic 24px
- * Color: --text-emphasis (85% white)
+ * Font: SF Pro Text Light Italic 18px
+ * Color: --text-emphasis (90% white)
  */
 .text-quote {
   font-family: var(--text-quote-family);
@@ -94,8 +94,8 @@
 /**
  * Body Large
  * Used for: Main body text in exposition blocks
- * Font: SF Pro Text Light 23px
- * Color: --text-body (70% white)
+ * Font: SF Pro Text Light 17px
+ * Color: --text-body (75% white)
  */
 .text-body-lg {
   font-family: var(--text-body-lg-family);
@@ -110,8 +110,8 @@
 /**
  * Tagline
  * Used for: "CREATIVE DEVELOPMENT" tagline in hero
- * Font: SF Pro Medium 21px
- * Color: --text-subtle (50% white)
+ * Font: SF Pro Medium 14px
+ * Color: --text-subtle (55% white)
  * Transform: UPPERCASE
  */
 .text-tagline {
@@ -129,8 +129,8 @@
 /**
  * Subtitle
  * Used for: Section subtitles
- * Font: SF Pro Text Medium 21px
- * Color: --text-muted (60% white)
+ * Font: SF Pro Text Medium 16px
+ * Color: --text-muted (65% white)
  */
 .text-subtitle {
   font-family: var(--text-subtitle-family);
@@ -145,7 +145,7 @@
 /**
  * Question Label
  * Used for: "QUESTION 01" accent labels
- * Font: SF Pro Text Medium 20px
+ * Font: SF Pro Text Medium 13px
  * Color: --text-accent (Teal)
  * Transform: UPPERCASE
  */
@@ -163,8 +163,8 @@
 /**
  * Meta Text
  * Used for: Time periods, mono text
- * Font: SF Mono Regular 18px
- * Color: --text-faint (40% white)
+ * Font: SF Mono Regular 12px
+ * Color: --text-faint (45% white)
  * Transform: UPPERCASE
  */
 .text-meta {
@@ -181,7 +181,7 @@
 /**
  * Nav Text Primary
  * Used for: Header title "INTERACT AI"
- * Font: SF Pro Text Medium 16px
+ * Font: SF Pro Text Medium 12px
  * Color: --text-primary (White)
  * Transform: UPPERCASE
  */
@@ -199,8 +199,8 @@
 /**
  * Nav Text Muted
  * Used for: Header date and company
- * Font: SF Pro Text Medium 16px
- * Color: --text-subtle (50% white)
+ * Font: SF Pro Text Medium 12px
+ * Color: --text-subtle (55% white)
  * Transform: UPPERCASE
  */
 .text-nav-muted {
@@ -217,7 +217,7 @@
 /**
  * Label Text
  * Used for: "VOICE OVER" labels with accent border
- * Font: SF Pro Text Medium 16px
+ * Font: SF Pro Text Medium 12px
  * Color: --text-accent (Teal)
  * Transform: UPPERCASE
  */
@@ -236,7 +236,7 @@
  * Label Text Muted
  * Used for: Subtext under labels
  * Font: SF Pro Text Light 16px
- * Color: --text-faint (40% white)
+ * Color: --text-faint (45% white)
  */
 .text-label-muted {
   font-family: var(--font-sf-pro-text);
@@ -251,9 +251,10 @@
 /**
  * Scene Number
  * Used for: "SCENE 01", "--" labels
- * Font: SF Pro Medium 15px
- * Color: --text-ghost (30% white)
+ * Font: SF Pro Medium 12px
+ * Color: --text-ghost (35% white - decorative only)
  * Transform: UPPERCASE
+ * Note: Use with .sr-only alternative for accessibility
  */
 .text-scene {
   font-family: var(--text-scene-family);
@@ -311,6 +312,13 @@
 .text-white { color: var(--text-primary); }
 .text-cream { color: var(--text-heading); }
 .text-teal { color: var(--text-accent); }
+.text-90 { color: var(--text-emphasis); }
+.text-75 { color: var(--text-body); }
+.text-65 { color: var(--text-muted); }
+.text-55 { color: var(--text-subtle); }
+.text-45 { color: var(--text-faint); }
+.text-35 { color: var(--text-ghost); }
+/* Deprecated - use semantic names above */
 .text-85 { color: var(--text-emphasis); }
 .text-70 { color: var(--text-body); }
 .text-60 { color: var(--text-muted); }
