@@ -6325,3 +6325,1418 @@ button:focus:not(:focus-visible) {
 .effect-item--disabled .effect-item__name {
   color: var(--text-ghost);
 }
+
+/* ========================================
+   V08: CAMERA SETTINGS
+   ======================================== */
+
+/**
+ * Camera Setting
+ * Base camera parameter display
+ */
+.cam-setting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-3);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  min-width: 72px;
+}
+
+.cam-setting__label {
+  font-family: var(--font-sf-mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-ghost);
+  margin-bottom: var(--space-1);
+}
+
+.cam-setting__value {
+  font-family: var(--font-sf-mono);
+  font-size: 20px;
+  font-weight: var(--weight-medium);
+  color: var(--text-heading);
+  line-height: 1;
+}
+
+.cam-setting__unit {
+  font-family: var(--font-sf-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  margin-top: 2px;
+}
+
+.cam-setting--active {
+  border-color: var(--teal);
+  background: rgba(121, 180, 160, 0.05);
+}
+
+.cam-setting--warning .cam-setting__value {
+  color: #f59e0b;
+}
+
+.cam-setting--danger .cam-setting__value {
+  color: var(--red);
+}
+
+/**
+ * ISO Display
+ * Camera ISO sensitivity
+ */
+.iso-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.iso-display__value {
+  font-family: var(--font-sf-mono);
+  font-size: 28px;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+  letter-spacing: -1px;
+}
+
+.iso-display__label {
+  font-family: var(--font-sf-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-accent);
+}
+
+.iso-display__native {
+  font-size: 8px;
+  color: var(--text-ghost);
+  padding: 2px 6px;
+  background: rgba(121, 180, 160, 0.1);
+  border-radius: 2px;
+}
+
+.iso-display--high .iso-display__value {
+  color: #f59e0b;
+}
+
+.iso-display--extreme .iso-display__value {
+  color: var(--red);
+}
+
+/**
+ * Shutter Display
+ * Shutter angle/speed
+ */
+.shutter-display {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+.shutter-display__fraction {
+  font-family: var(--font-sf-mono);
+  font-size: 10px;
+  color: var(--text-ghost);
+}
+
+.shutter-display__value {
+  font-family: var(--font-sf-mono);
+  font-size: 24px;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+.shutter-display__unit {
+  font-family: var(--font-sf-mono);
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+.shutter-display--angle .shutter-display__value::after {
+  content: '°';
+  font-size: 14px;
+  color: var(--text-faint);
+}
+
+/**
+ * Aperture Display
+ * F-stop with iris visualization
+ */
+.aperture-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.aperture-display__iris {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.aperture-display__blade {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  background: var(--border-subtle);
+  transform-origin: center;
+}
+
+.aperture-display__opening {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-primary);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+}
+
+.aperture-display__value {
+  font-family: var(--font-sf-mono);
+  font-size: 18px;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+.aperture-display__value::before {
+  content: 'f/';
+  font-size: 12px;
+  font-weight: var(--weight-regular);
+  color: var(--text-faint);
+}
+
+/**
+ * Lens Info
+ * Focal length and lens details
+ */
+.lens-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.lens-info__focal {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.lens-info__focal-value {
+  font-family: var(--font-sf-mono);
+  font-size: 32px;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+  letter-spacing: -1px;
+}
+
+.lens-info__focal-unit {
+  font-family: var(--font-sf-mono);
+  font-size: 14px;
+  color: var(--text-faint);
+}
+
+.lens-info__name {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.lens-info__meta {
+  display: flex;
+  gap: var(--space-2);
+  font-family: var(--font-sf-mono);
+  font-size: 9px;
+  color: var(--text-ghost);
+}
+
+/**
+ * Light Meter
+ * Exposure meter display
+ */
+.light-meter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.light-meter__scale {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  position: relative;
+}
+
+.light-meter__track {
+  flex: 1;
+  height: 4px;
+  background: linear-gradient(to right,
+    var(--red) 0%,
+    #f59e0b 20%,
+    var(--teal) 40%,
+    var(--teal) 60%,
+    #f59e0b 80%,
+    var(--red) 100%
+  );
+  border-radius: 2px;
+}
+
+.light-meter__marker {
+  position: absolute;
+  top: 50%;
+  width: 2px;
+  height: 16px;
+  background: var(--white);
+  transform: translateY(-50%);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.light-meter__center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1px;
+  height: 12px;
+  background: var(--text-ghost);
+  transform: translate(-50%, -50%);
+}
+
+.light-meter__labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-sf-mono);
+  font-size: 8px;
+  color: var(--text-ghost);
+}
+
+.light-meter__value {
+  text-align: center;
+  font-family: var(--font-sf-mono);
+  font-size: 11px;
+  color: var(--text-body);
+}
+
+/**
+ * Color Temperature
+ * Kelvin temperature display
+ */
+.color-temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.color-temp__gradient {
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right,
+    #ff8a00 0%,
+    #ffcc80 25%,
+    #ffffff 50%,
+    #a0c4ff 75%,
+    #4a90d9 100%
+  );
+  border-radius: 4px;
+  position: relative;
+}
+
+.color-temp__marker {
+  position: absolute;
+  top: -4px;
+  width: 4px;
+  height: 16px;
+  background: var(--white);
+  border: 1px solid var(--black);
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+
+.color-temp__value {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.color-temp__number {
+  font-family: var(--font-sf-mono);
+  font-size: 20px;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+.color-temp__unit {
+  font-family: var(--font-sf-mono);
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+.color-temp__preset {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/**
+ * False Color
+ * Exposure false color legend
+ */
+.false-color {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.false-color__bar {
+  display: flex;
+  height: 20px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.false-color__segment {
+  flex: 1;
+}
+
+.false-color__segment--black { background: #1a1a1a; }
+.false-color__segment--purple { background: #7c3aed; }
+.false-color__segment--blue { background: #3b82f6; }
+.false-color__segment--cyan { background: #06b6d4; }
+.false-color__segment--green { background: #22c55e; }
+.false-color__segment--gray { background: #6b7280; }
+.false-color__segment--yellow { background: #eab308; }
+.false-color__segment--orange { background: #f97316; }
+.false-color__segment--red { background: #ef4444; }
+
+.false-color__labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-sf-mono);
+  font-size: 8px;
+  color: var(--text-ghost);
+}
+
+/**
+ * Noise Indicator
+ * Image noise/grain visualization
+ */
+.noise-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.noise-indicator__preview {
+  width: 64px;
+  height: 48px;
+  background: var(--bg-primary);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.noise-indicator__grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.15;
+}
+
+.noise-indicator__level {
+  font-family: var(--font-sf-mono);
+  font-size: 11px;
+  color: var(--text-body);
+}
+
+.noise-indicator__label {
+  font-size: 9px;
+  color: var(--text-ghost);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   V08: VIDEO FORMAT SPECS
+   ======================================== */
+
+/**
+ * Bitrate Display
+ * Video bitrate indicator
+ */
+.bitrate {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+.bitrate__value {
+  font-family: var(--font-sf-mono);
+  font-size: 18px;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+.bitrate__unit {
+  font-family: var(--font-sf-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+}
+
+.bitrate__bar {
+  width: 100%;
+  height: 4px;
+  background: var(--border-subtle);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: var(--space-1);
+}
+
+.bitrate__bar-fill {
+  height: 100%;
+  background: var(--teal);
+  border-radius: 2px;
+}
+
+.bitrate--variable .bitrate__bar-fill {
+  background: linear-gradient(90deg, var(--teal) 0%, #22c55e 100%);
+}
+
+/**
+ * Bit Depth
+ * Color depth indicator
+ */
+.bit-depth {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.bit-depth__value {
+  font-family: var(--font-sf-mono);
+  font-size: 14px;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+.bit-depth__label {
+  font-family: var(--font-sf-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+}
+
+.bit-depth--8 .bit-depth__value { color: var(--text-muted); }
+.bit-depth--10 .bit-depth__value { color: var(--teal); }
+.bit-depth--12 .bit-depth__value { color: #22c55e; }
+
+/**
+ * Chroma Subsampling
+ * Color sampling indicator
+ */
+.chroma {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sf-mono);
+  font-size: 12px;
+}
+
+.chroma__ratio {
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+.chroma__separator {
+  color: var(--text-ghost);
+  margin: 0 1px;
+}
+
+.chroma--444 .chroma__ratio { color: #22c55e; }
+.chroma--422 .chroma__ratio { color: var(--teal); }
+.chroma--420 .chroma__ratio { color: var(--text-muted); }
+
+/**
+ * Codec Badge
+ * Video codec indicator
+ */
+.codec-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.codec-badge__name {
+  font-family: var(--font-sf-mono);
+  font-size: 12px;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+  text-transform: uppercase;
+}
+
+.codec-badge__type {
+  font-size: 9px;
+  color: var(--text-ghost);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.codec-badge--raw {
+  border-color: var(--teal);
+  background: rgba(121, 180, 160, 0.1);
+}
+
+.codec-badge--raw .codec-badge__name {
+  color: var(--teal);
+}
+
+/**
+ * Dynamic Range
+ * HDR/SDR indicator
+ */
+.dynamic-range {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.dynamic-range__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.dynamic-range__label {
+  font-size: 10px;
+  color: var(--text-ghost);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dynamic-range__value {
+  font-family: var(--font-sf-mono);
+  font-size: 12px;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+.dynamic-range__bar {
+  height: 8px;
+  background: linear-gradient(to right,
+    #000 0%,
+    #333 20%,
+    #666 40%,
+    #999 60%,
+    #ccc 80%,
+    #fff 100%
+  );
+  border-radius: 4px;
+  position: relative;
+}
+
+.dynamic-range__stops {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-sf-mono);
+  font-size: 8px;
+  color: var(--text-ghost);
+}
+
+/**
+ * Color Space
+ * Color gamut indicator
+ */
+.color-space {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.color-space__icon {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: conic-gradient(
+    hsl(0, 80%, 50%),
+    hsl(60, 80%, 50%),
+    hsl(120, 80%, 50%),
+    hsl(180, 80%, 50%),
+    hsl(240, 80%, 50%),
+    hsl(300, 80%, 50%),
+    hsl(360, 80%, 50%)
+  );
+}
+
+.color-space__name {
+  font-family: var(--font-sf-mono);
+  font-size: 11px;
+  font-weight: var(--weight-medium);
+  color: var(--text-body);
+}
+
+.color-space__tag {
+  font-size: 8px;
+  color: var(--teal);
+  padding: 2px 4px;
+  background: rgba(121, 180, 160, 0.1);
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   V08: SENSOR & RESOLUTION
+   ======================================== */
+
+/**
+ * Sensor Display
+ * Image sensor size visualization
+ */
+.sensor-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.sensor-display__visual {
+  position: relative;
+  width: 120px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sensor-display__outline {
+  border: 1px dashed var(--border-light);
+  position: absolute;
+}
+
+.sensor-display__outline--ff {
+  width: 100%;
+  height: 100%;
+}
+
+.sensor-display__outline--s35 {
+  width: 75%;
+  height: 75%;
+}
+
+.sensor-display__outline--mft {
+  width: 50%;
+  height: 50%;
+}
+
+.sensor-display__active {
+  border: 2px solid var(--teal);
+  background: rgba(121, 180, 160, 0.1);
+}
+
+.sensor-display__info {
+  text-align: center;
+}
+
+.sensor-display__name {
+  font-size: 12px;
+  font-weight: var(--weight-medium);
+  color: var(--text-body);
+}
+
+.sensor-display__size {
+  font-family: var(--font-sf-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+}
+
+/**
+ * Resolution Badge
+ * Video resolution indicator
+ */
+.resolution-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+}
+
+.resolution-badge__value {
+  font-family: var(--font-sf-mono);
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+.resolution-badge__label {
+  font-size: 9px;
+  color: var(--text-ghost);
+}
+
+.resolution-badge--8k { border-left: 2px solid #22c55e; }
+.resolution-badge--6k { border-left: 2px solid var(--teal); }
+.resolution-badge--4k { border-left: 2px solid #3b82f6; }
+.resolution-badge--hd { border-left: 2px solid var(--text-muted); }
+
+/**
+ * Aspect Ratio Selector
+ * Visual aspect ratio picker
+ */
+.aspect-selector {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.aspect-selector__option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.aspect-selector__option:hover {
+  border-color: var(--border-light);
+}
+
+.aspect-selector__option--active {
+  border-color: var(--teal);
+  background: rgba(121, 180, 160, 0.05);
+}
+
+.aspect-selector__preview {
+  background: var(--border-medium);
+  border-radius: 2px;
+}
+
+.aspect-selector__preview--16-9 { width: 48px; height: 27px; }
+.aspect-selector__preview--21-9 { width: 48px; height: 20px; }
+.aspect-selector__preview--4-3 { width: 40px; height: 30px; }
+.aspect-selector__preview--1-1 { width: 32px; height: 32px; }
+.aspect-selector__preview--239 { width: 48px; height: 20px; }
+
+.aspect-selector__label {
+  font-family: var(--font-sf-mono);
+  font-size: 9px;
+  color: var(--text-faint);
+}
+
+.aspect-selector__option--active .aspect-selector__preview {
+  background: var(--teal);
+}
+
+.aspect-selector__option--active .aspect-selector__label {
+  color: var(--teal);
+}
+
+/* ========================================
+   V08: FRAMING GUIDES
+   ======================================== */
+
+/**
+ * Frame Guide
+ * Composition overlay guide
+ */
+.frame-guide {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.frame-guide__grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.frame-guide__cell {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.frame-guide__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+}
+
+.frame-guide__center::before,
+.frame-guide__center::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.frame-guide__center::before {
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+.frame-guide__center::after {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+.frame-guide__safe-area {
+  position: absolute;
+  border: 1px dashed rgba(121, 180, 160, 0.4);
+}
+
+.frame-guide__safe-area--action {
+  inset: 5%;
+}
+
+.frame-guide__safe-area--title {
+  inset: 10%;
+}
+
+.frame-guide__letterbox {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.frame-guide__letterbox--top { top: 0; }
+.frame-guide__letterbox--bottom { bottom: 0; }
+
+/* ========================================
+   V08: STABILIZATION
+   ======================================== */
+
+/**
+ * Stabilization Indicator
+ * Image stabilization status
+ */
+.stabilization {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.stabilization__icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-ghost);
+}
+
+.stabilization__icon-inner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+  position: relative;
+}
+
+.stabilization__icon-inner::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 1px;
+  transform: translate(-50%, -50%);
+}
+
+.stabilization--active .stabilization__icon {
+  color: var(--teal);
+}
+
+.stabilization__label {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.stabilization__mode {
+  font-family: var(--font-sf-mono);
+  font-size: 10px;
+  color: var(--text-ghost);
+  padding: 2px 6px;
+  background: var(--bg-elevated);
+  border-radius: 2px;
+}
+
+/* ========================================
+   V08: STORAGE & MEDIA
+   ======================================== */
+
+/**
+ * Storage Card
+ * Media storage display
+ */
+.storage-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.storage-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.storage-card__slot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.storage-card__icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text-faint);
+}
+
+.storage-card__name {
+  font-size: 11px;
+  font-weight: var(--weight-medium);
+  color: var(--text-body);
+}
+
+.storage-card__type {
+  font-family: var(--font-sf-mono);
+  font-size: 9px;
+  color: var(--text-ghost);
+  padding: 2px 4px;
+  background: var(--bg-elevated);
+  border-radius: 2px;
+}
+
+.storage-card__bar {
+  height: 6px;
+  background: var(--border-subtle);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.storage-card__bar-fill {
+  height: 100%;
+  background: var(--teal);
+  border-radius: 3px;
+  transition: width var(--transition-normal);
+}
+
+.storage-card__bar-fill--warning {
+  background: #f59e0b;
+}
+
+.storage-card__bar-fill--critical {
+  background: var(--red);
+}
+
+.storage-card__info {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-sf-mono);
+  font-size: 10px;
+}
+
+.storage-card__used {
+  color: var(--text-body);
+}
+
+.storage-card__remaining {
+  color: var(--text-ghost);
+}
+
+.storage-card__time {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  padding-top: var(--space-1);
+  border-top: 1px solid var(--border-subtle);
+}
+
+/**
+ * Recording Indicator
+ * Active recording status
+ */
+.recording-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: rgba(255, 70, 73, 0.1);
+  border: 1px solid rgba(255, 70, 73, 0.3);
+  border-radius: var(--radius-sm);
+}
+
+.recording-indicator__dot {
+  width: 8px;
+  height: 8px;
+  background: var(--red);
+  border-radius: var(--radius-full);
+  animation: pulse 1s infinite;
+}
+
+.recording-indicator__label {
+  font-size: 11px;
+  font-weight: var(--weight-medium);
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.recording-indicator__time {
+  font-family: var(--font-sf-mono);
+  font-size: 12px;
+  color: var(--text-body);
+}
+
+/* ========================================
+   V08: 3D WIREFRAME
+   ======================================== */
+
+/**
+ * Wireframe Preview
+ * 3D wireframe visualization
+ */
+.wireframe-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.wireframe-preview__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(121, 180, 160, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(121, 180, 160, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  perspective: 500px;
+}
+
+.wireframe-preview__object {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(15deg) rotateY(-25deg);
+  width: 60px;
+  height: 60px;
+  transform-style: preserve-3d;
+}
+
+.wireframe-preview__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--teal);
+  background: transparent;
+}
+
+.wireframe-preview__label {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-family: var(--font-sf-mono);
+  font-size: 9px;
+  color: var(--text-ghost);
+  text-transform: uppercase;
+}
+
+/**
+ * Camera Info Panel
+ * Complete camera status display
+ */
+.camera-info-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.camera-info-panel__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-1);
+  background: var(--bg-surface);
+}
+
+.camera-info-panel__value {
+  font-family: var(--font-sf-mono);
+  font-size: 14px;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+.camera-info-panel__label {
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-ghost);
+  margin-top: 2px;
+}
+
+/* ========================================
+   V08: APUTURE-STYLE LIGHT CONTROLS
+   ======================================== */
+
+/**
+ * Light Intensity
+ * Lighting power control
+ */
+.light-intensity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.light-intensity__dial {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.light-intensity__track {
+  width: 100%;
+  height: 100%;
+  border: 4px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  position: relative;
+}
+
+.light-intensity__fill {
+  position: absolute;
+  inset: -4px;
+  border: 4px solid transparent;
+  border-top-color: var(--teal);
+  border-right-color: var(--teal);
+  border-radius: var(--radius-full);
+  transform: rotate(45deg);
+}
+
+.light-intensity__value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sf-mono);
+  font-size: 24px;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+.light-intensity__value::after {
+  content: '%';
+  font-size: 12px;
+  color: var(--text-faint);
+  margin-left: 2px;
+}
+
+.light-intensity__label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-ghost);
+}
+
+/**
+ * CCT Slider
+ * Correlated Color Temperature
+ */
+.cct-slider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.cct-slider__label {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-sf-mono);
+  font-size: 9px;
+  color: var(--text-ghost);
+}
+
+.cct-slider__track {
+  height: 8px;
+  background: linear-gradient(to right,
+    #ff6b35 0%,
+    #ffa500 20%,
+    #fff4e6 40%,
+    #ffffff 50%,
+    #e6f0ff 60%,
+    #87ceeb 80%,
+    #4169e1 100%
+  );
+  border-radius: 4px;
+  position: relative;
+}
+
+.cct-slider__thumb {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: var(--radius-full);
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cct-slider__value {
+  text-align: center;
+  font-family: var(--font-sf-mono);
+  font-size: 14px;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+/**
+ * HSI Controls
+ * Hue, Saturation, Intensity
+ */
+.hsi-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.hsi-control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.hsi-control__label {
+  width: 16px;
+  font-family: var(--font-sf-mono);
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  color: var(--text-ghost);
+}
+
+.hsi-control__track {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  position: relative;
+}
+
+.hsi-control__track--hue {
+  background: linear-gradient(to right,
+    hsl(0, 100%, 50%),
+    hsl(60, 100%, 50%),
+    hsl(120, 100%, 50%),
+    hsl(180, 100%, 50%),
+    hsl(240, 100%, 50%),
+    hsl(300, 100%, 50%),
+    hsl(360, 100%, 50%)
+  );
+}
+
+.hsi-control__track--sat {
+  background: linear-gradient(to right, #808080, var(--teal));
+}
+
+.hsi-control__track--int {
+  background: linear-gradient(to right, #000, #fff);
+}
+
+.hsi-control__thumb {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: var(--radius-full);
+  transform: translate(-50%, -50%);
+  cursor: grab;
+}
+
+.hsi-control__value {
+  width: 36px;
+  font-family: var(--font-sf-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  text-align: right;
+}
