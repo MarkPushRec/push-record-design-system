@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interact AI - Design System Demo</title>
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      background-color: var(--color-2);
+    }
+    /* Slides container with 240px gap */
+    .slides {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-240);
+    }
+  </style>
+</head>
+<body class="page">
+  <div class="slides">
+
+    <!-- ==========================================
+         SLIDE 1: HERO
+         ========================================== -->
+    <section class="slide">
+      <!-- Background Image at 33% opacity -->
+      <div class="slide__bg">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920" alt="">
+      </div>
+
+      <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+          <div class="header__container">
+            <span class="header__date text-nav-muted">Jan 2026</span>
+            <span class="header__title text-nav">Interact AI</span>
+            <span class="header__company text-nav-muted">Push record</span>
+          </div>
+        </header>
+
+        <!-- Slide Content -->
+        <div class="slide-content">
+          <div class="text-panel">
+            <div class="hero">
+              <!-- Tagline -->
+              <div class="hero__tagline-container">
+                <p class="text-tagline">Creative development</p>
+              </div>
+
+              <!-- Title -->
+              <div class="hero__title-container">
+                <h1 class="text-hero">Interact AI</h1>
+              </div>
+
+              <!-- Description -->
+              <div class="hero__description text-subtitle-lg">
+                <p>From static documents to immersive experiences.</p>
+                <p>A digital retrospective.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 2: CORE CONCEPT
+         ========================================== -->
+    <section class="slide">
+      <div class="main-content">
+        <header class="header">
+          <div class="header__container">
+            <span class="header__date text-nav-muted">Jan 2026</span>
+            <span class="header__title text-nav">Interact AI</span>
+            <span class="header__company text-nav-muted">Push record</span>
+          </div>
+        </header>
+
+        <div class="slide-content">
+          <div class="text-panel text-panel--gap-32">
+            <!-- Scene Info -->
+            <div class="scene-info">
+              <div class="scene-info__header">
+                <span class="text-scene">--</span>
+                <h2 class="text-title">Core Concept</h2>
+              </div>
+              <div class="scene-info__location">
+                <p class="text-subtitle">The next evolution in Web</p>
+                <span class="text-meta">--</span>
+              </div>
+            </div>
+
+            <!-- Exposition 1 -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>The web has evolved in three phases:</p>
+                <ul>
+                  <li><span>Web 1.0 delivered information through static pages.</span></li>
+                  <li><span>Web 2.0 improved presentation through visuals, motion, and polish.</span></li>
+                </ul>
+                <p>But for complex, high-value decisions, users still had to leave the website and talk to a human.</p>
+              </div>
+            </div>
+
+            <!-- Exposition 2 -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>Web 3.0 brings that human interaction directly into the website.</p>
+                <p>Interactive websites guide users through decisions in real time, adapting to their needs and scaling across industries.</p>
+              </div>
+            </div>
+
+            <!-- Exposition 3 -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>The future of the web is not browsing pages,<br>it's interacting with intelligent experiences.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Empty Image Panel -->
+          <div class="image-panel"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 3: QUESTION - WHERE DOES THE INTERFACE DISAPPEAR?
+         ========================================== -->
+    <section class="slide">
+      <div class="main-content">
+        <header class="header">
+          <div class="header__container">
+            <span class="header__date text-nav-muted">Jan 2026</span>
+            <span class="header__title text-nav">Interact AI</span>
+            <span class="header__company text-nav-muted">Push record</span>
+          </div>
+        </header>
+
+        <div class="slide-content">
+          <div class="text-panel">
+            <div class="display-heading">
+              <!-- Question Label -->
+              <div class="question-header">
+                <span class="text-question-label">Question 01</span>
+                <div class="question-header__line"></div>
+              </div>
+
+              <!-- Display Title -->
+              <h2 class="text-display">Where does the interface disappear?</h2>
+
+              <!-- Subtitle with border -->
+              <p class="display-heading__subtitle text-body-lg">Looking forward to ambient computing and AI-driven experiences.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 4: WEB 1.0
+         ========================================== -->
+    <section class="slide">
+      <div class="main-content">
+        <header class="header">
+          <div class="header__container">
+            <span class="header__date text-nav-muted">Jan 2026</span>
+            <span class="header__title text-nav">Interact AI</span>
+            <span class="header__company text-nav-muted">Push record</span>
+          </div>
+        </header>
+
+        <div class="slide-content">
+          <div class="text-panel text-panel--gap-32">
+            <!-- Scene Info -->
+            <div class="scene-info">
+              <div class="scene-info__header">
+                <span class="text-scene">Scene 01</span>
+                <h2 class="text-title">Web 1.0</h2>
+              </div>
+              <div class="scene-info__location">
+                <p class="text-subtitle">The Read-Only Web</p>
+                <span class="text-meta">1991-2004</span>
+              </div>
+            </div>
+
+            <!-- Exposition -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>Early websites functioned as static documents, focused on publishing information rather than creating an experience. Products were explained through dense text, specifications, and long pages that required users to do the work.</p>
+              </div>
+            </div>
+
+            <!-- Voice Over -->
+            <div class="voice-over">
+              <div class="voice-over__label">
+                <span class="text-label">Voice over</span>
+                <span class="text-label-muted"></span>
+              </div>
+              <div class="voice-over__content">
+                <p class="text-quote">"The web was a digital brochure."</p>
+              </div>
+            </div>
+
+            <!-- Exposition -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>Users read. They searched. They bookmarked.</p>
+                <p>But they didn't interact.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Panel -->
+          <div class="image-panel">
+            <div class="image-grid">
+              <div class="image-grid__item">
+                <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800" alt="Retro computer">
+              </div>
+              <div class="image-grid__item">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800" alt="Old monitor">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 5: WEB 2.0
+         ========================================== -->
+    <section class="slide">
+      <div class="main-content">
+        <header class="header">
+          <div class="header__container">
+            <span class="header__date text-nav-muted">Jan 2026</span>
+            <span class="header__title text-nav">Interact AI</span>
+            <span class="header__company text-nav-muted">Push record</span>
+          </div>
+        </header>
+
+        <div class="slide-content">
+          <div class="text-panel text-panel--gap-32">
+            <!-- Scene Info -->
+            <div class="scene-info">
+              <div class="scene-info__header">
+                <span class="text-scene">Scene 02</span>
+                <h2 class="text-title">Web 2.0</h2>
+              </div>
+              <div class="scene-info__location">
+                <p class="text-subtitle">The Interactive Web</p>
+                <span class="text-meta">2004-2020</span>
+              </div>
+            </div>
+
+            <!-- Exposition -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>Websites became slick, polished, and visually sophisticated. With high-definition imagery, refined typography, and cinematic videos, products could be presented in their best light.</p>
+              </div>
+            </div>
+
+            <!-- Voice Over -->
+            <div class="voice-over">
+              <div class="voice-over__label">
+                <span class="text-label">Voice over</span>
+              </div>
+              <div class="voice-over__content">
+                <p class="text-quote">"Images take over. Animations guide the eye."</p>
+              </div>
+            </div>
+
+            <!-- Exposition -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>Users could explore, compare, and configure.</p>
+                <p>But complex decisions still required human guidance.</p>
+              </div>
+            </div>
+
+            <!-- Exposition -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>"Schedule a call." "Contact sales." "Request a demo."</p>
+                <p>The website could present. But it couldn't consult.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Panel -->
+          <div class="image-panel">
+            <div class="image-grid">
+              <div class="image-grid__item image-grid__item--full">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600" alt="Modern tech">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 6: MISDIRECT
+         ========================================== -->
+    <section class="slide">
+      <div class="main-content">
+        <header class="header">
+          <div class="header__container">
+            <span class="header__date text-nav-muted">Jan 2026</span>
+            <span class="header__title text-nav">Interact AI</span>
+            <span class="header__company text-nav-muted">Push record</span>
+          </div>
+        </header>
+
+        <div class="slide-content">
+          <div class="text-panel text-panel--gap-32">
+            <!-- Scene Info -->
+            <div class="scene-info">
+              <div class="scene-info__header">
+                <span class="text-scene">--</span>
+                <h2 class="text-title">Misdirect</h2>
+              </div>
+              <div class="scene-info__location">
+                <p class="text-subtitle">The Chatbot Era</p>
+                <span class="text-meta">--</span>
+              </div>
+            </div>
+
+            <!-- Exposition -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>In an attempt to make the web more interactive, companies adopted chatbots. But most chatbots are gatekeepers, not guides.</p>
+              </div>
+            </div>
+
+            <!-- Voice Over -->
+            <div class="voice-over">
+              <div class="voice-over__label">
+                <span class="text-label">Voice over</span>
+              </div>
+              <div class="voice-over__content">
+                <p class="text-quote">"Can I help you find something?"</p>
+              </div>
+            </div>
+
+            <!-- Exposition -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>They route users to pages. They answer FAQs.</p>
+                <p>But they don't understand. They don't advise. They don't close.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Panel -->
+          <div class="image-panel">
+            <div class="image-grid">
+              <div class="image-grid__item image-grid__item--full">
+                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1600" alt="Chatbot">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 7: WEB 3.0
+         ========================================== -->
+    <section class="slide">
+      <div class="main-content">
+        <header class="header">
+          <div class="header__container">
+            <span class="header__date text-nav-muted">Jan 2026</span>
+            <span class="header__title text-nav">Interact AI</span>
+            <span class="header__company text-nav-muted">Push record</span>
+          </div>
+        </header>
+
+        <div class="slide-content">
+          <div class="text-panel text-panel--gap-32">
+            <!-- Scene Info -->
+            <div class="scene-info">
+              <div class="scene-info__header">
+                <span class="text-scene">Scene 03</span>
+                <h2 class="text-title">Web 3.0</h2>
+              </div>
+              <div class="scene-info__location">
+                <p class="text-subtitle">The Intelligent Web</p>
+                <span class="text-meta">2020-Present</span>
+              </div>
+            </div>
+
+            <!-- Exposition -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>The next evolution doesn't just show. It understands. It responds. It guides.</p>
+              </div>
+            </div>
+
+            <!-- Exposition -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>Interactive AI transforms websites from passive catalogs into active consultants. Users don't just browse. They converse. They ask questions. They get personalized recommendations in real time.</p>
+              </div>
+            </div>
+
+            <!-- Voice Over -->
+            <div class="voice-over">
+              <div class="voice-over__label">
+                <span class="text-label">Voice over</span>
+              </div>
+              <div class="voice-over__content">
+                <p class="text-quote">"The interface disappears. The experience emerges."</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Panel -->
+          <div class="image-panel">
+            <div class="image-grid">
+              <div class="image-grid__item">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" alt="AI visualization">
+              </div>
+              <div class="image-grid__item">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800" alt="Future tech">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 8: AT SCALE
+         ========================================== -->
+    <section class="slide">
+      <div class="main-content">
+        <header class="header">
+          <div class="header__container">
+            <span class="header__date text-nav-muted">Jan 2026</span>
+            <span class="header__title text-nav">Interact AI</span>
+            <span class="header__company text-nav-muted">Push record</span>
+          </div>
+        </header>
+
+        <div class="slide-content">
+          <div class="text-panel text-panel--gap-32">
+            <!-- Scene Info -->
+            <div class="scene-info">
+              <div class="scene-info__header">
+                <span class="text-scene">Conclusion</span>
+                <h2 class="text-title">At Scale</h2>
+              </div>
+              <div class="scene-info__location">
+                <p class="text-subtitle">The Future of Digital Experience</p>
+                <span class="text-meta">--</span>
+              </div>
+            </div>
+
+            <!-- Exposition -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>Interactive AI scales the expertise of your best people across every visitor, every conversation, every decision point.</p>
+              </div>
+            </div>
+
+            <!-- Exposition -->
+            <div class="exposition">
+              <div class="exposition__content text-body-lg">
+                <p>What once required a phone call, a meeting, or a dedicated sales rep can now happen instantly, intelligently, and at scale.</p>
+              </div>
+            </div>
+
+            <!-- Voice Over -->
+            <div class="voice-over">
+              <div class="voice-over__label">
+                <span class="text-label">Voice over</span>
+              </div>
+              <div class="voice-over__content">
+                <p class="text-quote">"This is Interact AI. From static documents to immersive experiences."</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Panel -->
+          <div class="image-panel">
+            <div class="image-grid">
+              <div class="image-grid__item image-grid__item--full">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600" alt="Global network">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

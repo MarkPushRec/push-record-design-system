@@ -1,0 +1,304 @@
+/**
+ * Interact AI Design System - Main Stylesheet
+ * Import this single file to get all design system styles
+ */
+
+@import './design-tokens.css';
+@import './typography.css';
+@import './components.css';
+
+/* ========================================
+   CSS RESET
+   ======================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-2);
+  color: var(--color-8);
+  font-family: var(--font-sf-pro-text);
+  font-weight: var(--weight-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ========================================
+   SLIDES CONTAINER
+   Gap: 240px between slides
+   ======================================== */
+
+.slides {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-240);
+}
+
+/* ========================================
+   RESPONSIVE STYLES
+   ======================================== */
+
+/* Large screens (1440px and below) */
+@media (max-width: 1440px) {
+  :root {
+    --text-hero-size: 140px;
+    --text-hero-line-height: 126px;
+    --text-display-size: 96px;
+    --text-display-line-height: 106px;
+    --text-title-size: 72px;
+    --text-title-line-height: 50px;
+    --text-panel-padding-left: 60px;
+    --text-panel-padding-right: 60px;
+    --image-panel-width: 600px;
+  }
+}
+
+/* Medium screens (1024px and below) */
+@media (max-width: 1024px) {
+  :root {
+    --text-hero-size: 100px;
+    --text-hero-line-height: 90px;
+    --text-display-size: 72px;
+    --text-display-line-height: 80px;
+    --text-title-size: 56px;
+    --text-title-line-height: 40px;
+    --text-subtitle-lg-size: 28px;
+    --text-subtitle-lg-line-height: 42px;
+    --text-body-lg-size: 20px;
+    --text-body-lg-line-height: 36px;
+    --content-padding-x: 24px;
+    --text-panel-padding-left: 40px;
+    --text-panel-padding-right: 40px;
+    --text-panel-padding-y: 32px;
+  }
+
+  .slide-content {
+    flex-direction: column;
+  }
+
+  .image-panel {
+    width: 100%;
+    max-width: none;
+    height: 400px;
+  }
+
+  .display-heading__subtitle {
+    width: 100%;
+  }
+}
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  :root {
+    --text-hero-size: 64px;
+    --text-hero-line-height: 58px;
+    --text-hero-letter-spacing: -2px;
+    --text-display-size: 48px;
+    --text-display-line-height: 54px;
+    --text-title-size: 40px;
+    --text-title-line-height: 32px;
+    --text-subtitle-lg-size: 22px;
+    --text-subtitle-lg-line-height: 33px;
+    --text-body-lg-size: 18px;
+    --text-body-lg-line-height: 32px;
+    --text-tagline-size: 14px;
+    --text-tagline-letter-spacing: 4px;
+    --content-padding-x: 16px;
+    --content-padding-bottom: 40px;
+    --text-panel-padding-left: 24px;
+    --text-panel-padding-right: 24px;
+    --text-panel-padding-y: 24px;
+    --space-240: 120px;
+    --space-55: 32px;
+    --space-32: 24px;
+    --space-30: 20px;
+  }
+
+  .header__container {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  .header__date,
+  .header__title,
+  .header__company {
+    position: static;
+    transform: none;
+  }
+
+  .header__title {
+    order: -1;
+  }
+
+  .header__date,
+  .header__company {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .hero {
+    gap: var(--space-32);
+  }
+
+  .exposition {
+    padding-left: 20px;
+  }
+
+  .voice-over__content {
+    padding-left: 16px;
+  }
+
+  .question-header__line {
+    width: 50px;
+  }
+
+  .image-panel {
+    height: 300px;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  :root {
+    --text-hero-size: 48px;
+    --text-hero-line-height: 44px;
+    --text-display-size: 36px;
+    --text-display-line-height: 40px;
+    --text-title-size: 32px;
+    --text-title-line-height: 28px;
+    --text-question-size: 14px;
+    --text-question-letter-spacing: 2px;
+    --space-240: 80px;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-grid__item--full {
+    grid-column: span 1;
+  }
+
+  .display-heading__subtitle {
+    padding-left: 16px;
+    border-left-width: 2px;
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  .slide {
+    page-break-after: always;
+    min-height: auto;
+    height: auto;
+  }
+
+  .header {
+    background: none;
+    backdrop-filter: none;
+  }
+
+  .text-panel,
+  .image-panel {
+    backdrop-filter: none;
+    background: none;
+  }
+
+  .slide__bg {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .text-hero,
+  .text-display,
+  .text-title {
+    color: black;
+    text-shadow: none;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --color-3: rgba(255, 255, 255, 0.5);
+    --color-4: rgba(255, 255, 255, 0.7);
+    --color-6: rgba(255, 255, 255, 0.8);
+    --color-8: rgba(255, 255, 255, 0.9);
+    --color-9: rgba(255, 255, 255, 0.6);
+    --border-subtle: rgba(255, 255, 255, 0.2);
+    --border-light: rgba(255, 255, 255, 0.3);
+    --border-medium: rgba(255, 255, 255, 0.4);
+  }
+}

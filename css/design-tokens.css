@@ -1,0 +1,218 @@
+/**
+ * Interact AI Design System - Design Tokens
+ * Exact values extracted from Figma design
+ */
+
+:root {
+  /* ========================================
+     COLOR SYSTEM
+     ======================================== */
+
+  /* Primitive Colors */
+  --white: #ffffff;
+  --black: #000000;
+  --cream: #f5f1e9;
+  --teal: #79b4a0;
+  --red: #ff4649;
+
+  /* Semantic Color Tokens */
+  --color-1: #ffffff;                      /* White - primary text, logos */
+  --color-2: #000000;                      /* Black - backgrounds */
+  --color-3: rgba(255, 255, 255, 0.3);     /* 30% white - scene numbers, faint labels */
+  --color-4: rgba(255, 255, 255, 0.5);     /* 50% white - muted nav text */
+  --color-5: #f5f1e9;                      /* Cream - headings */
+  --color-6: rgba(255, 255, 255, 0.6);     /* 60% white - subtitles */
+  --color-7: #79b4a0;                      /* Teal - accent color */
+  --color-8: rgba(255, 255, 255, 0.7);     /* 70% white - body text */
+  --color-9: rgba(255, 255, 255, 0.4);     /* 40% white - meta text, mono */
+  --color-10: rgba(255, 255, 255, 0.85);   /* 85% white - emphasized body, quotes */
+  --accent-9: rgba(255, 255, 255, 0.5);    /* 50% white - taglines */
+
+  /* Background Colors */
+  --bg-primary: var(--color-2);
+  --bg-surface: rgba(255, 255, 255, 0.02);
+  --bg-elevated: rgba(0, 0, 0, 0.8);
+  --bg-overlay: rgba(0, 0, 0, 0.2);
+
+  /* Border Colors */
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-medium: rgba(255, 255, 255, 0.2);
+  --border-accent: var(--color-7);
+  --border-accent-muted: rgba(121, 180, 160, 0.5);
+
+  /* ========================================
+     TYPOGRAPHY SYSTEM
+     ======================================== */
+
+  /* Font Families */
+  --font-sf-pro: 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-sf-pro-text: 'SF Pro Text', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-sf-mono: 'SF Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
+
+  /* Font Weights */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+
+  /* ----------------------------------------
+     TEXT STYLES - Exact Figma Specifications
+     ---------------------------------------- */
+
+  /* Hero Title: SF Pro Bold 198px */
+  --text-hero-size: 197.792px;
+  --text-hero-line-height: 178.013px;
+  --text-hero-letter-spacing: -5.6512px;
+  --text-hero-weight: var(--weight-bold);
+  --text-hero-family: var(--font-sf-pro);
+
+  /* Display Heading: SF Pro Bold 128px */
+  --text-display-size: 128.261px;
+  --text-display-line-height: 141.087px;
+  --text-display-letter-spacing: -2.8502px;
+  --text-display-weight: var(--weight-bold);
+  --text-display-family: var(--font-sf-pro);
+
+  /* Section Title: SF Pro Bold 94px */
+  --text-title-size: 94px;
+  --text-title-line-height: 64.8px;
+  --text-title-letter-spacing: -2.16px;
+  --text-title-weight: var(--weight-bold);
+  --text-title-family: var(--font-sf-pro);
+
+  /* Subtitle Large: SF Pro Text Light 34px */
+  --text-subtitle-lg-size: 33.907px;
+  --text-subtitle-lg-line-height: 50.861px;
+  --text-subtitle-lg-letter-spacing: -0.6499px;
+  --text-subtitle-lg-weight: var(--weight-light);
+  --text-subtitle-lg-family: var(--font-sf-pro-text);
+
+  /* Quote Text: SF Pro Text Light Italic 24px */
+  --text-quote-size: 24px;
+  --text-quote-line-height: 32.5px;
+  --text-quote-letter-spacing: 0;
+  --text-quote-weight: var(--weight-light);
+  --text-quote-family: var(--font-sf-pro-text);
+
+  /* Body Large: SF Pro Text Light 23px */
+  --text-body-lg-size: 23px;
+  --text-body-lg-line-height: 43px;
+  --text-body-lg-letter-spacing: -0.46px;
+  --text-body-lg-weight: var(--weight-light);
+  --text-body-lg-family: var(--font-sf-pro-text);
+
+  /* Tagline: SF Pro Medium 21px */
+  --text-tagline-size: 21.192px;
+  --text-tagline-line-height: 31.788px;
+  --text-tagline-letter-spacing: 8.4768px;
+  --text-tagline-weight: var(--weight-medium);
+  --text-tagline-family: var(--font-sf-pro);
+
+  /* Subtitle: SF Pro Text Medium 21px */
+  --text-subtitle-size: 21px;
+  --text-subtitle-line-height: 28px;
+  --text-subtitle-letter-spacing: 0;
+  --text-subtitle-weight: var(--weight-medium);
+  --text-subtitle-family: var(--font-sf-pro-text);
+
+  /* Question Label: SF Pro Text Medium 20px */
+  --text-question-size: 19.952px;
+  --text-question-line-height: 29.928px;
+  --text-question-letter-spacing: 4.2754px;
+  --text-question-weight: var(--weight-medium);
+  --text-question-family: var(--font-sf-pro-text);
+
+  /* Meta Text: SF Mono Regular 18px */
+  --text-meta-size: 18px;
+  --text-meta-line-height: 20px;
+  --text-meta-letter-spacing: 1.4px;
+  --text-meta-weight: var(--weight-regular);
+  --text-meta-family: var(--font-sf-mono);
+
+  /* Nav Text: SF Pro Text Medium 16px */
+  --text-nav-size: 16px;
+  --text-nav-line-height: 16px;
+  --text-nav-letter-spacing: 3.6px;
+  --text-nav-weight: var(--weight-medium);
+  --text-nav-family: var(--font-sf-pro-text);
+
+  /* Voice Over Label: SF Pro Text Medium 16px */
+  --text-label-size: 16px;
+  --text-label-line-height: 23px;
+  --text-label-letter-spacing: 0.35px;
+  --text-label-weight: var(--weight-medium);
+  --text-label-family: var(--font-sf-pro-text);
+
+  /* Scene Number: SF Pro Medium 15px */
+  --text-scene-size: 15px;
+  --text-scene-line-height: 16px;
+  --text-scene-letter-spacing: 4.8px;
+  --text-scene-weight: var(--weight-medium);
+  --text-scene-family: var(--font-sf-pro);
+
+  /* ========================================
+     SPACING SYSTEM
+     ======================================== */
+
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-3: 3px;
+  --space-7: 7px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-13: 13px;
+  --space-15: 15px;
+  --space-21: 21px;
+  --space-24: 24px;
+  --space-25: 25px;
+  --space-30: 30px;
+  --space-32: 32px;
+  --space-33: 33px;
+  --space-38: 38px;
+  --space-48: 48px;
+  --space-55: 55px;
+  --space-65: 65px;
+  --space-86: 86px;
+  --space-89: 89px;
+  --space-240: 240px;
+
+  /* ========================================
+     BORDER SYSTEM
+     ======================================== */
+
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+  --border-width-3: 3px;
+
+  /* ========================================
+     EFFECTS
+     ======================================== */
+
+  /* Backdrop Blur */
+  --blur-sm: 4px;
+  --blur-md: 6px;
+
+  /* Shadows */
+  --shadow-text: 0px 35.32px 70.64px rgba(0, 0, 0, 0.15);
+  --shadow-text-lg: 0px 35.628px 71.256px rgba(0, 0, 0, 0.15);
+
+  /* Opacity */
+  --opacity-bg-image: 0.33;
+
+  /* ========================================
+     LAYOUT
+     ======================================== */
+
+  --container-max-width: 1920px;
+  --slide-height: 1080px;
+  --content-padding-x: 38px;
+  --content-padding-bottom: 65px;
+  --header-padding-top: 24px;
+  --header-padding-bottom: 25px;
+  --text-panel-padding-left: 89px;
+  --text-panel-padding-right: 86px;
+  --text-panel-padding-y: 48px;
+  --image-panel-width: 791.3px;
+}

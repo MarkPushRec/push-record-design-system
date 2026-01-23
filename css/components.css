@@ -1,0 +1,549 @@
+/**
+ * Interact AI Design System - Components
+ * Exact component styles from Figma design
+ */
+
+/* ========================================
+   PAGE & SLIDE LAYOUT
+   ======================================== */
+
+/**
+ * Page Container
+ * Full page wrapper with black background
+ */
+.page {
+  background-color: var(--color-2);
+  min-height: 100vh;
+  width: 100%;
+}
+
+/**
+ * Slide
+ * Full-height section (1920x1080 in Figma)
+ * Contains: background image, main content
+ */
+.slide {
+  position: relative;
+  width: 100%;
+  height: var(--slide-height);
+  min-height: 100vh;
+  background-color: var(--color-2);
+  overflow: hidden;
+}
+
+/**
+ * Background Image Container
+ * Positioned behind main content
+ * Opacity: 33%
+ */
+.slide__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.slide__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: var(--opacity-bg-image);
+}
+
+/**
+ * Main Content
+ * Padding: 0 38px 65px
+ * Gap: 10px between header and content
+ * Border: 1px solid black on sides and bottom
+ */
+.main-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  height: 100%;
+  padding: 0 var(--content-padding-x) var(--content-padding-bottom);
+  border-left: 1px solid var(--color-2);
+  border-right: 1px solid var(--color-2);
+  border-bottom: 1px solid var(--color-2);
+  overflow: hidden;
+}
+
+/* ========================================
+   HEADER COMPONENT
+   ======================================== */
+
+/**
+ * Header
+ * Background: rgba(0,0,0,0.8) with 4px blur
+ * Padding: 24px top, 25px bottom
+ * Border: 1px solid rgba(255,255,255,0.05) bottom
+ */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--header-padding-top);
+  padding-bottom: var(--header-padding-bottom);
+  background: var(--bg-elevated);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border-bottom: var(--border-width-1) solid var(--border-subtle);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/**
+ * Header Container
+ * Holds date, title, company in relative positioning
+ */
+.header__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-max-width);
+}
+
+/**
+ * Header Date (left)
+ * "JAN 2026"
+ */
+.header__date {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/**
+ * Header Title (center)
+ * "INTERACT AI"
+ */
+.header__title {
+  position: absolute;
+  left: calc(50% + 0.5px);
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/**
+ * Header Company (right)
+ * "PUSH RECORD"
+ */
+.header__company {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ========================================
+   SLIDE CONTENT LAYOUT
+   ======================================== */
+
+/**
+ * Slide Content
+ * Two-panel layout (text + images)
+ * Border: 1px solid rgba(255,255,255,0.05) on left, right, bottom
+ * Padding: 1px
+ */
+.slide-content {
+  display: flex;
+  flex: 1 0 0;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 1px;
+  min-width: 1px;
+  padding: 1px;
+  border-left: var(--border-width-1) solid var(--border-subtle);
+  border-right: var(--border-width-1) solid var(--border-subtle);
+  border-bottom: var(--border-width-1) solid var(--border-subtle);
+}
+
+/**
+ * Text Panel (left side)
+ * Background: rgba(255,255,255,0.02) with 6px blur
+ * Padding: 48px 86px 48px 89px
+ * Border: 1px solid rgba(255,255,255,0.05) right
+ */
+.text-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  height: 100%;
+  min-height: 1px;
+  min-width: 1px;
+  padding: var(--text-panel-padding-y) var(--text-panel-padding-right) var(--text-panel-padding-y) var(--text-panel-padding-left);
+  background: var(--bg-surface);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border-right: var(--border-width-1) solid var(--border-subtle);
+  overflow: auto;
+}
+
+/* Gap variants for text panel */
+.text-panel--gap-32 { gap: var(--space-32); }
+.text-panel--gap-55 { gap: var(--space-55); }
+
+/**
+ * Image Panel (right side)
+ * Width: 791.3px
+ * Background: rgba(255,255,255,0.02) with 6px blur
+ */
+.image-panel {
+  width: var(--image-panel-width);
+  height: 100%;
+  flex-shrink: 0;
+  background: var(--bg-surface);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  overflow: hidden;
+}
+
+.image-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ========================================
+   SCENE INFO COMPONENT
+   ======================================== */
+
+/**
+ * Scene Info
+ * Contains: scene number, title, subtitle, meta
+ * Height: 246px (fixed in Figma)
+ */
+.scene-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+  width: 100%;
+}
+
+/**
+ * Scene Info Header
+ * Contains: scene number + title
+ * Gap: 30px
+ */
+.scene-info__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-30);
+}
+
+/**
+ * Scene Info Location
+ * Contains: subtitle + meta
+ * Gap: 13px
+ * Padding-top: 21px
+ */
+.scene-info__location {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-13);
+  padding-top: var(--space-21);
+}
+
+/* ========================================
+   EXPOSITION BLOCK COMPONENT
+   ======================================== */
+
+/**
+ * Exposition
+ * Body text block with left border accent
+ * Border: 2px solid rgba(255,255,255,0.2) left
+ * Padding-left: 33px
+ */
+.exposition {
+  width: 100%;
+  border-left: var(--border-width-2) solid var(--border-medium);
+  padding-left: var(--space-33);
+}
+
+/**
+ * Exposition Content
+ * Contains the actual text
+ */
+.exposition__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.exposition__content p {
+  margin: 0;
+}
+
+.exposition__content ul {
+  margin: 0;
+  padding-left: 34.5px;
+  list-style-type: disc;
+}
+
+.exposition__content li {
+  margin: 0;
+}
+
+/* ========================================
+   VOICE OVER COMPONENT
+   ======================================== */
+
+/**
+ * Voice Over Block
+ * Contains: label + quote
+ */
+.voice-over {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+/**
+ * Voice Over Label Container
+ * Border: 3px solid #79b4a0 left
+ * Padding: 7px 12px 7px 15px
+ */
+.voice-over__label {
+  display: flex;
+  flex-direction: column;
+  border-left: var(--border-width-3) solid var(--border-accent);
+  padding: var(--space-7) var(--space-12) var(--space-7) var(--space-15);
+}
+
+/**
+ * Voice Over Content
+ * Border: 1px solid rgba(255,255,255,0.1) left
+ * Padding-left: 25px
+ */
+.voice-over__content {
+  border-left: var(--border-width-1) solid var(--border-light);
+  padding-left: 25px;
+}
+
+/* ========================================
+   QUESTION HEADER COMPONENT
+   ======================================== */
+
+/**
+ * Question Header
+ * "QUESTION 01" with decorative line
+ * Line: 85.5px wide, 1.425px tall, rgba(121,180,160,0.5)
+ */
+.question-header {
+  display: flex;
+  align-items: center;
+  gap: 22.8px;
+  height: 29.928px;
+}
+
+.question-header__line {
+  width: 85.507px;
+  height: 1.425px;
+  background-color: var(--border-accent-muted);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+/**
+ * Hero
+ * Full height centered content
+ * Gap: 55px between elements
+ */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-55);
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+/**
+ * Hero Paragraph Container
+ * Padding: 0 3px
+ */
+.hero__tagline-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+/**
+ * Hero Heading Container
+ * Shadow: 0px 35.32px 70.64px rgba(0,0,0,0.15)
+ */
+.hero__title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(var(--shadow-text));
+}
+
+/**
+ * Hero Description Container
+ */
+.hero__description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ========================================
+   DISPLAY HEADING SECTION
+   ======================================== */
+
+/**
+ * Display Heading
+ * Large heading with optional subtitle
+ * Gap: 32px
+ */
+.display-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/**
+ * Display Heading Subtitle
+ * Border: 2.85px solid rgba(255,255,255,0.2) left
+ * Padding-left: 34.2px
+ */
+.display-heading__subtitle {
+  border-left: 2.85px solid var(--border-medium);
+  padding-left: 34.2px;
+  width: 957.681px;
+}
+
+/* ========================================
+   IMAGE GRID
+   ======================================== */
+
+/**
+ * Image Grid
+ * 2-column grid for image panel
+ */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  height: 100%;
+  padding: 16px;
+}
+
+.image-grid__item {
+  overflow: hidden;
+  background: var(--bg-surface);
+}
+
+.image-grid__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-grid__item--full {
+  grid-column: span 2;
+}
+
+/* ========================================
+   BORDERS
+   ======================================== */
+
+/* Left border variants */
+.border-l-1 { border-left: var(--border-width-1) solid; }
+.border-l-2 { border-left: var(--border-width-2) solid; }
+.border-l-3 { border-left: var(--border-width-3) solid; }
+
+/* Border colors */
+.border-subtle { border-color: var(--border-subtle); }
+.border-light { border-color: var(--border-light); }
+.border-medium { border-color: var(--border-medium); }
+.border-accent { border-color: var(--border-accent); }
+
+/* ========================================
+   BACKGROUNDS
+   ======================================== */
+
+.bg-black { background-color: var(--color-2); }
+.bg-surface { background: var(--bg-surface); }
+.bg-elevated { background: var(--bg-elevated); }
+.bg-overlay { background: var(--bg-overlay); }
+
+/* ========================================
+   EFFECTS
+   ======================================== */
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+}
+
+.shadow-text {
+  filter: drop-shadow(var(--shadow-text));
+}
+
+/* ========================================
+   LAYOUT UTILITIES
+   ======================================== */
+
+/* Display */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.flex-1 { flex: 1 0 0; }
+.shrink-0 { flex-shrink: 0; }
+
+/* Alignment */
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+
+/* Size */
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.min-h-screen { min-height: 100vh; }
+
+/* Position */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-0 { inset: 0; }
+
+/* Overflow */
+.overflow-hidden { overflow: hidden; }
+.overflow-auto { overflow: auto; }
+
+/* Gaps */
+.gap-10 { gap: var(--space-10); }
+.gap-13 { gap: var(--space-13); }
+.gap-21 { gap: var(--space-21); }
+.gap-30 { gap: var(--space-30); }
+.gap-32 { gap: var(--space-32); }
+.gap-55 { gap: var(--space-55); }
+.gap-240 { gap: var(--space-240); }
+
+/* Padding */
+.p-0 { padding: 0; }
+.p-1 { padding: 1px; }
+.pt-21 { padding-top: var(--space-21); }
+.pl-33 { padding-left: var(--space-33); }
