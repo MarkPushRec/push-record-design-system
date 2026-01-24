@@ -8,6 +8,11 @@ interface QuestionHeaderProps {
 /**
  * QuestionHeader Component
  * Accent-colored question label with decorative line
+ *
+ * Required CSS: Import 'css/main.css' or use the class names below:
+ * - .question-header
+ * - .text-question-label
+ * - .question-header__line
  */
 export const QuestionHeader: React.FC<QuestionHeaderProps> = ({
   label,
@@ -15,33 +20,16 @@ export const QuestionHeader: React.FC<QuestionHeaderProps> = ({
 }) => {
   return (
     <div className="question-header">
-      <span className="question-header__label">{label}</span>
+      <span className="text-question-label">{label}</span>
       {showLine && <div className="question-header__line" />}
     </div>
   );
 };
 
-export const questionHeaderStyles = `
-  .question-header {
-    display: flex;
-    align-items: center;
-    gap: 23px;
-  }
-
-  .question-header__label {
-    font-family: 'SF Pro Text', -apple-system, sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    letter-spacing: 0.21em;
-    text-transform: uppercase;
-    color: #79b4a0;
-  }
-
-  .question-header__line {
-    height: 1.5px;
-    width: 85px;
-    background-color: rgba(121, 180, 160, 0.5);
-  }
-`;
+/**
+ * @deprecated Styles are now in css/components.css
+ * Import 'css/main.css' instead of using this export
+ */
+export const questionHeaderStyles = `/* Styles moved to css/components.css - import css/main.css */`;
 
 export default QuestionHeader;

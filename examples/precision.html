@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precision Components - Push Record Design System</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Design System Page Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--color-2);
+      color: var(--color-8);
+      font-family: var(--font-sf-pro-text);
+      line-height: 1.6;
+    }
+
+    /* Layout */
+    .ds-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .ds-section {
+      margin-bottom: 120px;
+    }
+
+    .ds-section-title {
+      font-family: var(--font-sf-pro);
+      font-size: 14px;
+      font-weight: var(--weight-medium);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--color-7);
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .ds-section-description {
+      font-size: 18px;
+      color: var(--color-6);
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+
+    /* Grid */
+    .ds-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .ds-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .ds-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .ds-grid--4 { grid-template-columns: repeat(4, 1fr); }
+    .ds-grid--5 { grid-template-columns: repeat(5, 1fr); }
+
+    @media (max-width: 1024px) {
+      .ds-grid--4, .ds-grid--5 { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .ds-grid--2, .ds-grid--3, .ds-grid--4, .ds-grid--5 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Header */
+    .ds-header {
+      padding: 60px 40px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 80px;
+    }
+
+    .ds-header__title {
+      font-family: var(--font-sf-pro);
+      font-size: 64px;
+      font-weight: var(--weight-bold);
+      color: var(--color-5);
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+
+    .ds-header__subtitle {
+      font-size: 24px;
+      font-weight: var(--weight-light);
+      color: var(--color-6);
+    }
+
+    /* Navigation */
+    .ds-nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 240px;
+      height: 100vh;
+      background: var(--bg-elevated);
+      border-right: 1px solid var(--border-subtle);
+      padding: 32px 24px;
+      overflow-y: auto;
+      z-index: 100;
+    }
+
+    .ds-nav__title {
+      font-size: 14px;
+      font-weight: var(--weight-medium);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-1);
+      margin-bottom: 32px;
+    }
+
+    .ds-nav__link {
+      display: block;
+      font-size: 14px;
+      color: var(--color-6);
+      text-decoration: none;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: color 0.2s;
+    }
+
+    .ds-nav__link:hover {
+      color: var(--color-7);
+    }
+
+    .ds-main {
+      margin-left: 240px;
+    }
+
+    @media (max-width: 1024px) {
+      .ds-nav { display: none; }
+      .ds-main { margin-left: 0; }
+    }
+
+    /* Color Swatch */
+    .ds-swatch {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .ds-swatch__color {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ds-swatch__info {
+      padding: 10px 12px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .ds-swatch__name {
+      font-size: 11px;
+      font-weight: var(--weight-medium);
+      color: var(--color-1);
+      margin-bottom: 2px;
+    }
+
+    .ds-swatch__value {
+      font-family: var(--font-sf-mono);
+      font-size: 9px;
+      color: var(--color-9);
+    }
+
+    .ds-swatch__token {
+      font-family: var(--font-sf-mono);
+      font-size: 9px;
+      color: var(--color-7);
+      margin-top: 4px;
+    }
+
+    /* Typography Specimen */
+    .ds-type-specimen {
+      padding: 20px 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .ds-type-specimen__sample {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .ds-type-specimen__meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .ds-type-specimen__label {
+      font-size: 9px;
+      font-weight: var(--weight-medium);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--color-9);
+      margin-bottom: 2px;
+    }
+
+    .ds-type-specimen__value {
+      font-family: var(--font-sf-mono);
+      font-size: 11px;
+      color: var(--color-6);
+    }
+
+    /* Spacing */
+    .ds-spacing-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .ds-spacing-bar {
+      height: 16px;
+      background: var(--color-7);
+      border-radius: 2px;
+      opacity: 0.6;
+    }
+
+    .ds-spacing-label {
+      font-family: var(--font-sf-mono);
+      font-size: 11px;
+      color: var(--color-6);
+      min-width: 80px;
+    }
+
+    .ds-spacing-value {
+      font-family: var(--font-sf-mono);
+      font-size: 11px;
+      color: var(--color-9);
+      min-width: 48px;
+    }
+
+    /* Border Demo */
+    .ds-border-demo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      background: var(--bg-surface);
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .ds-border-sample {
+      width: 80px;
+      height: 56px;
+      background: var(--bg-overlay);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--color-9);
+    }
+
+    .ds-border-info {
+      flex: 1;
+    }
+
+    .ds-border-name {
+      font-size: 12px;
+      font-weight: var(--weight-medium);
+      color: var(--color-1);
+      margin-bottom: 4px;
+    }
+
+    .ds-border-spec {
+      font-family: var(--font-sf-mono);
+      font-size: 10px;
+      color: var(--color-9);
+    }
+
+    /* Effect Demo */
+    .ds-effect-demo {
+      padding: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    /* Component Card */
+    .ds-component-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .ds-component-preview {
+      padding: 24px;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .ds-component-info {
+      padding: 12px 16px;
+    }
+
+    .ds-component-name {
+      font-size: 13px;
+      font-weight: var(--weight-medium);
+      color: var(--color-1);
+      margin-bottom: 4px;
+    }
+
+    .ds-component-class {
+      font-family: var(--font-sf-mono);
+      font-size: 10px;
+      color: var(--color-7);
+    }
+
+    /* Code Block */
+    .ds-code {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 24px;
+      font-family: var(--font-sf-mono);
+      font-size: 13px;
+      color: var(--color-6);
+      overflow-x: auto;
+      white-space: pre;
+      margin-top: 24px;
+    }
+
+    /* Divider */
+    .ds-divider {
+      height: 1px;
+      background: var(--border-subtle);
+      margin: 80px 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="ds-main" style="margin-left: 0;">
+    <header class="ds-header">
+      <a href="index.html" style="color: var(--color-7); font-size: 14px; text-decoration: none;">&larr; Back to Examples</a>
+      <h1 class="ds-header__title" style="margin-top: 16px;">Precision Components</h1>
+      <p class="ds-header__subtitle">Knobs, gauges, meters, and technical controls</p>
+    </header>
+    <div class="ds-container">
+      <section id="precision" class="ds-section">
+        <h2 class="ds-section-title">Precision</h2>
+        <p class="ds-section-description">Technical components for measurement, coordinates, and data visualization with engineering precision.</p>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Readouts & Data</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Readout -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 32px;">
+              <div class="readout">
+                <span class="readout__value">127<span class="readout__decimal">.45</span></span>
+                <span class="readout__unit">ms</span>
+              </div>
+              <div class="readout">
+                <span class="readout__value readout__value--lg">98<span class="readout__decimal">.2</span></span>
+                <span class="readout__unit">%</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Readout</div>
+              <div class="ds-component-class">.readout</div>
+            </div>
+          </div>
+
+          <!-- Coordinate Display -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 16px;">
+              <div class="coordinate">
+                <div class="coordinate__axis">
+                  <span class="coordinate__label">X</span>
+                  <span class="coordinate__value">1284</span>
+                </div>
+                <span class="coordinate__separator">/</span>
+                <div class="coordinate__axis">
+                  <span class="coordinate__label">Y</span>
+                  <span class="coordinate__value">720</span>
+                </div>
+              </div>
+              <div class="coordinate">
+                <div class="coordinate__axis">
+                  <span class="coordinate__label">W</span>
+                  <span class="coordinate__value">1920</span>
+                </div>
+                <span class="coordinate__separator">x</span>
+                <div class="coordinate__axis">
+                  <span class="coordinate__label">H</span>
+                  <span class="coordinate__value">1080</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Coordinate Display</div>
+              <div class="ds-component-class">.coordinate</div>
+            </div>
+          </div>
+
+          <!-- Data Labels -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 12px; align-items: flex-start;">
+              <div class="data-label">
+                <span class="data-label__key">FPS</span>
+                <span class="data-label__value">59.94</span>
+              </div>
+              <div class="data-label data-label--accent">
+                <span class="data-label__key">Bitrate</span>
+                <span class="data-label__value">24.5 Mbps</span>
+              </div>
+              <div class="data-label">
+                <span class="data-label__key">Duration</span>
+                <span class="data-label__value">01:24:36</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Data Label</div>
+              <div class="ds-component-class">.data-label</div>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Measurement Tools</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Scale Bar -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="padding: 32px;">
+              <div class="scale-bar" style="width: 200px;">
+                <div class="scale-bar__track">
+                  <div class="scale-bar__segment"></div>
+                  <div class="scale-bar__segment"></div>
+                  <div class="scale-bar__segment"></div>
+                  <div class="scale-bar__segment"></div>
+                  <div class="scale-bar__segment"></div>
+                </div>
+                <div class="scale-bar__labels">
+                  <span>0</span>
+                  <span>50</span>
+                  <span>100</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Scale Bar</div>
+              <div class="ds-component-class">.scale-bar</div>
+            </div>
+          </div>
+
+          <!-- Tick Scale -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="padding: 32px; width: 100%;">
+              <div class="tick-scale" style="width: 100%;">
+                <div class="tick-scale__track">
+                  <div class="tick-scale__tick tick-scale__tick--major"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick tick-scale__tick--major"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick"></div>
+                  <div class="tick-scale__tick tick-scale__tick--major"></div>
+                </div>
+                <div class="tick-scale__fill" style="width: 65%;"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Tick Scale</div>
+              <div class="ds-component-class">.tick-scale</div>
+            </div>
+          </div>
+
+          <!-- Measurement -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="padding: 32px; width: 100%;">
+              <div class="measurement" style="width: 100%;">
+                <div class="measurement__line"></div>
+                <span class="measurement__value">240px</span>
+                <div class="measurement__line"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Measurement</div>
+              <div class="ds-component-class">.measurement</div>
+            </div>
+          </div>
+
+          <!-- Level Indicator -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 16px; flex-direction: column;">
+              <div class="level">
+                <div class="level__track">
+                  <div class="level__bubble"></div>
+                </div>
+                <span class="level__value">0.0°</span>
+              </div>
+              <div class="level">
+                <div class="level__track">
+                  <div class="level__bubble" style="left: 65%;"></div>
+                </div>
+                <span class="level__value">+2.4°</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Level Indicator</div>
+              <div class="ds-component-class">.level</div>
+            </div>
+          </div>
+
+          <!-- Crosshair -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="crosshair" style="width: 120px; height: 120px;">
+                <div class="crosshair__center"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Crosshair</div>
+              <div class="ds-component-class">.crosshair</div>
+            </div>
+          </div>
+
+          <!-- Precision Card -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="padding: 32px;">
+              <div class="card card--precision" style="width: 200px;">
+                <div class="card__body card__body--tight">
+                  <div class="stat stat--tight stat--center">
+                    <span class="stat__value">1080p</span>
+                    <span class="stat__label">Resolution</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Precision Card</div>
+              <div class="ds-component-class">.card--precision</div>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Grid Backgrounds</h3>
+        <div class="ds-grid ds-grid--2">
+
+          <!-- Grid Background -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview bg-grid" style="min-height: 160px;">
+              <span style="font-size: 12px; color: var(--color-9);">16px grid</span>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Grid Background</div>
+              <div class="ds-component-class">.bg-grid</div>
+            </div>
+          </div>
+
+          <!-- Major Grid Background -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview bg-grid--major" style="min-height: 160px;">
+              <span style="font-size: 12px; color: var(--color-9);">16px / 64px grid</span>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Major Grid</div>
+              <div class="ds-component-class">.bg-grid--major</div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <div class="ds-divider"></div>
+
+      <!-- ==========================================
+           COMPONENTS
+           ========================================== -->
+    </div>
+  </main>
+</body>
+</html>

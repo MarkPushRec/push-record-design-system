@@ -9,6 +9,12 @@ interface HeroProps {
 /**
  * Hero Component
  * Large hero section with tagline, title, and description
+ *
+ * Required CSS: Import 'css/main.css' or use the class names below:
+ * - .hero
+ * - .text-tagline (for tagline)
+ * - .text-hero (for title)
+ * - .text-subtitle-lg (for description)
  */
 export const Hero: React.FC<HeroProps> = ({
   tagline,
@@ -17,12 +23,18 @@ export const Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <div className="hero">
-      {tagline && <p className="hero__tagline">{tagline}</p>}
-      <h1 className="hero__title">{title}</h1>
+      {tagline && (
+        <div className="hero__tagline-container">
+          <p className="text-tagline">{tagline}</p>
+        </div>
+      )}
+      <div className="hero__title-container">
+        <h1 className="text-hero">{title}</h1>
+      </div>
       {description.length > 0 && (
         <div className="hero__description">
           {description.map((line, index) => (
-            <p key={index}>{line}</p>
+            <p key={index} className="text-subtitle-lg">{line}</p>
           ))}
         </div>
       )}
@@ -30,54 +42,10 @@ export const Hero: React.FC<HeroProps> = ({
   );
 };
 
-export const heroStyles = `
-  .hero {
-    display: flex;
-    flex-direction: column;
-    gap: 55px;
-    justify-content: center;
-    height: 100%;
-    padding: 48px 89px;
-  }
-
-  .hero__tagline {
-    font-family: 'SF Pro', -apple-system, sans-serif;
-    font-size: 21px;
-    font-weight: 500;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
-    text-align: center;
-    padding: 0 3px;
-    margin: 0;
-  }
-
-  .hero__title {
-    font-family: 'SF Pro', -apple-system, sans-serif;
-    font-size: 198px;
-    font-weight: 700;
-    line-height: 0.9;
-    letter-spacing: -0.028em;
-    color: #f5f1e9;
-    text-shadow: 0px 35px 71px rgba(0, 0, 0, 0.15);
-    margin: 0;
-  }
-
-  .hero__description {
-    display: flex;
-    flex-direction: column;
-    font-family: 'SF Pro Text', -apple-system, sans-serif;
-    font-size: 34px;
-    font-weight: 300;
-    line-height: 1.5;
-    letter-spacing: -0.019em;
-    color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-  }
-
-  .hero__description p {
-    margin: 0;
-  }
-`;
+/**
+ * @deprecated Styles are now in css/components.css
+ * Import 'css/main.css' instead of using this export
+ */
+export const heroStyles = `/* Styles moved to css/components.css - import css/main.css */`;
 
 export default Hero;

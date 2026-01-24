@@ -1,0 +1,272 @@
+/**
+ * Media Components
+ * Media player controls, Timecode, Waveform, Timeline ruler
+ */
+
+/* ========================================
+   MEDIA PLAYER CONTROLS
+   ======================================== */
+
+/**
+ * Player
+ * Video/audio player controls
+ */
+.player {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+}
+
+.player__scrubber {
+  position: relative;
+  height: 4px;
+  background: var(--border-subtle);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+}
+
+.player__progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: var(--teal);
+  border-radius: var(--radius-full);
+}
+
+.player__handle {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--white);
+  border-radius: var(--radius-full);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.player__scrubber:hover .player__handle {
+  opacity: 1;
+}
+
+.player__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.player__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--text-body);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.player__btn:hover {
+  color: var(--text-primary);
+  background: var(--state-hover);
+}
+
+.player__btn--primary {
+  width: 40px;
+  height: 40px;
+  background: var(--teal);
+  color: var(--black);
+}
+
+.player__btn--primary:hover {
+  background: rgba(121, 180, 160, 0.85);
+  color: var(--black);
+}
+
+.player__btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.player__time {
+  font-family: var(--font-sf-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  min-width: 80px;
+}
+
+.player__volume {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: auto;
+}
+
+.player__volume-slider {
+  width: 64px;
+  height: 4px;
+  background: var(--border-subtle);
+  border-radius: var(--radius-full);
+  appearance: none;
+  cursor: pointer;
+}
+
+.player__volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: var(--white);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+}
+
+
+/* ========================================
+   TIMECODE
+   ======================================== */
+
+/**
+ * Timecode
+ * Video timecode display
+ */
+.timecode {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-sf-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
+}
+
+.timecode--lg {
+  font-size: 24px;
+  font-weight: var(--weight-medium);
+  color: var(--text-heading);
+}
+
+.timecode--md {
+  font-size: 16px;
+  color: var(--text-body);
+}
+
+.timecode--sm {
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.timecode__segment {
+  color: inherit;
+}
+
+.timecode__separator {
+  color: var(--text-ghost);
+  margin: 0 1px;
+}
+
+.timecode__frames {
+  color: var(--text-accent);
+}
+
+
+/* ========================================
+   WAVEFORM
+   ======================================== */
+
+/**
+ * Waveform
+ * Audio waveform visualization
+ */
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  height: 48px;
+  padding: var(--space-2);
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+}
+
+.waveform__bar {
+  flex: 1;
+  min-width: 2px;
+  max-width: 4px;
+  background: var(--border-medium);
+  border-radius: 1px;
+  transition: background var(--transition-fast);
+}
+
+.waveform__bar--active {
+  background: var(--teal);
+}
+
+.waveform--compact {
+  height: 32px;
+  padding: var(--space-1);
+}
+
+
+/* ========================================
+   TIMELINE RULER
+   ======================================== */
+
+/**
+ * Ruler
+ * Timeline ruler with markers
+ */
+.ruler {
+  position: relative;
+  height: 24px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.ruler__track {
+  display: flex;
+  height: 100%;
+}
+
+.ruler__segment {
+  position: relative;
+  flex-shrink: 0;
+  border-right: 1px solid var(--tick-mark);
+}
+
+.ruler__segment--major {
+  border-right-color: var(--tick-mark-major);
+}
+
+.ruler__label {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  font-family: var(--font-sf-mono);
+  font-size: 9px;
+  color: var(--text-ghost);
+}
+
+.ruler__playhead {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: var(--red);
+  z-index: 2;
+}
+
+.ruler__playhead::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -4px;
+  border: 4px solid transparent;
+  border-top-color: var(--red);
+}
+

@@ -1,6 +1,6 @@
 /**
- * Interact AI Design System - Design Tokens
- * Exact values extracted from Figma design
+ * Push Record Design System - Design Tokens
+ * Refined token system with systematic scales and semantic naming
  */
 
 :root {
@@ -15,31 +15,76 @@
   --teal: #79b4a0;
   --red: #ff4649;
 
-  /* Semantic Color Tokens */
-  --color-1: #ffffff;                      /* White - primary text, logos */
-  --color-2: #000000;                      /* Black - backgrounds */
-  --color-3: rgba(255, 255, 255, 0.3);     /* 30% white - scene numbers, faint labels */
-  --color-4: rgba(255, 255, 255, 0.5);     /* 50% white - muted nav text */
-  --color-5: #f5f1e9;                      /* Cream - headings */
-  --color-6: rgba(255, 255, 255, 0.6);     /* 60% white - subtitles */
-  --color-7: #79b4a0;                      /* Teal - accent color */
-  --color-8: rgba(255, 255, 255, 0.7);     /* 70% white - body text */
-  --color-9: rgba(255, 255, 255, 0.4);     /* 40% white - meta text, mono */
-  --color-10: rgba(255, 255, 255, 0.85);   /* 85% white - emphasized body, quotes */
-  --accent-9: rgba(255, 255, 255, 0.5);    /* 50% white - taglines */
+  /* Extended Palette */
+  --amber: #f59e0b;
+  --green: #22c55e;
+  --blue: #3b82f6;
+  --purple: #9b87f5;
+  --cyan: #06b6d4;
+  --orange: #f97316;
+  --yellow: #eab308;
+  --violet: #7c3aed;
 
-  /* Background Colors */
-  --bg-primary: var(--color-2);
-  --bg-surface: rgba(255, 255, 255, 0.02);
-  --bg-elevated: rgba(0, 0, 0, 0.8);
-  --bg-overlay: rgba(0, 0, 0, 0.2);
+  /* ----------------------------------------
+     Semantic State Colors
+     ---------------------------------------- */
+  --state-success: var(--green);
+  --state-warning: var(--amber);
+  --state-error: var(--red);
+  --state-info: var(--blue);
 
-  /* Border Colors */
+  /* ----------------------------------------
+     Semantic Text Colors (WCAG AA compliant)
+     Normalized to systematic 10-15% increments
+     ---------------------------------------- */
+  --text-primary: #ffffff;                    /* 100% white - logos, primary emphasis */
+  --text-heading: #f5f1e9;                    /* Cream - all headings */
+  --text-emphasis: rgba(255, 255, 255, 0.90); /* 90% white - quotes, emphasized (AA) */
+  --text-body: rgba(255, 255, 255, 0.75);     /* 75% white - body text (AA) */
+  --text-muted: rgba(255, 255, 255, 0.65);    /* 65% white - subtitles (AA) */
+  --text-subtle: rgba(255, 255, 255, 0.55);   /* 55% white - nav muted, taglines (AA large) */
+  --text-faint: rgba(255, 255, 255, 0.45);    /* 45% white - meta, mono (AA large) */
+  --text-ghost: rgba(255, 255, 255, 0.35);    /* 35% white - decorative only, use with sr-only alternative */
+  --text-accent: #79b4a0;                     /* Teal - labels, questions */
+
+  /* Legacy color aliases (for backwards compatibility) */
+  --color-1: var(--text-primary);
+  --color-2: var(--black);
+  --color-3: var(--text-ghost);
+  --color-4: var(--text-subtle);
+  --color-5: var(--text-heading);
+  --color-6: var(--text-muted);
+  --color-7: var(--text-accent);
+  --color-8: var(--text-body);
+  --color-9: var(--text-faint);
+  --color-10: var(--text-emphasis);
+  --accent-9: var(--text-subtle);
+
+  /* ----------------------------------------
+     Background Colors
+     ---------------------------------------- */
+  --bg-primary: var(--black);
+  --bg-surface: rgba(255, 255, 255, 0.02);    /* Panels with subtle visibility */
+  --bg-elevated: rgba(0, 0, 0, 0.8);          /* Header overlay */
+  --bg-overlay: rgba(0, 0, 0, 0.2);           /* Modal overlays */
+
+  /* ----------------------------------------
+     Border Colors
+     ---------------------------------------- */
   --border-subtle: rgba(255, 255, 255, 0.05);
   --border-light: rgba(255, 255, 255, 0.1);
   --border-medium: rgba(255, 255, 255, 0.2);
-  --border-accent: var(--color-7);
+  --border-accent: var(--teal);
   --border-accent-muted: rgba(121, 180, 160, 0.5);
+
+  /* ----------------------------------------
+     Interactive State Colors
+     ---------------------------------------- */
+  --state-hover: rgba(255, 255, 255, 0.1);
+  --state-active: rgba(255, 255, 255, 0.15);
+  --state-focus: var(--teal);
+  --state-disabled-text: rgba(255, 255, 255, 0.3);
+  --state-disabled-bg: rgba(255, 255, 255, 0.05);
 
   /* ========================================
      TYPOGRAPHY SYSTEM
@@ -57,134 +102,190 @@
   --weight-bold: 700;
 
   /* ----------------------------------------
-     TEXT STYLES - Exact Figma Specifications
+     TEXT STYLES - Cleaned up values
      ---------------------------------------- */
 
-  /* Hero Title: SF Pro Bold 198px */
-  --text-hero-size: 197.792px;
-  --text-hero-line-height: 178.013px;
-  --text-hero-letter-spacing: -5.6512px;
+  /* Hero Title: SF Pro Bold 160px - DENSE */
+  --text-hero-size: 160px;
+  --text-hero-line-height: 160px;
+  --text-hero-letter-spacing: -4.5px;
   --text-hero-weight: var(--weight-bold);
   --text-hero-family: var(--font-sf-pro);
 
-  /* Display Heading: SF Pro Bold 128px */
-  --text-display-size: 128.261px;
-  --text-display-line-height: 141.087px;
-  --text-display-letter-spacing: -2.8502px;
+  /* Display Heading: SF Pro Bold 96px - ULTRA DENSE */
+  --text-display-size: 96px;
+  --text-display-line-height: 100px;
+  --text-display-letter-spacing: -2.2px;
   --text-display-weight: var(--weight-bold);
   --text-display-family: var(--font-sf-pro);
 
-  /* Section Title: SF Pro Bold 94px */
-  --text-title-size: 94px;
-  --text-title-line-height: 64.8px;
-  --text-title-letter-spacing: -2.16px;
+  /* Section Title: SF Pro Bold 72px - DENSE */
+  --text-title-size: 72px;
+  --text-title-line-height: 76px;
+  --text-title-letter-spacing: -1.8px;
   --text-title-weight: var(--weight-bold);
   --text-title-family: var(--font-sf-pro);
 
-  /* Subtitle Large: SF Pro Text Light 34px */
-  --text-subtitle-lg-size: 33.907px;
-  --text-subtitle-lg-line-height: 50.861px;
-  --text-subtitle-lg-letter-spacing: -0.6499px;
+  /* Subtitle Large: SF Pro Text Light 28px - ULTRA DENSE */
+  --text-subtitle-lg-size: 28px;
+  --text-subtitle-lg-line-height: 36px;
+  --text-subtitle-lg-letter-spacing: -0.4px;
   --text-subtitle-lg-weight: var(--weight-light);
   --text-subtitle-lg-family: var(--font-sf-pro-text);
 
-  /* Quote Text: SF Pro Text Light Italic 24px */
-  --text-quote-size: 24px;
-  --text-quote-line-height: 32.5px;
+  /* Quote Text: SF Pro Text Light Italic 18px - ULTRA DENSE */
+  --text-quote-size: 18px;
+  --text-quote-line-height: 24px;
   --text-quote-letter-spacing: 0;
   --text-quote-weight: var(--weight-light);
   --text-quote-family: var(--font-sf-pro-text);
 
-  /* Body Large: SF Pro Text Light 23px */
-  --text-body-lg-size: 23px;
-  --text-body-lg-line-height: 43px;
-  --text-body-lg-letter-spacing: -0.46px;
+  /* Body Large: SF Pro Text Light 17px - ULTRA DENSE (1.35 line-height) */
+  --text-body-lg-size: 17px;
+  --text-body-lg-line-height: 23px;
+  --text-body-lg-letter-spacing: -0.2px;
   --text-body-lg-weight: var(--weight-light);
   --text-body-lg-family: var(--font-sf-pro-text);
 
-  /* Tagline: SF Pro Medium 21px */
-  --text-tagline-size: 21.192px;
-  --text-tagline-line-height: 31.788px;
-  --text-tagline-letter-spacing: 8.4768px;
+  /* Tagline: SF Pro Medium 14px - ULTRA DENSE */
+  --text-tagline-size: 14px;
+  --text-tagline-line-height: 18px;
+  --text-tagline-letter-spacing: 5px;
   --text-tagline-weight: var(--weight-medium);
   --text-tagline-family: var(--font-sf-pro);
 
-  /* Subtitle: SF Pro Text Medium 21px */
-  --text-subtitle-size: 21px;
-  --text-subtitle-line-height: 28px;
+  /* Subtitle: SF Pro Text Medium 16px - ULTRA DENSE */
+  --text-subtitle-size: 16px;
+  --text-subtitle-line-height: 22px;
   --text-subtitle-letter-spacing: 0;
   --text-subtitle-weight: var(--weight-medium);
   --text-subtitle-family: var(--font-sf-pro-text);
 
-  /* Question Label: SF Pro Text Medium 20px */
-  --text-question-size: 19.952px;
-  --text-question-line-height: 29.928px;
-  --text-question-letter-spacing: 4.2754px;
+  /* Question Label: SF Pro Text Medium 13px - ULTRA DENSE */
+  --text-question-size: 13px;
+  --text-question-line-height: 18px;
+  --text-question-letter-spacing: 3px;
   --text-question-weight: var(--weight-medium);
   --text-question-family: var(--font-sf-pro-text);
 
-  /* Meta Text: SF Mono Regular 18px */
-  --text-meta-size: 18px;
-  --text-meta-line-height: 20px;
-  --text-meta-letter-spacing: 1.4px;
+  /* Meta Text: SF Mono Regular 12px - ULTRA DENSE */
+  --text-meta-size: 12px;
+  --text-meta-line-height: 14px;
+  --text-meta-letter-spacing: 1px;
   --text-meta-weight: var(--weight-regular);
   --text-meta-family: var(--font-sf-mono);
 
-  /* Nav Text: SF Pro Text Medium 16px */
-  --text-nav-size: 16px;
-  --text-nav-line-height: 16px;
-  --text-nav-letter-spacing: 3.6px;
+  /* Nav Text: SF Pro Text Medium 12px - Accessible minimum */
+  --text-nav-size: 12px;
+  --text-nav-line-height: 12px;
+  --text-nav-letter-spacing: 2.5px;
   --text-nav-weight: var(--weight-medium);
   --text-nav-family: var(--font-sf-pro-text);
 
-  /* Voice Over Label: SF Pro Text Medium 16px */
-  --text-label-size: 16px;
-  --text-label-line-height: 23px;
-  --text-label-letter-spacing: 0.35px;
+  /* Voice Over Label: SF Pro Text Medium 12px - Accessible minimum */
+  --text-label-size: 12px;
+  --text-label-line-height: 15px;
+  --text-label-letter-spacing: 0.2px;
   --text-label-weight: var(--weight-medium);
   --text-label-family: var(--font-sf-pro-text);
 
-  /* Scene Number: SF Pro Medium 15px */
-  --text-scene-size: 15px;
-  --text-scene-line-height: 16px;
-  --text-scene-letter-spacing: 4.8px;
+  /* Scene Number: SF Pro Medium 12px - WCAG accessible minimum */
+  --text-scene-size: 12px;
+  --text-scene-line-height: 14px;
+  --text-scene-letter-spacing: 3px;
   --text-scene-weight: var(--weight-medium);
   --text-scene-family: var(--font-sf-pro);
 
   /* ========================================
      SPACING SYSTEM
+     Systematic 4px-based scale
      ======================================== */
 
+  /* Micro spacing for fine UI details */
+  --space-px: 1px;
+  --space-0-5: 2px;
+  --space-0-75: 3px;
+
   --space-0: 0;
-  --space-1: 1px;
-  --space-2: 2px;
-  --space-3: 3px;
-  --space-7: 7px;
-  --space-10: 10px;
-  --space-12: 12px;
-  --space-13: 13px;
-  --space-15: 15px;
-  --space-21: 21px;
-  --space-24: 24px;
-  --space-25: 25px;
-  --space-30: 30px;
-  --space-32: 32px;
-  --space-33: 33px;
-  --space-38: 38px;
-  --space-48: 48px;
-  --space-55: 55px;
-  --space-65: 65px;
-  --space-86: 86px;
-  --space-89: 89px;
-  --space-240: 240px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px;
+  --space-11: 44px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --space-40: 160px;
+  --space-60: 240px;
+
+  /* Legacy spacing aliases (mapped to closest systematic value) */
+  --space-legacy-7: 8px;
+  --space-legacy-10: 12px;
+  --space-legacy-12: 12px;
+  --space-legacy-13: 12px;
+  --space-legacy-15: 16px;
+  --space-legacy-21: 20px;
+  --space-legacy-24: 24px;
+  --space-legacy-25: 24px;
+  --space-legacy-30: 32px;
+  --space-legacy-32: 32px;
+  --space-legacy-33: 32px;
+  --space-legacy-38: 40px;
+  --space-legacy-48: 48px;
+  --space-legacy-55: 56px;
+  --space-legacy-65: 64px;
+  --space-legacy-86: 80px;
+  --space-legacy-89: 80px;
+  --space-legacy-240: 240px;
 
   /* ========================================
      BORDER SYSTEM
      ======================================== */
 
+  /* Border Widths */
   --border-width-1: 1px;
   --border-width-2: 2px;
   --border-width-3: 3px;
+
+  /* ========================================
+     BORDER RADIUS SYSTEM
+     ======================================== */
+
+  /* Micro radius for fine UI details */
+  --radius-px: 1px;
+  --radius-xs: 2px;
+  --radius-2xs: 3px;
+
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* ========================================
+     Z-INDEX SCALE
+     ======================================== */
+
+  --z-base: 0;
+  --z-raised: 1;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-header: 30;
+  --z-overlay: 40;
+  --z-modal: 50;
+  --z-popover: 60;
+  --z-tooltip: 70;
 
   /* ========================================
      EFFECTS
@@ -193,26 +294,101 @@
   /* Backdrop Blur */
   --blur-sm: 4px;
   --blur-md: 6px;
+  --blur-lg: 12px;
+  --blur-xl: 24px;
 
   /* Shadows */
-  --shadow-text: 0px 35.32px 70.64px rgba(0, 0, 0, 0.15);
-  --shadow-text-lg: 0px 35.628px 71.256px rgba(0, 0, 0, 0.15);
+  --shadow-text: 0px 35px 71px rgba(0, 0, 0, 0.15);
+  --shadow-text-lg: 0px 36px 71px rgba(0, 0, 0, 0.15);
 
   /* Opacity */
   --opacity-bg-image: 0.33;
 
   /* ========================================
-     LAYOUT
+     FOCUS RING
+     ======================================== */
+
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: var(--teal);
+
+  /* ========================================
+     MOTION
+     ======================================== */
+
+  /* Duration */
+  --duration-fast: 100ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 500ms;
+
+  /* Easing - Optimized for dark UI */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Common Transitions */
+  --transition-fast: var(--duration-fast) var(--ease-out);
+  --transition-normal: var(--duration-normal) var(--ease-out);
+  --transition-slow: var(--duration-slow) var(--ease-out);
+
+  /* ========================================
+     LAYOUT - PRECISION
      ======================================== */
 
   --container-max-width: 1920px;
   --slide-height: 1080px;
-  --content-padding-x: 38px;
-  --content-padding-bottom: 65px;
-  --header-padding-top: 24px;
-  --header-padding-bottom: 25px;
-  --text-panel-padding-left: 89px;
-  --text-panel-padding-right: 86px;
-  --text-panel-padding-y: 48px;
-  --image-panel-width: 791.3px;
+  --content-padding-x: var(--space-4);        /* 16px - tightened */
+  --content-padding-bottom: var(--space-5);   /* 20px - tightened */
+  --header-padding-top: var(--space-2);       /* 8px */
+  --header-padding-bottom: var(--space-2);    /* 8px */
+  --text-panel-padding-left: var(--space-8);  /* 32px - tightened */
+  --text-panel-padding-right: var(--space-8); /* 32px - tightened */
+  --text-panel-padding-y: var(--space-5);     /* 20px - tightened */
+  --image-panel-width: 791px;
+
+  /* ========================================
+     PRECISION COMPONENT GAPS
+     ======================================== */
+
+  --gap-hero: var(--space-5);                 /* 20px - tightened */
+  --gap-section: var(--space-3);              /* 12px - tightened */
+  --gap-component: var(--space-2);            /* 8px - tightened */
+  --gap-element: var(--space-1);              /* 4px - tightened */
+  --gap-slide: var(--space-20);               /* 80px - tightened */
+
+  /* ========================================
+     PRECISION THEME
+     ======================================== */
+
+  /* Grid & measurement overlay colors */
+  --grid-line: rgba(121, 180, 160, 0.06);
+  --grid-line-major: rgba(121, 180, 160, 0.12);
+  --tick-mark: rgba(255, 255, 255, 0.2);
+  --tick-mark-major: rgba(255, 255, 255, 0.4);
+
+  /* Crosshair/alignment colors */
+  --crosshair: rgba(121, 180, 160, 0.4);
+  --alignment-guide: rgba(121, 180, 160, 0.15);
+
+  /* Technical annotation */
+  --annotation-bg: rgba(0, 0, 0, 0.6);
+  --annotation-border: rgba(121, 180, 160, 0.3);
 }
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   Note: CSS custom properties don't work in media queries,
+   so these values are documented here for reference.
+   Use the actual pixel values in @media rules.
+   ======================================== */
+
+/*
+  --breakpoint-xs: 480px;   Mobile small
+  --breakpoint-sm: 640px;   Mobile large
+  --breakpoint-md: 768px;   Tablet
+  --breakpoint-lg: 1024px;  Desktop small
+  --breakpoint-xl: 1280px;  Desktop
+  --breakpoint-2xl: 1536px; Desktop large
+  --breakpoint-3xl: 1920px; Full HD
+*/

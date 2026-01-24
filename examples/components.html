@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Components - Push Record Design System</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Design System Page Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--color-2);
+      color: var(--color-8);
+      font-family: var(--font-sf-pro-text);
+      line-height: 1.6;
+    }
+
+    /* Layout */
+    .ds-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .ds-section {
+      margin-bottom: 120px;
+    }
+
+    .ds-section-title {
+      font-family: var(--font-sf-pro);
+      font-size: 14px;
+      font-weight: var(--weight-medium);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--color-7);
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .ds-section-description {
+      font-size: 18px;
+      color: var(--color-6);
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+
+    /* Grid */
+    .ds-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .ds-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .ds-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .ds-grid--4 { grid-template-columns: repeat(4, 1fr); }
+    .ds-grid--5 { grid-template-columns: repeat(5, 1fr); }
+
+    @media (max-width: 1024px) {
+      .ds-grid--4, .ds-grid--5 { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .ds-grid--2, .ds-grid--3, .ds-grid--4, .ds-grid--5 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Header */
+    .ds-header {
+      padding: 60px 40px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 80px;
+    }
+
+    .ds-header__title {
+      font-family: var(--font-sf-pro);
+      font-size: 64px;
+      font-weight: var(--weight-bold);
+      color: var(--color-5);
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+
+    .ds-header__subtitle {
+      font-size: 24px;
+      font-weight: var(--weight-light);
+      color: var(--color-6);
+    }
+
+    /* Navigation */
+    .ds-nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 240px;
+      height: 100vh;
+      background: var(--bg-elevated);
+      border-right: 1px solid var(--border-subtle);
+      padding: 32px 24px;
+      overflow-y: auto;
+      z-index: 100;
+    }
+
+    .ds-nav__title {
+      font-size: 14px;
+      font-weight: var(--weight-medium);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-1);
+      margin-bottom: 32px;
+    }
+
+    .ds-nav__link {
+      display: block;
+      font-size: 14px;
+      color: var(--color-6);
+      text-decoration: none;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: color 0.2s;
+    }
+
+    .ds-nav__link:hover {
+      color: var(--color-7);
+    }
+
+    .ds-main {
+      margin-left: 240px;
+    }
+
+    @media (max-width: 1024px) {
+      .ds-nav { display: none; }
+      .ds-main { margin-left: 0; }
+    }
+
+    /* Color Swatch */
+    .ds-swatch {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .ds-swatch__color {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ds-swatch__info {
+      padding: 10px 12px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .ds-swatch__name {
+      font-size: 11px;
+      font-weight: var(--weight-medium);
+      color: var(--color-1);
+      margin-bottom: 2px;
+    }
+
+    .ds-swatch__value {
+      font-family: var(--font-sf-mono);
+      font-size: 9px;
+      color: var(--color-9);
+    }
+
+    .ds-swatch__token {
+      font-family: var(--font-sf-mono);
+      font-size: 9px;
+      color: var(--color-7);
+      margin-top: 4px;
+    }
+
+    /* Typography Specimen */
+    .ds-type-specimen {
+      padding: 20px 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .ds-type-specimen__sample {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .ds-type-specimen__meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .ds-type-specimen__label {
+      font-size: 9px;
+      font-weight: var(--weight-medium);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--color-9);
+      margin-bottom: 2px;
+    }
+
+    .ds-type-specimen__value {
+      font-family: var(--font-sf-mono);
+      font-size: 11px;
+      color: var(--color-6);
+    }
+
+    /* Spacing */
+    .ds-spacing-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .ds-spacing-bar {
+      height: 16px;
+      background: var(--color-7);
+      border-radius: 2px;
+      opacity: 0.6;
+    }
+
+    .ds-spacing-label {
+      font-family: var(--font-sf-mono);
+      font-size: 11px;
+      color: var(--color-6);
+      min-width: 80px;
+    }
+
+    .ds-spacing-value {
+      font-family: var(--font-sf-mono);
+      font-size: 11px;
+      color: var(--color-9);
+      min-width: 48px;
+    }
+
+    /* Border Demo */
+    .ds-border-demo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      background: var(--bg-surface);
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .ds-border-sample {
+      width: 80px;
+      height: 56px;
+      background: var(--bg-overlay);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--color-9);
+    }
+
+    .ds-border-info {
+      flex: 1;
+    }
+
+    .ds-border-name {
+      font-size: 12px;
+      font-weight: var(--weight-medium);
+      color: var(--color-1);
+      margin-bottom: 4px;
+    }
+
+    .ds-border-spec {
+      font-family: var(--font-sf-mono);
+      font-size: 10px;
+      color: var(--color-9);
+    }
+
+    /* Effect Demo */
+    .ds-effect-demo {
+      padding: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    /* Component Card */
+    .ds-component-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .ds-component-preview {
+      padding: 24px;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .ds-component-info {
+      padding: 12px 16px;
+    }
+
+    .ds-component-name {
+      font-size: 13px;
+      font-weight: var(--weight-medium);
+      color: var(--color-1);
+      margin-bottom: 4px;
+    }
+
+    .ds-component-class {
+      font-family: var(--font-sf-mono);
+      font-size: 10px;
+      color: var(--color-7);
+    }
+
+    /* Code Block */
+    .ds-code {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 24px;
+      font-family: var(--font-sf-mono);
+      font-size: 13px;
+      color: var(--color-6);
+      overflow-x: auto;
+      white-space: pre;
+      margin-top: 24px;
+    }
+
+    /* Divider */
+    .ds-divider {
+      height: 1px;
+      background: var(--border-subtle);
+      margin: 80px 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="ds-main" style="margin-left: 0;">
+    <header class="ds-header">
+      <a href="index.html" style="color: var(--color-7); font-size: 14px; text-decoration: none;">&larr; Back to Examples</a>
+      <h1 class="ds-header__title" style="margin-top: 16px;">Basic Components</h1>
+      <p class="ds-header__subtitle">Buttons, inputs, cards, badges, and core UI elements</p>
+    </header>
+    <div class="ds-container">
+      <section id="components" class="ds-section">
+        <h2 class="ds-section-title">Components</h2>
+        <p class="ds-section-description">Reusable UI components for interfaces.</p>
+
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Layout Components</h3>
+        <div class="ds-grid ds-grid--2" style="margin-bottom: 48px;">
+
+          <!-- Header -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="background: var(--color-2); padding: 0;">
+              <div style="width: 100%;">
+                <header class="header">
+                  <div class="header__container" style="position: relative; height: 20px;">
+                    <span class="header__date text-nav-muted">Jan 2026</span>
+                    <span class="header__title text-nav">Push Record</span>
+                    <span class="header__company text-nav-muted">Push record</span>
+                  </div>
+                </header>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Header</div>
+              <div class="ds-component-class">.header</div>
+            </div>
+          </div>
+
+          <!-- Scene Info -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="align-items: flex-start; padding: 32px;">
+              <div class="scene-info" style="transform: scale(0.6); transform-origin: top left;">
+                <div class="scene-info__header">
+                  <span class="text-scene">Scene 01</span>
+                  <h2 class="text-title">Web 1.0</h2>
+                </div>
+                <div class="scene-info__location">
+                  <p class="text-subtitle">The Read-Only Web</p>
+                  <span class="text-meta">1991-2004</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Scene Info</div>
+              <div class="ds-component-class">.scene-info</div>
+            </div>
+          </div>
+
+          <!-- Exposition -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="align-items: flex-start; padding: 32px;">
+              <div class="exposition" style="max-width: 400px;">
+                <div class="exposition__content text-body-lg">
+                  <p>Early websites functioned as static documents, focused on publishing information rather than creating an experience.</p>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Exposition Block</div>
+              <div class="ds-component-class">.exposition</div>
+            </div>
+          </div>
+
+          <!-- Voice Over -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="align-items: flex-start; padding: 32px;">
+              <div class="voice-over" style="max-width: 400px;">
+                <div class="voice-over__label">
+                  <span class="text-label">Voice over</span>
+                </div>
+                <div class="voice-over__content">
+                  <p class="text-quote">"The web was a digital brochure."</p>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Voice Over</div>
+              <div class="ds-component-class">.voice-over</div>
+            </div>
+          </div>
+
+          <!-- Question Header -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="question-header">
+                <span class="text-question-label">Question 01</span>
+                <div class="question-header__line"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Question Header</div>
+              <div class="ds-component-class">.question-header</div>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="padding: 32px;">
+              <div class="card" style="width: 280px;">
+                <div class="card__header">
+                  <span style="font-size: 14px; font-weight: 500; color: var(--color-1);">Card Title</span>
+                </div>
+                <div class="card__body">
+                  <p style="font-size: 13px; color: var(--color-6);">Card content goes here with supporting text.</p>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Card</div>
+              <div class="ds-component-class">.card</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- GAUGES & METERS -->
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Gauges & Meters</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Radial Gauge -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 24px;">
+              <div class="gauge gauge--lg" role="meter" aria-label="Progress" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                <div class="gauge__ring">
+                  <svg viewBox="0 0 160 160" aria-hidden="true">
+                    <circle class="gauge__track" cx="80" cy="80" r="70"></circle>
+                    <circle class="gauge__fill gauge__fill--accent" cx="80" cy="80" r="70"
+                            stroke-dasharray="439.8" stroke-dashoffset="132"></circle>
+                  </svg>
+                </div>
+                <div class="gauge__value">
+                  <span class="gauge__number">70%</span>
+                  <span class="gauge__label">Complete</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Radial Gauge</div>
+              <div class="ds-component-class">.gauge (role="meter" aria-valuenow aria-valuemin aria-valuemax)</div>
+            </div>
+          </div>
+
+          <!-- Multiple Gauges -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 16px;">
+              <div class="gauge gauge--sm">
+                <div class="gauge__ring">
+                  <svg viewBox="0 0 80 80">
+                    <circle class="gauge__track" cx="40" cy="40" r="32" stroke-width="6"></circle>
+                    <circle class="gauge__fill" cx="40" cy="40" r="32" stroke-width="6"
+                            stroke-dasharray="201" stroke-dashoffset="40"></circle>
+                  </svg>
+                </div>
+                <div class="gauge__value">
+                  <span class="gauge__number" style="font-size: 14px;">80</span>
+                </div>
+              </div>
+              <div class="gauge gauge--sm">
+                <div class="gauge__ring">
+                  <svg viewBox="0 0 80 80">
+                    <circle class="gauge__track" cx="40" cy="40" r="32" stroke-width="6"></circle>
+                    <circle class="gauge__fill gauge__fill--warning" cx="40" cy="40" r="32" stroke-width="6"
+                            stroke-dasharray="201" stroke-dashoffset="100"></circle>
+                  </svg>
+                </div>
+                <div class="gauge__value">
+                  <span class="gauge__number" style="font-size: 14px;">50</span>
+                </div>
+              </div>
+              <div class="gauge gauge--sm">
+                <div class="gauge__ring">
+                  <svg viewBox="0 0 80 80">
+                    <circle class="gauge__track" cx="40" cy="40" r="32" stroke-width="6"></circle>
+                    <circle class="gauge__fill gauge__fill--error" cx="40" cy="40" r="32" stroke-width="6"
+                            stroke-dasharray="201" stroke-dashoffset="160"></circle>
+                  </svg>
+                </div>
+                <div class="gauge__value">
+                  <span class="gauge__number" style="font-size: 14px;">20</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Gauge Variants</div>
+              <div class="ds-component-class">.gauge--sm + color modifiers</div>
+            </div>
+          </div>
+
+          <!-- Linear Meter -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 20px; width: 100%; padding: 32px;">
+              <div class="meter">
+                <div class="meter__header">
+                  <span class="meter__label">Storage</span>
+                  <span class="meter__value">64 / 128 GB</span>
+                </div>
+                <div class="meter__track">
+                  <div class="meter__fill" style="width: 50%;"></div>
+                </div>
+              </div>
+              <div class="meter">
+                <div class="meter__header">
+                  <span class="meter__label">Memory</span>
+                  <span class="meter__value">85%</span>
+                </div>
+                <div class="meter__track">
+                  <div class="meter__fill meter__fill--warning" style="width: 85%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Linear Meter</div>
+              <div class="ds-component-class">.meter</div>
+            </div>
+          </div>
+
+          <!-- Stat -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 40px;">
+              <div class="stat">
+                <span class="stat__value">2,847</span>
+                <span class="stat__label">Active Users</span>
+                <span class="stat__delta">+12.5%</span>
+              </div>
+              <div class="stat stat--center">
+                <span class="stat__value stat__value--sm">98.2</span>
+                <span class="stat__label">Uptime %</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Stat Display</div>
+              <div class="ds-component-class">.stat</div>
+            </div>
+          </div>
+
+          <!-- Progress Ring -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 24px;">
+              <div class="progress-ring progress-ring--sm">
+                <svg viewBox="0 0 24 24">
+                  <circle class="progress-ring__track" cx="12" cy="12" r="9"></circle>
+                  <circle class="progress-ring__fill" cx="12" cy="12" r="9"
+                          stroke-dasharray="56.5" stroke-dashoffset="14"></circle>
+                </svg>
+              </div>
+              <div class="progress-ring progress-ring--md">
+                <svg viewBox="0 0 40 40">
+                  <circle class="progress-ring__track" cx="20" cy="20" r="16"></circle>
+                  <circle class="progress-ring__fill" cx="20" cy="20" r="16"
+                          stroke-dasharray="100.5" stroke-dashoffset="25"></circle>
+                </svg>
+              </div>
+              <div class="progress-ring progress-ring--lg progress-ring--spinning">
+                <svg viewBox="0 0 56 56">
+                  <circle class="progress-ring__track" cx="28" cy="28" r="22"></circle>
+                  <circle class="progress-ring__fill" cx="28" cy="28" r="22"
+                          stroke-dasharray="138" stroke-dashoffset="100"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Progress Ring</div>
+              <div class="ds-component-class">.progress-ring</div>
+            </div>
+          </div>
+
+          <!-- Sparkline -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="padding: 32px; width: 100%;">
+              <div style="display: flex; align-items: center; gap: 24px; width: 100%;">
+                <div class="stat" style="flex-shrink: 0;">
+                  <span class="stat__value stat__value--sm">847</span>
+                  <span class="stat__label">Events</span>
+                </div>
+                <div class="sparkline" style="flex: 1; height: 40px;">
+                  <div class="sparkline__bar" style="height: 30%;"></div>
+                  <div class="sparkline__bar" style="height: 45%;"></div>
+                  <div class="sparkline__bar" style="height: 60%;"></div>
+                  <div class="sparkline__bar" style="height: 40%;"></div>
+                  <div class="sparkline__bar" style="height: 75%;"></div>
+                  <div class="sparkline__bar" style="height: 90%;"></div>
+                  <div class="sparkline__bar" style="height: 65%;"></div>
+                  <div class="sparkline__bar" style="height: 80%;"></div>
+                  <div class="sparkline__bar" style="height: 55%;"></div>
+                  <div class="sparkline__bar" style="height: 70%;"></div>
+                  <div class="sparkline__bar" style="height: 85%;"></div>
+                  <div class="sparkline__bar" style="height: 100%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Sparkline</div>
+              <div class="ds-component-class">.sparkline</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CONTROLS -->
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Controls</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Knob/Dial -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 32px;">
+              <div class="knob" role="slider" aria-label="Volume" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100">
+                <div class="knob__dial" style="transform: rotate(45deg);"></div>
+                <span class="knob__label">Volume</span>
+                <span class="knob__value">64</span>
+              </div>
+              <div class="knob" role="slider" aria-label="Pan" aria-valuenow="-20" aria-valuemin="-100" aria-valuemax="100">
+                <div class="knob__dial knob__dial--lg" style="transform: rotate(-30deg);"></div>
+                <span class="knob__label">Pan</span>
+                <span class="knob__value">-20</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Knob / Dial</div>
+              <div class="ds-component-class">.knob (role="slider" aria-valuenow aria-valuemin aria-valuemax)</div>
+            </div>
+          </div>
+
+          <!-- Slider -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 24px; width: 100%; padding: 32px;">
+              <div class="slider">
+                <div class="slider__header">
+                  <span class="slider__label">Opacity</span>
+                  <span class="slider__value">75%</span>
+                </div>
+                <input type="range" class="slider__input" value="75">
+              </div>
+              <div class="slider">
+                <div class="slider__header">
+                  <span class="slider__label">Blur</span>
+                  <span class="slider__value">12px</span>
+                </div>
+                <input type="range" class="slider__input" value="40">
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Slider</div>
+              <div class="ds-component-class">.slider</div>
+            </div>
+          </div>
+
+          <!-- Toggle -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 16px;">
+              <label class="toggle">
+                <input type="checkbox" class="toggle__input" checked>
+                <span class="toggle__track">
+                  <span class="toggle__thumb"></span>
+                </span>
+                <span class="toggle__label">Enabled</span>
+              </label>
+              <label class="toggle">
+                <input type="checkbox" class="toggle__input">
+                <span class="toggle__track">
+                  <span class="toggle__thumb"></span>
+                </span>
+                <span class="toggle__label">Disabled</span>
+              </label>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Toggle Switch</div>
+              <div class="ds-component-class">.toggle</div>
+            </div>
+          </div>
+
+          <!-- Segmented Control -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="segmented">
+                <button class="segmented__option segmented__option--active">Day</button>
+                <button class="segmented__option">Week</button>
+                <button class="segmented__option">Month</button>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Segmented Control</div>
+              <div class="ds-component-class">.segmented</div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 12px; flex-wrap: wrap;">
+              <button class="btn btn--primary">Primary</button>
+              <button class="btn btn--secondary">Secondary</button>
+              <button class="btn btn--ghost">Ghost</button>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Buttons</div>
+              <div class="ds-component-class">.btn .btn--primary/secondary/ghost</div>
+            </div>
+          </div>
+
+          <!-- Input -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 32px;">
+              <div class="input" style="width: 100%;">
+                <label class="input__label">Email Address</label>
+                <input type="email" class="input__field" placeholder="you@example.com">
+                <span class="input__hint">We'll never share your email.</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Input Field</div>
+              <div class="ds-component-class">.input</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- FEEDBACK & STATUS -->
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Feedback & Status</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Badges -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 12px; flex-wrap: wrap;">
+              <span class="badge badge--default">Default</span>
+              <span class="badge badge--accent">Active</span>
+              <span class="badge badge--warning">Warning</span>
+              <span class="badge badge--error">Error</span>
+              <span class="badge badge--solid">New</span>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Badges</div>
+              <div class="ds-component-class">.badge</div>
+            </div>
+          </div>
+
+          <!-- Indicators -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 12px; align-items: flex-start;">
+              <div class="indicator">
+                <span class="indicator__dot indicator__dot--success indicator__dot--pulse"></span>
+                <span class="indicator__label">Online</span>
+              </div>
+              <div class="indicator">
+                <span class="indicator__dot indicator__dot--warning"></span>
+                <span class="indicator__label">Away</span>
+              </div>
+              <div class="indicator">
+                <span class="indicator__dot indicator__dot--error"></span>
+                <span class="indicator__label">Offline</span>
+              </div>
+              <div class="indicator">
+                <span class="indicator__dot indicator__dot--muted"></span>
+                <span class="indicator__label">Unknown</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Status Indicator</div>
+              <div class="ds-component-class">.indicator</div>
+            </div>
+          </div>
+
+          <!-- Tooltip -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="tooltip">
+                <button class="btn btn--secondary">Hover me</button>
+                <div class="tooltip__content" style="opacity: 1; visibility: visible; position: relative; transform: none; margin-top: 12px;">
+                  Helpful information
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Tooltip</div>
+              <div class="ds-component-class">.tooltip</div>
+            </div>
+          </div>
+
+          <!-- Avatar -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 16px;">
+              <div class="avatar avatar--sm">A</div>
+              <div class="avatar avatar--md">B</div>
+              <div class="avatar avatar--lg avatar--ring">C</div>
+              <div class="avatar avatar--xl">D</div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Avatar</div>
+              <div class="ds-component-class">.avatar</div>
+            </div>
+          </div>
+
+          <!-- Skeleton -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 12px; width: 100%; padding: 32px; align-items: flex-start;">
+              <div class="skeleton skeleton--heading" style="width: 40%;"></div>
+              <div class="skeleton skeleton--text"></div>
+              <div class="skeleton skeleton--text" style="width: 80%;"></div>
+              <div style="display: flex; gap: 12px; margin-top: 8px;">
+                <div class="skeleton skeleton--circle" style="width: 32px; height: 32px;"></div>
+                <div style="flex: 1; display: flex; flex-direction: column; gap: 8px;">
+                  <div class="skeleton skeleton--text" style="width: 60%;"></div>
+                  <div class="skeleton skeleton--text" style="width: 40%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Skeleton Loader</div>
+              <div class="ds-component-class">.skeleton</div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; width: 100%; padding: 32px; gap: 16px;">
+              <span style="font-size: 12px; color: var(--color-6);">Content above</span>
+              <hr class="divider" style="margin: 0;">
+              <span style="font-size: 12px; color: var(--color-6);">Content below</span>
+              <hr class="divider divider--accent" style="margin: 0;">
+              <span style="font-size: 12px; color: var(--color-6);">Accent divider</span>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Divider</div>
+              <div class="ds-component-class">.divider</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- NAVIGATION -->
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Navigation</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Tabs -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; align-items: flex-start;">
+              <div class="tabs" style="width: 100%;">
+                <div class="tabs__list">
+                  <button class="tabs__tab tabs__tab--active">Overview</button>
+                  <button class="tabs__tab">Details</button>
+                  <button class="tabs__tab">Settings</button>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Tabs</div>
+              <div class="ds-component-class">.tabs</div>
+            </div>
+          </div>
+
+          <!-- Tabs Pills -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="tabs tabs--pills">
+                <div class="tabs__list">
+                  <button class="tabs__tab tabs__tab--active">Day</button>
+                  <button class="tabs__tab">Week</button>
+                  <button class="tabs__tab">Month</button>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Pill Tabs</div>
+              <div class="ds-component-class">.tabs--pills</div>
+            </div>
+          </div>
+
+          <!-- Breadcrumb -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <nav class="breadcrumb">
+                <a href="#" class="breadcrumb__item">Home</a>
+                <span class="breadcrumb__separator">/</span>
+                <a href="#" class="breadcrumb__item">Projects</a>
+                <span class="breadcrumb__separator">/</span>
+                <span class="breadcrumb__item breadcrumb__item--current">Edit</span>
+              </nav>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Breadcrumb</div>
+              <div class="ds-component-class">.breadcrumb</div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <nav class="pagination">
+                <button class="pagination__item">&larr;</button>
+                <button class="pagination__item">1</button>
+                <button class="pagination__item pagination__item--active">2</button>
+                <button class="pagination__item">3</button>
+                <span class="pagination__ellipsis">...</span>
+                <button class="pagination__item">12</button>
+                <button class="pagination__item">&rarr;</button>
+              </nav>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Pagination</div>
+              <div class="ds-component-class">.pagination</div>
+            </div>
+          </div>
+
+          <!-- Stepper -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%;">
+              <div class="stepper" style="width: 100%;">
+                <div class="stepper__step stepper__step--completed">
+                  <div class="stepper__indicator">1</div>
+                </div>
+                <div class="stepper__connector" style="background: var(--teal);"></div>
+                <div class="stepper__step stepper__step--active">
+                  <div class="stepper__indicator">2</div>
+                </div>
+                <div class="stepper__connector"></div>
+                <div class="stepper__step">
+                  <div class="stepper__indicator">3</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Stepper</div>
+              <div class="ds-component-class">.stepper</div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="align-items: stretch; padding: 0; height: 180px;">
+              <div class="sidebar sidebar--compact" style="width: 100%; border-right: none;">
+                <div class="sidebar__content" style="padding: 8px;">
+                  <a class="sidebar__item sidebar__item--active">Dashboard</a>
+                  <a class="sidebar__item">Projects</a>
+                  <a class="sidebar__item">Timeline</a>
+                  <a class="sidebar__item">Settings</a>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Sidebar Menu</div>
+              <div class="ds-component-class">.sidebar</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- MENUS & OVERLAYS -->
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Menus & Overlays</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Dropdown -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="align-items: flex-start; padding-top: 16px;">
+              <div class="dropdown dropdown--open" style="position: relative;">
+                <div class="dropdown__menu" style="position: relative; opacity: 1; visibility: visible; transform: none; margin: 0;">
+                  <div class="dropdown__item">Edit</div>
+                  <div class="dropdown__item">Duplicate</div>
+                  <div class="dropdown__divider"></div>
+                  <div class="dropdown__item dropdown__item--danger">Delete</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Dropdown Menu</div>
+              <div class="ds-component-class">.dropdown</div>
+            </div>
+          </div>
+
+          <!-- Modal Preview -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="padding: 16px;">
+              <div class="modal" style="position: relative; transform: none; max-width: 240px;">
+                <div class="modal__header" style="padding: 12px 16px;">
+                  <span class="modal__title" style="font-size: 13px;">Confirm</span>
+                </div>
+                <div class="modal__body" style="padding: 12px 16px; font-size: 11px; color: var(--color-6);">
+                  Are you sure?
+                </div>
+                <div class="modal__footer" style="padding: 8px 12px;">
+                  <button class="btn btn--ghost btn--sm">Cancel</button>
+                  <button class="btn btn--primary btn--sm">Confirm</button>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Modal</div>
+              <div class="ds-component-class">.modal</div>
+            </div>
+          </div>
+
+          <!-- Toast -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 8px; align-items: flex-start; padding: 16px;">
+              <div class="toast toast--success" style="padding: 8px 12px;">
+                <div class="toast__content">
+                  <div class="toast__title" style="font-size: 11px;">Saved</div>
+                </div>
+              </div>
+              <div class="toast toast--error" style="padding: 8px 12px;">
+                <div class="toast__content">
+                  <div class="toast__title" style="font-size: 11px;">Error</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Toast</div>
+              <div class="ds-component-class">.toast</div>
+            </div>
+          </div>
+
+          <!-- Command Palette -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="command" style="max-width: 100%;">
+                <div class="command__input-wrapper" style="padding: 8px 12px;">
+                  <input class="command__input" placeholder="Search..." style="font-size: 12px;">
+                </div>
+                <div class="command__list" style="padding: 4px; max-height: none;">
+                  <div class="command__item" style="padding: 6px 8px;">
+                    <span class="command__item-text" style="font-size: 11px;">New Project</span>
+                    <span class="command__item-shortcut" style="font-size: 9px;">⌘N</span>
+                  </div>
+                  <div class="command__item command__item--selected" style="padding: 6px 8px;">
+                    <span class="command__item-text" style="font-size: 11px;">Open File</span>
+                    <span class="command__item-shortcut" style="font-size: 9px;">⌘O</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Command Palette</div>
+              <div class="ds-component-class">.command</div>
+            </div>
+          </div>
+
+          <!-- Accordion -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="accordion" style="width: 100%;">
+                <div class="accordion__item accordion__item--open">
+                  <button class="accordion__trigger" style="padding: 8px 12px; font-size: 11px;">
+                    Section One
+                    <span style="color: var(--color-9);">▼</span>
+                  </button>
+                  <div class="accordion__content" style="padding: 0 12px 8px; font-size: 10px;">
+                    Content here
+                  </div>
+                </div>
+                <div class="accordion__item">
+                  <button class="accordion__trigger" style="padding: 8px 12px; font-size: 11px;">
+                    Section Two
+                    <span style="color: var(--color-9);">▶</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Accordion</div>
+              <div class="ds-component-class">.accordion</div>
+            </div>
+          </div>
+
+          <!-- Toolbar -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="toolbar">
+                <div class="toolbar__group">
+                  <button class="toolbar__btn toolbar__btn--active">B</button>
+                  <button class="toolbar__btn">I</button>
+                  <button class="toolbar__btn">U</button>
+                </div>
+                <div class="toolbar__divider"></div>
+                <div class="toolbar__group">
+                  <button class="toolbar__btn">L</button>
+                  <button class="toolbar__btn">C</button>
+                  <button class="toolbar__btn">R</button>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Toolbar</div>
+              <div class="ds-component-class">.toolbar</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- DATA DISPLAY -->
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Data Display</h3>
+        <div class="ds-grid ds-grid--2" style="margin-bottom: 48px;">
+
+          <!-- List -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="list list--bordered" style="width: 100%;">
+                <div class="list__item list__item--interactive">
+                  <div class="list__content">
+                    <div class="list__title">Project Alpha</div>
+                    <div class="list__description">Updated 2 hours ago</div>
+                  </div>
+                </div>
+                <div class="list__item list__item--interactive list__item--active">
+                  <div class="list__content">
+                    <div class="list__title">Project Beta</div>
+                    <div class="list__description">Updated yesterday</div>
+                  </div>
+                </div>
+                <div class="list__item list__item--interactive">
+                  <div class="list__content">
+                    <div class="list__title">Project Gamma</div>
+                    <div class="list__description">Updated 3 days ago</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">List</div>
+              <div class="ds-component-class">.list</div>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="table-container" style="width: 100%;">
+                <table class="table table--compact">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Status</th>
+                      <th>Size</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>video_01.mp4</td>
+                      <td><span class="badge badge--accent badge--tight">Done</span></td>
+                      <td class="table__mono">2.4 GB</td>
+                    </tr>
+                    <tr>
+                      <td>video_02.mp4</td>
+                      <td><span class="badge badge--warning badge--tight">Pending</span></td>
+                      <td class="table__mono">1.8 GB</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Table</div>
+              <div class="ds-component-class">.table</div>
+            </div>
+          </div>
+
+          <!-- Timeline -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="align-items: flex-start; padding: 24px;">
+              <div class="timeline">
+                <div class="timeline__item timeline__item--active">
+                  <div class="timeline__marker"></div>
+                  <div class="timeline__time">10:30 AM</div>
+                  <div class="timeline__title">Export started</div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__marker"></div>
+                  <div class="timeline__time">10:15 AM</div>
+                  <div class="timeline__title">Review completed</div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__marker"></div>
+                  <div class="timeline__time">09:45 AM</div>
+                  <div class="timeline__title">Project created</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Timeline</div>
+              <div class="ds-component-class">.timeline</div>
+            </div>
+          </div>
+
+          <!-- Drawer Preview -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="padding: 0; align-items: stretch;">
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--color-9);">
+                Main Content
+              </div>
+              <div style="width: 140px; background: var(--bg-elevated); border-left: 1px solid var(--border-subtle);">
+                <div class="drawer__header" style="padding: 8px 12px;">
+                  <span class="drawer__title" style="font-size: 11px;">Drawer</span>
+                </div>
+                <div class="drawer__body" style="padding: 8px 12px; font-size: 10px; color: var(--color-6);">
+                  Panel content
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Drawer</div>
+              <div class="ds-component-class">.drawer</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- FORM ELEMENTS -->
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Form Elements</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Checkbox -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 12px; align-items: flex-start;">
+              <label class="checkbox">
+                <input type="checkbox" class="checkbox__input" checked>
+                <span class="checkbox__box">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="checkbox__label">Checked</span>
+              </label>
+              <label class="checkbox">
+                <input type="checkbox" class="checkbox__input">
+                <span class="checkbox__box">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="checkbox__label">Unchecked</span>
+              </label>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Checkbox</div>
+              <div class="ds-component-class">.checkbox</div>
+            </div>
+          </div>
+
+          <!-- Radio -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="flex-direction: column; gap: 12px; align-items: flex-start;">
+              <label class="radio">
+                <input type="radio" name="demo-radio" class="radio__input" checked>
+                <span class="radio__circle"></span>
+                <span class="radio__label">Option A</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="demo-radio" class="radio__input">
+                <span class="radio__circle"></span>
+                <span class="radio__label">Option B</span>
+              </label>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Radio</div>
+              <div class="ds-component-class">.radio</div>
+            </div>
+          </div>
+
+          <!-- Select -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="select" style="width: 100%;">
+                <label class="select__label">Format</label>
+                <select class="select__field">
+                  <option>H.264 / MP4</option>
+                  <option>ProRes 422</option>
+                  <option>DNxHD</option>
+                </select>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Select</div>
+              <div class="ds-component-class">.select</div>
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="textarea" style="width: 100%;">
+                <label class="textarea__label">Notes</label>
+                <textarea class="textarea__field" placeholder="Add notes..." style="min-height: 60px;"></textarea>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Textarea</div>
+              <div class="ds-component-class">.textarea</div>
+            </div>
+          </div>
+
+          <!-- Search -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="search" style="width: 100%;">
+                <svg class="search__icon" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 10L13 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <input type="text" class="search__input" placeholder="Search...">
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Search</div>
+              <div class="ds-component-class">.search</div>
+            </div>
+          </div>
+
+          <!-- Tags -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 8px; flex-wrap: wrap;">
+              <span class="tag">4K</span>
+              <span class="tag tag--accent">HDR</span>
+              <span class="tag">
+                ProRes
+                <button class="tag__remove">×</button>
+              </span>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Tags</div>
+              <div class="ds-component-class">.tag</div>
+            </div>
+          </div>
+
+          <!-- Upload -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="upload upload--compact" style="width: 100%;">
+                <svg class="upload__icon" viewBox="0 0 24 24" fill="none" style="width: 20px; height: 20px;"><path d="M12 4v12M12 4l-4 4M12 4l4 4M4 17v2a1 1 0 001 1h14a1 1 0 001-1v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <span class="upload__text" style="font-size: 12px;">Drop files or click to upload</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Upload</div>
+              <div class="ds-component-class">.upload</div>
+            </div>
+          </div>
+
+          <!-- Color Input -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 16px;">
+              <div class="color-input">
+                <div class="color-input__swatch" style="background: #79b4a0;">
+                  <input type="color" value="#79b4a0">
+                </div>
+                <span class="color-input__value">#79b4a0</span>
+              </div>
+              <div class="color-input">
+                <div class="color-input__swatch" style="background: #ff4649;">
+                  <input type="color" value="#ff4649">
+                </div>
+                <span class="color-input__value">#ff4649</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Color Input</div>
+              <div class="ds-component-class">.color-input</div>
+            </div>
+          </div>
+
+          <!-- Keyboard Shortcut -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 16px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 11px; color: var(--color-6);">Save</span>
+                <span class="kbd">⌘</span><span class="kbd">S</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 11px; color: var(--color-6);">Export</span>
+                <span class="kbd">⌘</span><span class="kbd">⇧</span><span class="kbd">E</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Keyboard Shortcut</div>
+              <div class="ds-component-class">.kbd</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- MEDIA COMPONENTS -->
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Media</h3>
+        <div class="ds-grid ds-grid--2" style="margin-bottom: 48px;">
+
+          <!-- Player Controls -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="player" style="width: 100%;">
+                <div class="player__scrubber">
+                  <div class="player__progress" style="width: 35%;"></div>
+                  <div class="player__handle" style="left: 35%; opacity: 1;"></div>
+                </div>
+                <div class="player__controls">
+                  <button class="player__btn">⏮</button>
+                  <button class="player__btn player__btn--primary">▶</button>
+                  <button class="player__btn">⏭</button>
+                  <span class="player__time">01:24:36 / 04:12:00</span>
+                  <div class="player__volume">
+                    <button class="player__btn" style="width: 24px; height: 24px;">🔊</button>
+                    <input type="range" class="player__volume-slider" value="75">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Player Controls</div>
+              <div class="ds-component-class">.player</div>
+            </div>
+          </div>
+
+          <!-- Timecode -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 24px;">
+              <div class="timecode timecode--lg">
+                <span class="timecode__segment">01</span>
+                <span class="timecode__separator">:</span>
+                <span class="timecode__segment">24</span>
+                <span class="timecode__separator">:</span>
+                <span class="timecode__segment">36</span>
+                <span class="timecode__separator">:</span>
+                <span class="timecode__frames">12</span>
+              </div>
+              <div class="timecode timecode--sm">
+                <span class="timecode__segment">00</span>
+                <span class="timecode__separator">:</span>
+                <span class="timecode__segment">05</span>
+                <span class="timecode__separator">:</span>
+                <span class="timecode__segment">30</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Timecode</div>
+              <div class="ds-component-class">.timecode</div>
+            </div>
+          </div>
+
+          <!-- Waveform -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="waveform" style="width: 100%;">
+                <div class="waveform__bar waveform__bar--active" style="height: 30%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 50%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 70%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 45%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 80%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 60%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 90%;"></div>
+                <div class="waveform__bar waveform__bar--active" style="height: 55%;"></div>
+                <div class="waveform__bar" style="height: 40%;"></div>
+                <div class="waveform__bar" style="height: 65%;"></div>
+                <div class="waveform__bar" style="height: 35%;"></div>
+                <div class="waveform__bar" style="height: 75%;"></div>
+                <div class="waveform__bar" style="height: 50%;"></div>
+                <div class="waveform__bar" style="height: 85%;"></div>
+                <div class="waveform__bar" style="height: 45%;"></div>
+                <div class="waveform__bar" style="height: 60%;"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Waveform</div>
+              <div class="ds-component-class">.waveform</div>
+            </div>
+          </div>
+
+          <!-- Timeline Ruler -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0; height: 60px; align-items: flex-start;">
+              <div class="ruler" style="width: 100%; height: 28px;">
+                <div class="ruler__track">
+                  <div class="ruler__segment ruler__segment--major" style="width: 80px;">
+                    <span class="ruler__label">00:00</span>
+                  </div>
+                  <div class="ruler__segment" style="width: 40px;"></div>
+                  <div class="ruler__segment" style="width: 40px;"></div>
+                  <div class="ruler__segment ruler__segment--major" style="width: 80px;">
+                    <span class="ruler__label">00:10</span>
+                  </div>
+                  <div class="ruler__segment" style="width: 40px;"></div>
+                  <div class="ruler__segment" style="width: 40px;"></div>
+                  <div class="ruler__segment ruler__segment--major" style="width: 80px;">
+                    <span class="ruler__label">00:20</span>
+                  </div>
+                </div>
+                <div class="ruler__playhead" style="left: 120px;"></div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Timeline Ruler</div>
+              <div class="ds-component-class">.ruler</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- UTILITY COMPONENTS -->
+        <h3 style="color: var(--color-6); font-size: 14px; margin-bottom: 24px; font-weight: 500;">Utilities</h3>
+        <div class="ds-grid ds-grid--3" style="margin-bottom: 48px;">
+
+          <!-- Spinner -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 24px;">
+              <div class="spinner spinner--sm"></div>
+              <div class="spinner"></div>
+              <div class="spinner spinner--lg"></div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Spinner</div>
+              <div class="ds-component-class">.spinner</div>
+            </div>
+          </div>
+
+          <!-- Empty State -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%;">
+              <div class="empty" style="padding: 24px;">
+                <div class="empty__icon" style="width: 32px; height: 32px; color: var(--color-9);">📁</div>
+                <div class="empty__title" style="font-size: 12px;">No projects yet</div>
+                <div class="empty__description" style="font-size: 11px;">Create your first project to get started.</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Empty State</div>
+              <div class="ds-component-class">.empty</div>
+            </div>
+          </div>
+
+          <!-- Aspect Ratio -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 12px;">
+              <div class="aspect aspect--16-9" style="width: 80px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px;">
+                <div class="aspect__content" style="display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--color-9);">16:9</div>
+              </div>
+              <div class="aspect aspect--4-3" style="width: 60px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px;">
+                <div class="aspect__content" style="display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--color-9);">4:3</div>
+              </div>
+              <div class="aspect aspect--1-1" style="width: 48px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px;">
+                <div class="aspect__content" style="display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--color-9);">1:1</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Aspect Ratio</div>
+              <div class="ds-component-class">.aspect</div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- V06: DATA VISUALIZATION -->
+      <section class="ds-section" id="alerts">
+        <div class="ds-section-title">Alerts & Notifications</div>
+        <p class="ds-section-description">Feedback and messaging components.</p>
+
+        <div class="ds-grid ds-grid--2">
+
+          <!-- Alert -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; flex-direction: column; gap: 12px; padding: 16px;">
+              <div class="alert alert--info" style="width: 100%;">
+                <span class="alert__icon">ℹ</span>
+                <div class="alert__content">
+                  <div class="alert__title">Export in progress</div>
+                  <div class="alert__message">Your video is being rendered in 4K.</div>
+                </div>
+              </div>
+              <div class="alert alert--success" style="width: 100%;">
+                <span class="alert__icon">✓</span>
+                <div class="alert__content">
+                  <div class="alert__title">Project saved</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Alert</div>
+              <div class="ds-component-class">.alert</div>
+            </div>
+          </div>
+
+          <!-- Notification -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 16px;">
+              <div class="notification notification--unread" style="width: 100%;">
+                <span class="notification__dot"></span>
+                <div class="notification__content">
+                  <div class="notification__title">Render complete</div>
+                  <div class="notification__body">Final_Cut_v3.mp4 is ready for review</div>
+                  <div class="notification__time">2 min ago</div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Notification</div>
+              <div class="ds-component-class">.notification</div>
+            </div>
+          </div>
+
+          <!-- Banner -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 0;">
+              <div class="banner" style="width: 100%; position: relative;">
+                <span class="banner__text">New feature: AI-powered color grading is now available.</span>
+                <button class="banner__action">Try it</button>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Banner</div>
+              <div class="ds-component-class">.banner</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- V06: ADVANCED UI -->
+      <section class="ds-section" id="advanced-ui">
+        <div class="ds-section-title">Advanced UI</div>
+        <p class="ds-section-description">Complex interactive components.</p>
+
+        <div class="ds-grid ds-grid--3">
+
+          <!-- Tree View -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 8px;">
+              <div class="tree" style="width: 100%;">
+                <div class="tree__item">
+                  <span class="tree__toggle tree__toggle--expanded">▶</span>
+                  <span class="tree__icon tree__icon--folder">📁</span>
+                  <span class="tree__label">Project Files</span>
+                </div>
+                <div class="tree__children">
+                  <div class="tree__item tree__item--selected">
+                    <span class="tree__toggle tree__toggle--hidden">▶</span>
+                    <span class="tree__icon tree__icon--video">📹</span>
+                    <span class="tree__label">Main_Sequence.prproj</span>
+                  </div>
+                  <div class="tree__item">
+                    <span class="tree__toggle tree__toggle--hidden">▶</span>
+                    <span class="tree__icon tree__icon--audio">🎵</span>
+                    <span class="tree__label">Audio_Mix.wav</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Tree View</div>
+              <div class="ds-component-class">.tree</div>
+            </div>
+          </div>
+
+          <!-- Context Menu -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="context-menu" style="position: relative;">
+                <button class="context-menu__item">
+                  <span class="context-menu__icon">📋</span>
+                  <span class="context-menu__label">Copy</span>
+                  <span class="context-menu__shortcut">⌘C</span>
+                </button>
+                <button class="context-menu__item">
+                  <span class="context-menu__icon">📎</span>
+                  <span class="context-menu__label">Paste</span>
+                  <span class="context-menu__shortcut">⌘V</span>
+                </button>
+                <div class="context-menu__divider"></div>
+                <button class="context-menu__item context-menu__item--danger">
+                  <span class="context-menu__icon">🗑</span>
+                  <span class="context-menu__label">Delete</span>
+                </button>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Context Menu</div>
+              <div class="ds-component-class">.context-menu</div>
+            </div>
+          </div>
+
+          <!-- Filter Chips -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 8px; flex-wrap: wrap;">
+              <button class="filter-chip filter-chip--active">All <span class="filter-chip__count">48</span></button>
+              <button class="filter-chip">Video <span class="filter-chip__count">24</span></button>
+              <button class="filter-chip">Audio <span class="filter-chip__count">12</span></button>
+              <button class="filter-chip">Graphics</button>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Filter Chips</div>
+              <div class="ds-component-class">.filter-chip</div>
+            </div>
+          </div>
+
+          <!-- Range Slider -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="width: 100%; padding: 24px;">
+              <div class="range" style="width: 100%;">
+                <div class="range__track">
+                  <div class="range__fill" style="left: 20%; width: 50%;"></div>
+                  <div class="range__handle" style="left: 20%;"></div>
+                  <div class="range__handle" style="left: 70%;"></div>
+                </div>
+                <div class="range__values">
+                  <span>00:05</span>
+                  <span>00:35</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Range Slider</div>
+              <div class="ds-component-class">.range</div>
+            </div>
+          </div>
+
+          <!-- Rating -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 16px;">
+              <div class="rating">
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star">★</span>
+              </div>
+              <div class="rating rating--sm">
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star rating__star--filled">★</span>
+                <span class="rating__star">★</span>
+                <span class="rating__star">★</span>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Rating</div>
+              <div class="ds-component-class">.rating</div>
+            </div>
+          </div>
+
+          <!-- Calendar -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview">
+              <div class="calendar" style="transform: scale(0.85); transform-origin: center;">
+                <div class="calendar__header">
+                  <span class="calendar__title">January 2026</span>
+                  <div class="calendar__nav">
+                    <button class="calendar__nav-btn">‹</button>
+                    <button class="calendar__nav-btn">›</button>
+                  </div>
+                </div>
+                <div class="calendar__weekdays">
+                  <span class="calendar__weekday">S</span>
+                  <span class="calendar__weekday">M</span>
+                  <span class="calendar__weekday">T</span>
+                  <span class="calendar__weekday">W</span>
+                  <span class="calendar__weekday">T</span>
+                  <span class="calendar__weekday">F</span>
+                  <span class="calendar__weekday">S</span>
+                </div>
+                <div class="calendar__days">
+                  <button class="calendar__day calendar__day--outside">28</button>
+                  <button class="calendar__day calendar__day--outside">29</button>
+                  <button class="calendar__day calendar__day--outside">30</button>
+                  <button class="calendar__day calendar__day--outside">31</button>
+                  <button class="calendar__day">1</button>
+                  <button class="calendar__day">2</button>
+                  <button class="calendar__day">3</button>
+                  <button class="calendar__day">4</button>
+                  <button class="calendar__day">5</button>
+                  <button class="calendar__day">6</button>
+                  <button class="calendar__day">7</button>
+                  <button class="calendar__day">8</button>
+                  <button class="calendar__day">9</button>
+                  <button class="calendar__day">10</button>
+                  <button class="calendar__day">11</button>
+                  <button class="calendar__day">12</button>
+                  <button class="calendar__day">13</button>
+                  <button class="calendar__day">14</button>
+                  <button class="calendar__day">15</button>
+                  <button class="calendar__day">16</button>
+                  <button class="calendar__day">17</button>
+                  <button class="calendar__day">18</button>
+                  <button class="calendar__day">19</button>
+                  <button class="calendar__day">20</button>
+                  <button class="calendar__day">21</button>
+                  <button class="calendar__day calendar__day--today">22</button>
+                  <button class="calendar__day calendar__day--selected">23</button>
+                  <button class="calendar__day">24</button>
+                </div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Calendar</div>
+              <div class="ds-component-class">.calendar</div>
+            </div>
+          </div>
+
+          <!-- Avatar Group -->
+          <div class="ds-component-card">
+            <div class="ds-component-preview" style="gap: 24px;">
+              <div class="avatar-group">
+                <div class="avatar" style="width: 32px; height: 32px; background: #9b87f5; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: white;">JD</div>
+                <div class="avatar" style="width: 32px; height: 32px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: white;">MK</div>
+                <div class="avatar" style="width: 32px; height: 32px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: black;">SR</div>
+                <div class="avatar-group__overflow">+3</div>
+              </div>
+            </div>
+            <div class="ds-component-info">
+              <div class="ds-component-name">Avatar Group</div>
+              <div class="ds-component-class">.avatar-group</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- V07: AUDIO & COLOR TOOLS -->
+    </div>
+  </main>
+</body>
+</html>

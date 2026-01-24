@@ -9,6 +9,11 @@ interface SlideProps {
 /**
  * Slide Component
  * Full-height section container with optional background image
+ *
+ * Required CSS: Import 'css/main.css' or use the class names below:
+ * - .slide
+ * - .slide__bg
+ * - .main-content
  */
 export const Slide: React.FC<SlideProps> = ({
   children,
@@ -26,7 +31,7 @@ export const Slide: React.FC<SlideProps> = ({
           />
         </div>
       )}
-      <div className="slide__main">{children}</div>
+      <div className="main-content">{children}</div>
     </section>
   );
 };
@@ -38,6 +43,8 @@ interface SlideContentProps {
 /**
  * SlideContent Component
  * Two-panel layout for text and images
+ *
+ * Required CSS: .slide-content
  */
 export const SlideContent: React.FC<SlideContentProps> = ({ children }) => {
   return <div className="slide-content">{children}</div>;
@@ -45,16 +52,19 @@ export const SlideContent: React.FC<SlideContentProps> = ({ children }) => {
 
 interface TextPanelProps {
   children: React.ReactNode;
-  gap?: number;
+  gap?: 'sm' | 'md' | 'lg';
 }
 
 /**
  * TextPanel Component
  * Left panel for text content
+ *
+ * Required CSS: .text-panel, .text-panel--gap-sm, .text-panel--gap-md, .text-panel--gap-lg
  */
-export const TextPanel: React.FC<TextPanelProps> = ({ children, gap = 32 }) => {
+export const TextPanel: React.FC<TextPanelProps> = ({ children, gap = 'md' }) => {
+  const gapClass = `text-panel--gap-${gap}`;
   return (
-    <div className="text-panel" style={{ gap: `${gap}px` }}>
+    <div className={`text-panel ${gapClass}`}>
       {children}
     </div>
   );
@@ -67,75 +77,17 @@ interface ImagePanelProps {
 /**
  * ImagePanel Component
  * Right panel for images
+ *
+ * Required CSS: .image-panel
  */
 export const ImagePanel: React.FC<ImagePanelProps> = ({ children }) => {
   return <div className="image-panel">{children}</div>;
 };
 
-export const slideStyles = `
-  .slide {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    background-color: #000000;
-    overflow: hidden;
-  }
-
-  .slide__bg {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .slide__bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .slide__main {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0 38px 65px;
-    min-height: 100vh;
-    position: relative;
-    z-index: 1;
-  }
-
-  .slide-content {
-    display: flex;
-    flex: 1;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    min-height: 0;
-  }
-
-  .text-panel {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 48px 89px;
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-    overflow: auto;
-  }
-
-  .image-panel {
-    width: 40%;
-    max-width: 800px;
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    overflow: hidden;
-  }
-
-  .image-panel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
+/**
+ * @deprecated Styles are now in css/components.css
+ * Import 'css/main.css' instead of using this export
+ */
+export const slideStyles = `/* Styles moved to css/components.css - import css/main.css */`;
 
 export default Slide;
